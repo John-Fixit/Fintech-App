@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up</title>
+    <link rel="stylesheet" href="bootstrap-5/css/bootstrap.css">
+    <link rel="stylesheet" href="bootstrap-5/js/bootstrap.bundle.js">
+    <link rel="stylesheet" href="font-awesome-4/css/font-awesome.css">
+    <link rel="stylesheet" href="font-awesome-4/fonts/fontawesome-webfont.eot">
+</head>
+
+
+<style>
+    .newAccount{
+        box-shadow: 0px 0px 6px 2px;
+    }
+    .form-control:hover{
+        background: #fff !important;
+        opacity: 95%;
+    }
+    .signUp{
+        background-color: from(rgb);
+    }
+</style>
+
+<script>
+    var generalArr = [];
+    var namesArr = [];
+    var emailsArr = [];
+    var passwordArr = [];
+    var contactArr = [];
+    function signUp(){
+        var userName = pName.value;
+        var eMail = email.value;
+        var passWord = password.value;
+        var eMail = email.value;
+
+        if(localStorage.details!=null){
+            generalArr=JSON.parse(localStorage.getItem("details"))
+        }
+        generalArr
+            // I think we can use that generalArr for all or we should store it separately
+    }
+</script>
+<body>
+    <div class="container-fluid float-center">
+
+        <div class="card-body col-md-4 newAccount bg-inf rounded">
+
+            <p class="text-center fs-1">Create an Account</p>
+
+            <div class="input">
+                <strong class="text-ligh">USER NAME</strong>
+                <div class="form-floating">
+                    <input type="text" name="name" id="pName" class="form-control rounded-pill" placeholder="Enter your First Name">
+                    <label for="name">Enter your Full Name</label>
+                </div>
+            </div>
+            
+            <div class="input mt-3">
+                <strong class="text-ligh">EMAIL</strong>
+                <div class="form-floating">
+                    <input type="email" name="name" id="email" class="form-control rounded-pill" placeholder="Enter your email address">
+                    <label for="name">Enter your email address</label>
+                </div>
+            </div>
+
+            <div class="input mt-3">
+                <strong class="text-ligh">PASSWORD</strong>
+                <input type="password" name="name" id="password" class="form-control rounded-pill" placeholder="Enter your password">
+            </div>
+
+            <div class="input mt-3">
+                <strong class="text-ligh">COMFIRM PASSWORD</strong>
+                </i><input type="password" name="name" id="cPassword" class="form-control rounded-pill" placeholder="Enter your password again">
+            </div>
+
+            <div class="input mt-3">
+                <strong class="text-ligh"> Contact</strong>
+                <input type="number" name="number" id="number" class="form-control rounded-pill">
+            </div>
+
+            <input type="checkbox"> <span class="text-info">I agree to the terms and condition</span>
+            <p class="text">Already have an account <a href="" class="text-info">Login</a></p>
+            <input type="button" name="sign up" value="Sign Up" onclick="signUp()" class="form-control mt-3 bg-info rounded-pill">
+        </div>
+
+    </div>
+</body>
+</html>
