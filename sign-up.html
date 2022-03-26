@@ -73,7 +73,7 @@
             </div>
             </div>
         </div>
-        <div id="speak" class="text-center text-light">nkfjdfj</div>
+        <div id="speak" class="text-center"></div>
     </div>
     <!-- <script src="./assets/vendor/jquery/dist/jquery.min.js"></script>
     <script src="./assets/vendor/popper.js/dist/umd/popper.min.js"></script>
@@ -112,9 +112,8 @@
                 for(d=0;d<=usersAccount.length;d++){
                         console.log(usersAccount[d]);
                     }
-
-                    document.getElementById("speak").innerHTML =`Dear ${usersAccount[145].fName} thanks for open account with us your account number is : ${usersAccount[145].accountNo} `
-                
+                    document.getElementById("speak").innerHTML =`Dear ${usersAccount[(usersAccount.length-1)].fName} thanks for open account with us your account number is : ${usersAccount[(usersAccount.length-1)].accountNo} `
+                //I want a way that instead that I will declare an index into line 116 array, I will just have a way that it will represent all the items in the array and be calling it out with each value
             }
         </script>
 

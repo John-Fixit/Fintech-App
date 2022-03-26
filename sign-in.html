@@ -92,18 +92,19 @@
                 var passWord = password.value;
                 console.log(usersAccount);
                 for(i=0;i<=usersAccount.length;i++){
-                    if((Email!=usersAccount[i].eMail) || (passWord!=usersAccount[i].passWord)){
+                    if((Email!=usersAccount[i].eMail) && (passWord!=usersAccount[i].passWord)){
                         console.log(usersAccount[i].eMail);
-                    console.log("Wrong");
+                        console.log("Wrong");
+                    console.log("Incorrect Password or Email");
                     }
-                    else{
+                    else if((Email==usersAccount[i].eMail) && (passWord==usersAccount[i].passWord)){
                         console.log("right");
+                        location.href="sign-up.html"
                     }
 
                     console.log(usersAccount[i].accountNo);
                 }
                 
-
             }
         </script>
 
