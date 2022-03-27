@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>RootUI | Sign In</title>
+    <title>Sign In</title>
     <meta name="description" content="RootUI - clean and powerful solution for your Dashboards, Administration areas.">
     <meta name="keywords" content="admin, dashboard, template, react, reactjs, html, jquery, clean">
     <meta name="author" content="nK">
@@ -54,6 +54,8 @@
                     <div class="col-sm-6">
                         <div class="d-flex justify-content-end"><a href="#" class="fs-13">Forget password?</a></div>
                     </div>
+                    <div id="pass"></div>
+
                     <div class="col-12"><a href="#" class="btn btn-brand btn-block text-center" onclick="signIn()">Sign in</a>
                     </div>
                     <div class="col-12">
@@ -92,15 +94,18 @@
                 var passWord = password.value;
                 console.log(usersAccount);
                 for(i=0;i<=usersAccount.length;i++){
-                    if((Email!=usersAccount[i].eMail) && (passWord!=usersAccount[i].passWord)){
+                    if((Email==usersAccount[i].eMail) && (passWord==usersAccount[i].passWord)){
+                        console.log("right");
+                        location.href="dashboard.html"
+                    }
+                    else if((Email!=usersAccount[i].eMail) && (passWord!=usersAccount[i].passWord)){
                         console.log(usersAccount[i].eMail);
                         console.log("Wrong");
-                    console.log("Incorrect Password or Email");
+                    console.log(`Incorrect Password or Email`);
+                    pass.innerHTML = `Incorrect Password or Email`
+                    pass.style.color = "red"
                     }
-                    else if((Email==usersAccount[i].eMail) && (passWord==usersAccount[i].passWord)){
-                        console.log("right");
-                        location.href="sign-up.html"
-                    }
+                   
 
                     console.log(usersAccount[i].accountNo);
                 }
