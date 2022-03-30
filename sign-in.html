@@ -45,7 +45,7 @@
                     </div>
                     <div id="pass"></div>
 
-                    <div class="col-12"><a href="#" class="btn btn-brand btn-block text-center" onclick="signIn()">Sign
+                    <div class="col-12"><a href="#" class="btn btn-brand btn-block text-center" id="signin" onclick="signIn()">Sign
                             in</a>
                     </div>
                     <div class="col-12">
@@ -79,10 +79,15 @@
 
 
             var kay = usersAccount.find((h) => h.eMail == Email && h.passWord == passWord);
+            var sup = usersAccount.find((k) => k.eMail != Email && k.passWord != passWord);
 
             if (kay) {
                 console.log("seen");
                 location.href = "index.html"
+            }
+            else if(sup){
+                pass.innerHTML="not registered"
+                location.href="sign-up.html"
             }
             else {
                 localStorage.incorrect++
@@ -103,6 +108,7 @@
                             else if (countDown.innerHTML <=0) {
                                 countDown.innerHTML = ""
                                 email.disabled = false;
+                                password.disabled = false;
                                 password.disabled = false;
                                 pass.innerHTML = ""
                                 location.reload();

@@ -15,16 +15,26 @@
     <link rel="stylesheet" href="./assets/css/rootui-night.css" media="(night)" class="rui-nightmode-link">
     <link rel="stylesheet" href="./assets/css/custom.css">
 </head>
+    <style>
+        .bg-info{
+            background-image: url(Credit\ Card\ Payment-amico.png);
+            background-position: center;
+            background-size: cover;
+        }
+
+        .form{
+            /* border-radius: 2vh !important; */
+        }
+
+
+    </style>
 
 <body>
     
     <div class="rui-main bg-info">
         <div class="rui-sign align-items-center justify-content-center">
-            <div class="bg-image">
-                <div class="bg-grey-1"></div>
-            </div>
-            <div class="form rui-sign-form rui-sign-form-cloud">
-                <div class="row vertical-gap sm-gap justify-content-center">
+            <div class="form rui-sign-form rui-sign-form-cloud rounded me-5">
+                <div class="row vertical-gap sm-gap justify-content-center bg-brand rounded">
                     <div class="col-12">
                         <h1 class="display-4 mb-10 text-center">Sign Up</h1>
                     </div>
@@ -39,7 +49,6 @@
                     </div>
                     <div class="col-12"><a href="#" class="btn btn-brand btn-block text-center" onclick="signUp()">Sign up</a>
                     </div>
-                    <button onclick="sub()">continue</button>
                     <div class="col-12">
                         <div class="rui-sign-or mt-2 mb-5">or</div>
                     </div>
