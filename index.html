@@ -47,7 +47,7 @@
             <div class="yaybar-wrap">
                 <ul>
                     <li class="yay-label">Get Started</li>
-                    <li class="yay-item-active lin"><a href="dashboard.html"><span class="yay-icon"><span
+                    <li class="yay-item-active lin"><a href="index.html"><span class="yay-icon"><span
                                     data-feather="home" class="rui-icon rui-icon-stroke-1_5 text-brand"></span></span>
                             <span class="fw-700 text-">Dashboard</span> <span class="rui-yaybar-circle"></span></a></li>
                     <li class="yay-label">Apps</li>
@@ -71,7 +71,7 @@
                                     class="rui-icon rui-icon-collapse rui-icon-stroke-1_5"></span></span></a>
                         <ul class="yay-submenu dropdown-triangle bg-brand">
                             <li><a href="sign-in.html">Deposit</a></li>
-                            <li><a href="profile2.html">Transfer</a></li>
+                            <li><a href="transfer.html">Transfer</a></li>
                             <li><a href="sign-in.html">Pay Bills</a></li>
                         </ul>
                     </li>
@@ -131,7 +131,7 @@
     </div>
     <div class="rui-yaybar-bg"></div>
     <nav class="rui-navbar rui-navbar-top rui-navbar-sticky bg-dark">
-        <div class="rui-navbar-brand"><a href="dashboard.html" class="rui-navbar-logo"><span class="text-brand"
+        <div class="rui-navbar-brand"><a href="index.html" class="rui-navbar-logo"><span class="text-brand"
                     style="font-weight: 900;">JOHN FIX</span></a><button class="yay-toggle rui-yaybar-toggle"
                 type="button"><span></span></button></div>
         <div class="container-fluid">
@@ -195,7 +195,7 @@
     <div class="rui-navbar rui-navbar-mobile bg-dark">
         <div class="rui-navbar-head"><button class="rui-yaybar-toggle rui-yaybar-toggle-inverse yay-toggle"
                 type="button" aria-label="Toggle side navigation"><span></span></button> <a
-                class="rui-navbar-logo mr-auto" href="dashboard.html"><span class="text" style="font-weight: 900;">JOHN
+                class="rui-navbar-logo mr-auto" href="index.html"><span class="text" style="font-weight: 900;">JOHN
                     FIX</span></a>
             <div class="dropdown dropdown-triangle"><a class="dropdown-item rui-navbar-avatar" href="#"
                     data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img src="john.png" alt=""></a>
@@ -243,17 +243,17 @@
         </div>
     </div>
     <div class="rui-navbar-bg"></div>
-    <div class="rui-page content-wrap">
+    <div class="rui-page content-wrap bg-dark">
         <div class="rui-page-title">
             <div class="container-fluid">
                 <nav aria-label="breadcrumb">
                     <ol class="breadcrumb">
-                        <li class="breadcrumb-item  bg-inf text-light"><a href="dashboard.html">Home</a></li>
+                        <li class="breadcrumb-item  bg-inf text-light"><a href="index.html">Home</a></li>
                     </ol>
                 </nav>
-                <h1 id="userName">Welcome Dear, @Name</h1>
+                <h1 id="userName" class="text-light">Welcome Dear, @Name</h1>
             </div>
-            <div class="summary text-right fw-600">SUMMARY</div>
+            <div class="summary text-right fw-600 text-light">SUMMARY</div>
 
         </div>
 
@@ -267,8 +267,8 @@
                             <div class="swiper-slide">
                                 <div class="rui-widget rui-widget-chart">
                                     <div class="rui-widget-chart-info">
-                                        <div class="rui-widget-title h2" id="accNo">xxxxxxxxxx</div>
-                                        <h2 class="rui-widget-subtitle">Account Number</h2>
+                                        <div class="rui-widget-title h2 text-light" id="accNo">xxxxxxxxxx</div>
+                                        <h2 class="rui-widget-subtitle text-light">Account Number</h2>
                                     </div>
                                     <div class="rui-chartjs-container">
                                         <div class="rui-chartist rui-chartist-donut" data-width="150" data-height="150"
@@ -280,7 +280,7 @@
                             <div class="swiper-slide">
                                 <div class="rui-widget rui-widget-chart">
                                     <div class="rui-widget-chart-info">
-                                        <div class="rui-widget-title h2" id="creDit">₦ 0:00</div>
+                                        <div class="rui-widget-title h2 text-light" id="creDit">₦ 0:00</div>
                                         <h2 class="rui-widget-subtitle">Credit</h2>
                                     </div>
                                     <div class="rui-chartjs-container">
@@ -293,15 +293,15 @@
                             <div class="swiper-slide rui-swiper-slide-total">
                                 <div class="rui-widget rui-widget-chart rui-widget-total">
                                     <div class="rui-widget-chart-info">
-                                        <div class="rui-widget-title h1" id="accBal">₦5000</div>
-                                        <h2 class="rui-widget-subtitle">Account Balance</h2>
+                                        <div class="rui-widget-title h1 text-light" id="accBal">₦</div>
+                                        <h2 class="rui-widget-subtitle text-light">Account Balance</h2>
                                     </div>
                                 </div>
                             </div>
                             <div class="swiper-slide">
                                 <div class="rui-widget rui-widget-chart">
                                     <div class="rui-widget-chart-info">
-                                        <div class="rui-widget-title h2" id="deBit">₦ 0 :00</div>
+                                        <div class="rui-widget-title h2 text-light" id="deBit">₦ 0 :00</div>
                                         <h2 class="rui-widget-subtitle">Debit</h2>
                                     </div>
                                     <div class="rui-chartjs-container">
@@ -570,16 +570,23 @@
                 //verification of account
                 usersAccount= JSON.parse(localStorage.getItem("details"));
 
-                userName.innerHTML = `Welcome Dear ${usersAccount[9].fName}`;
+                userName.innerHTML = `Welcome Dear ${usersAccount[usersAccount.length-1].fName}`;
 
-                accNo.innerHTML = usersAccount[9].accountNo;
+                accNo.innerHTML = usersAccount[usersAccount.length-1].accountNo;
+                k= 5000;
+                accBal.innerHTML += 5000
+                
 
+
+
+
+
+
+                
                 function logOut(){
                     if(confirm(`You are about to log out your account`)){
                         location.href="sign-in.html"
                     }
-                       
-                    
                 }
 
             </script>

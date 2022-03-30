@@ -19,19 +19,7 @@
 </head>
 
 <body>
-    <!-- <div class="rui-page-preloader" role="status">
-        <div class="rui-page-preloader-inner">
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-        </div> -->
+    
     </div>
     <div class="rui-main bg-success">
         <div class="rui-sign align-items-center justify-content-center">
@@ -43,6 +31,7 @@
                     <div class="col-12">
                         <h1 class="display-4 mb-10 text-center">Sign In</h1>
                     </div>
+                    <h1 id="countDown"></h1>
                     <div class="col-12"><input type="email" class="form-control" id="email" placeholder="Email"></div>
                     <div class="col-12"><input type="password" class="form-control" id="password"
                             placeholder="Password"></div>
@@ -56,18 +45,19 @@
                     </div>
                     <div id="pass"></div>
 
-                    <div class="col-12"><a href="#" class="btn btn-brand btn-block text-center" onclick="signIn()">Sign in</a>
+                    <div class="col-12"><a href="#" class="btn btn-brand btn-block text-center" onclick="signIn()">Sign
+                            in</a>
                     </div>
                     <div class="col-12">
                         <div class="rui-sign-or mt-2 mb-5">or</div>
                     </div>
                     <div class="col-12">
                         <ul class="rui-social-links">
-                            <li><a href="dashboard.html" class="rui-social-github"><span class="fab fa-github"></span>
+                            <li><a href="https://github.com/john-fixit" class="rui-social-github"><span class="fab fa-github"></span>
                                     Github</a></li>
-                            <li><a href="dashboard.html" class="rui-social-facebook"><span
+                            <li><a href="https://facebook.com/adeoyejohnoluwakayode" class="rui-social-facebook"><span
                                         class="fab fa-facebook-f"></span> Facebook</a></li>
-                            <li><a href="dashboard.html" class="rui-social-google"><span class="fab fa-google"></span>
+                            <li><a href="https://linkedin.com/in/adeoye-john-413b67229" class="rui-social-google"><span class="fab fa-google"></span>
                                     Google</a></li>
                         </ul>
                     </div>
@@ -77,41 +67,56 @@
             </div>
         </div>
     </div>
-    <!-- <script src="./assets/vendor/jquery/dist/jquery.min.js"></script>
-    <script src="./assets/vendor/popper.js/dist/umd/popper.min.js"></script>
-    <script src="./assets/vendor/bootstrap/dist/js/bootstrap.min.js"></script>
-    <script src="./assets/vendor/feather-icons/dist/feather.min.js"></script>
-    <script src="./assets/vendor/fontawesome-free/js/all.js"></script>
-    <script src="./assets/vendor/fontawesome-free/js/v4-shims.js"></script>
-    <script src="./assets/js/rootui.js"></script>
-    <script src="./assets/js/rootui-init.js"></script> -->
+   
+    <script>
+        var incorrectPassWord = [];
+        localStorage.incorrect = 0
 
-        <script>
+        function signIn() {
+            usersAccount = JSON.parse(localStorage.getItem("details"))
+            var Email = email.value;
+            var passWord = password.value;
 
-            function signIn(){
-            usersAccount=JSON.parse(localStorage.getItem("details"))
-                var Email = email.value;
-                var passWord = password.value;
-                console.log(usersAccount);
-                for(i=0;i<=usersAccount.length;i++){
-                    if((Email==usersAccount[i].eMail) && (passWord==usersAccount[i].passWord)){
-                        console.log("right");
-                        location.href="dashboard.html"
-                    }
-                    else if((Email!=usersAccount[i].eMail) && (passWord!=usersAccount[i].passWord)){
-                        console.log(usersAccount[i].eMail);
-                        console.log("Wrong");
-                    console.log(`Incorrect Password or Email`);
-                    pass.innerHTML = `Incorrect Password or Email`
-                    pass.style.color = "red"
-                    }
-                   
 
-                    console.log(usersAccount[i].accountNo);
-                }
-                
+            var kay = usersAccount.find((h) => h.eMail == Email && h.passWord == passWord);
+
+            if (kay) {
+                console.log("seen");
+                location.href = "index.html"
             }
-        </script>
+            else {
+                localStorage.incorrect++
+                pass.innerHTML = `Incorrect Password or Email`
+                pass.style.color = "red"
+
+                if (localStorage.incorrect == 3) {
+                    email.disabled = true;
+                    password.disabled = true;
+
+                    var timeCountDown = 15;
+                    setInterval(
+                        function () {
+                            timeCountDown--
+                            if (timeCountDown >= 0) {
+                                countDown.innerHTML = timeCountDown
+                            }
+                            else if (countDown.innerHTML <=0) {
+                                countDown.innerHTML = ""
+                                email.disabled = false;
+                                password.disabled = false;
+                                pass.innerHTML = ""
+                                location.reload();
+                            }
+                        }, 1000
+                    )
+
+                }
+
+
+            }
+
+        }
+    </script>
 
 
 
