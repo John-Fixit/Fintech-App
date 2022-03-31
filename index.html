@@ -4,594 +4,114 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>John fix</title>
+    <title>Sign Up</title>
     <meta name="description" content="RootUI - clean and powerful solution for your Dashboards, Administration areas.">
     <meta name="keywords" content="admin, dashboard, template, react, reactjs, html, jquery, clean">
     <meta name="author" content="nK">
     <link rel="icon" type="image/png" href="./assets/images/favicon.png">
     <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no">
-    <!-- <link rel="stylesheet"
-        href="https://fonts.googleapis.com/css?family=Nunito+Sans:300,400%7cOpen+Sans:300,400,600%7cPT+Serif:400i"> -->
     <link rel="stylesheet" href="./assets/css/bootstrap-custom.css">
-    <link rel="stylesheet" href="./assets/vendor/overlayscrollbars/css/OverlayScrollbars.css">
-    <link rel="stylesheet" href="./assets/css/yaybar.css">
-    <link rel="stylesheet" href="./assets/vendor/fancybox/dist/jquery.fancybox.css">
-    <link rel="stylesheet" href="./assets/vendor/emojionearea/dist/emojionearea.css">
-    <link rel="stylesheet" href="./assets/vendor/swiper/swiper-bundle.min.css">
-    <link rel="stylesheet" href="./assets/vendor/chartist/dist/chartist.css">
-    <link rel="stylesheet" href="./assets/vendor/jqvmap/dist/jqvmap.css">
     <link rel="stylesheet" href="./assets/css/rootui.css">
     <link rel="stylesheet" href="./assets/css/rootui-night.css" media="(night)" class="rui-nightmode-link">
     <link rel="stylesheet" href="./assets/css/custom.css">
 </head>
-<style>
-    .lin {
-        margin-top: 3vh;
-    }
-    .summary{
-        font-size: 3vh;
+    <style>
+        .bg-info{
+            background-image: url(Credit\ Card\ Payment-amico.png);
+            background-position: center;
+            background-size: cover;
+        }
 
-    }
-    .lin:hover {
-        background: white;
-        border-top-right-radius: 30vh !important;
-        border-bottom-right-radius: 30vh !important;
-    }
-</style>
 
-<body data-spy="scroll" data-target=".rui-page-sidebar" data-offset="140"
-    class="rui-no-transition rui-navbar-autohide rui-section-lines">
-   
-    <div class="yaybar yay-hide-to-small yay-shrink yay-gestures rui-yaybar bg-info">
-        <div class="yay-wrap-menu">
-            <div class="yaybar-wrap">
-                <ul>
-                    <li class="yay-label">Get Started</li>
-                    <li class="yay-item-active lin"><a href="index.html"><span class="yay-icon"><span
-                                    data-feather="home" class="rui-icon rui-icon-stroke-1_5 text-brand"></span></span>
-                            <span class="fw-700 text-">Dashboard</span> <span class="rui-yaybar-circle"></span></a></li>
-                    <li class="yay-label">Apps</li>
 
-                    <li class="lin"><a href="project-management.html"><span class="yay-icon"><span data-feather="book"
-                                    class="rui-icon rui-icon-stroke-1_5 text-brand"></span></span> <span
-                                class="fw-700 text-dark">Account Details</span>
-                            <span class="rui-yaybar-circle"></span></a>
-                    </li>
+    </style>
 
-                    <li class="lin"><a href="profile.html"><span class="yay-icon"><span data-feather="user"
-                                    class="rui-icon rui-icon-stroke-1_5 text-brand"></span></span> <span
-                                class="fw-700 text-dark">Profile</span> <span class="rui-yaybar-circle"></span></a>
-                    </li>
-
-                    <li class="lin"><a href="profile2.html" class="yay-sub-toggle"><span stroke-width="1"
-                                class="text-brand" data-feather="server"></span></span> <span
-                                class="fw-700 text-dark">Transaction Activities</span><span
-                                class="rui-yaybar-circle"></span> <span class="yay-icon-collapse"><span
-                                    data-feather="chevron-right"
-                                    class="rui-icon rui-icon-collapse rui-icon-stroke-1_5"></span></span></a>
-                        <ul class="yay-submenu dropdown-triangle bg-brand">
-                            <li><a href="sign-in.html">Deposit</a></li>
-                            <li><a href="transfer.html">Transfer</a></li>
-                            <li><a href="sign-in.html">Pay Bills</a></li>
-                        </ul>
-                    </li>
-                    <li class="lin"><a href="element-tables.html"><span class="yay-icon"><span data-feather="menu"
-                                    class="rui-icon rui-icon-stroke-1_5 text-brand"></span></span> <span
-                                class="fw-700 text-dark">Tables</span> <span class="rui-yaybar-circle"></span></a>
-                    </li>
-
-                    <li class="lin"><a href="sign-in.html"><span class="yay-icon"><span data-feather="settings"
-                                    class="rui-icon rui-icon-stroke-1_5 text-brand"></span></span> <span
-                                class="fw-700 text-dark">Settings</span> <span class="rui-yaybar-circle"></span> <span
-                                class="yay-icon-collapse"><span data-feather="chevron-right"
-                                    class="rui-icon rui-icon-collapse rui-icon-stroke-1_5"></span></span></a>
-                    </li>
-
-                    <li class="lin mt-5"><a onclick="logOut()"><span class="yay-icon"><span data-feather="log-out"
-                                    class="rui-icon rui-icon-stroke-1_5 text-brand"></span></span>
-                            <span class="fw-700 text-dark">Log Out</span> <span class="rui-yaybar-circle"></span> <span
-                                class="yay-icon-collapse"></span></a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-        <div class="rui-yaybar-icons">
-            <div class="row no-gutters justify-content-around">
-                <div class="col-auto"><a class="btn btn-custom-round" href="#"><span data-feather="settings"
-                            class="rui-icon"></span></a></div>
-                <div class="col-auto"><a class="btn btn-custom-round" href="#"><span data-feather="bell"
-                            class="rui-icon"></span></a></div>
-                <div class="col-auto d-flex">
-                    <div class="dropdown dropdown-hover dropdown-triangle dropdown-keep-open dropup"><a
-                            class="btn btn-custom-round dropdown-item" href="#" data-toggle="dropdown"
-                            aria-haspopup="true" aria-expanded="false" data-offset="-30"><span
-                                data-feather="plus-circle" class="rui-icon rui-icon-stroke-1_5"></span></a>
-                        <ul class="dropdown-menu nav">
-                            <li><a href="#" class="nav-link"><span data-feather="plus-circle"
-                                        class="rui-icon rui-icon-stroke-1_5"></span> <span>Create new Post</span> <span
-                                        class="rui-nav-circle"></span></a></li>
-                            <li><a href="#" class="nav-link"><span data-feather="book"
-                                        class="rui-icon rui-icon-stroke-1_5"></span> <span>Project</span> <span
-                                        class="rui-nav-circle"></span></a></li>
-                            <li><a href="#" class="nav-link"><span data-feather="message-circle"
-                                        class="rui-icon rui-icon-stroke-1_5"></span> <span>Message</span> <span
-                                        class="rui-nav-circle"></span></a></li>
-                            <li><a href="#" class="nav-link"><span data-feather="mail"
-                                        class="rui-icon rui-icon-stroke-1_5"></span> <span>Mail</span> <span
-                                        class="rui-nav-circle"></span></a></li>
+<body>
+    
+    <div class="rui-main bg-info">
+        <div class="rui-sign align-items-center justify-content-center">
+            <div class="form rui-sign-form rui-sign-form-cloud rounded me-5">
+                <div class="row vertical-gap sm-gap justify-content-center bg-brand rounded">
+                    <div class="col-12">
+                        <h1 class="display-4 mb-10 text-center">Sign Up</h1>
+                    </div>
+                    <div class="col-12"><input class="form-control" placeholder="Name" id="userName"></div>
+                    <div class="col-12"><input type="email" class="form-control" placeholder="Email" id="email"></div>
+                    <div class="col-12"><input type="password" class="form-control" placeholder="Password" id="password"></div>
+                    <div class="col-12">
+                        <div class="custom-control custom-checkbox d-flex justify-content-start"><input type="checkbox"
+                                class="custom-control-input" id="rememberMe"> <label
+                                class="custom-control-label text-grey-5 fs-13" for="rememberMe" id="remember">I have read and agree to
+                                the <a href="#" class="text-2">terms and conditions.</a></label></div>
+                    </div>
+                    <div class="col-12"><a href="#" class="btn btn-brand btn-block text-center" onclick="signUp()">Sign up</a>
+                    </div>
+                    <div class="col-12">
+                        <div class="rui-sign-or mt-2 mb-5">or</div>
+                    </div>
+                    <div class="col-12">
+                        <ul class="rui-social-links">
+                            <li><a href="dashboard.html" class="rui-social-github"><span class="fab fa-github"></span>
+                                    Github</a></li>
+                            <li><a href="dashboard.html" class="rui-social-facebook"><span
+                                        class="fab fa-facebook-f"></span> Facebook</a></li>
+                            <li><a href="dashboard.html" class="rui-social-google"><span class="fab fa-google"></span>
+                                    Google</a></li>
                         </ul>
                     </div>
+            <div class="mt-20 text-grey-5">Already have an account? <a href="sign-in.html" class="text-2">Sign In</a>
+
                 </div>
-                <div class="col-auto"><a class="btn btn-custom-round" href="#"><span data-feather="clock"
-                            class="rui-icon rui-icon-stroke-1_5"></span></a></div>
-                <div class="col-auto"><a class="btn btn-custom-round" href="#"><span data-feather="heart"
-                            class="rui-icon rui-icon-stroke-1_5"></span></a></div>
             </div>
         </div>
+        <div id="speak" class="text-center"></div>
     </div>
-    <div class="rui-yaybar-bg"></div>
-    <nav class="rui-navbar rui-navbar-top rui-navbar-sticky bg-dark">
-        <div class="rui-navbar-brand"><a href="index.html" class="rui-navbar-logo"><span class="text-brand"
-                    style="font-weight: 900;">JOHN FIX</span></a><button class="yay-toggle rui-yaybar-toggle"
-                type="button"><span></span></button></div>
-        <div class="container-fluid">
-            <div class="rui-navbar-content">
-                <ul class="nav">
-                    <li class="dropdown dropdown-hover dropdown-keep-open dropdown-triangle"><a href="#actions"
-                            class="dropdown-item" data-toggle="dropdown" aria-haspopup="true"
-                            aria-expanded="false"><span data-feather="layers"
-                                class="rui-icon rui-icon-stroke-1_5"></span> <span class="text-light">Actions</span>
-                            <span class="rui-dropdown-circle"></span></a>
-                        <ul class="nav dropdown-menu">
-                            <li><a href="#create-post" class="nav-link"><span data-feather="plus-circle"
-                                        class="rui-icon rui-icon-stroke-1_5"></span> <span>Create Post</span> <span
-                                        class="rui-nav-circle"></span></a></li>
+        <script>
+            function signUp(){
+                var usersAccount = [];
 
-                            <li><a href="#manage-users" class="nav-link"><span data-feather="users"
-                                        class="rui-icon rui-icon-stroke-1_5"></span> <span>Manage Users</span> <span
-                                        class="rui-nav-circle"></span></a></li>
+                userBal = [];
 
-                        </ul>
-                    </li>
-                </ul>
-                <ul class="nav rui-navbar-right">
-                    <li class="nav-item"><a class="d-flex" data-fancybox data-touch="false" data-close-existing="true"
-                            data-src="#search" data-auto-focus="true" href="javascript:;"><span
-                                class="btn btn-custom-round"><span data-feather="search"
-                                    class="rui-icon rui-icon-stroke-1_5"></span></span></a></li>
-                    <li class="dropdown dropdown-hover dropdown-triangle dropdown-keep-open"><a class="dropdown-item"
-                            href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
-                            data-offset="0,12"><span class="btn btn-custom-round"><span data-feather="flag"
-                                    class="rui-icon rui-icon-stroke-1_5"></span></span></a>
-                        <ul class="nav dropdown-menu rui-navbar-dropdown-language">
-                            <li><a href="#" class="rui-navbar-language active"><span
-                                        class="rui-navbar-language-img"><img src="Flag.jpg" alt=""></span>NIGERIA</a>
-                            </li>
-                        </ul>
-                    </li>
-
-                    <li class="dropdown dropdown-hover dropdown-triangle dropdown-keep-open"><a
-                            class="dropdown-item rui-navbar-avatar mnr-6" href="#" data-toggle="dropdown"
-                            aria-haspopup="true" aria-expanded="false"><img src="John.png" alt=""></a>
-                        <ul class="nav dropdown-menu">
-                            <li><a href="profile.html" class="nav-link"><span data-feather="plus-circle"
-                                        class="rui-icon rui-icon-stroke-1_5"></span> <span>Create new Post</span> <span
-                                        class="rui-nav-circle"></span></a></li>
-                            <li><a href="profile.html" class="nav-link"><span data-feather="users"
-                                        class="rui-icon rui-icon-stroke-1_5"></span> <span>Manage Users</span> <span
-                                        class="rui-nav-circle"></span></a></li>
-                            <li><a href="profile.html" class="nav-link"><span data-feather="check-circle"
-                                        class="rui-icon rui-icon-stroke-1_5"></span> <span>Check Updates</span> <span
-                                        class="rui-nav-circle"></span></a></li>
-                            <li><a href="profile.html" class="nav-link"><span data-feather="log-out"
-                                        class="rui-icon rui-icon-stroke-1_5"></span> <span>Exit</span> <span
-                                        class="rui-nav-circle"></span></a></li>
-                        </ul>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </nav>
-    <div class="rui-navbar rui-navbar-mobile bg-dark">
-        <div class="rui-navbar-head"><button class="rui-yaybar-toggle rui-yaybar-toggle-inverse yay-toggle"
-                type="button" aria-label="Toggle side navigation"><span></span></button> <a
-                class="rui-navbar-logo mr-auto" href="index.html"><span class="text" style="font-weight: 900;">JOHN
-                    FIX</span></a>
-            <div class="dropdown dropdown-triangle"><a class="dropdown-item rui-navbar-avatar" href="#"
-                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img src="john.png" alt=""></a>
-                <ul class="dropdown-menu nav">
-                    <li><a href="profile.html" class="nav-link"><span data-feather="plus-circle"
-                                class="rui-icon rui-icon-stroke-1_5"></span> <span>Create new Post</span> <span
-                                class="rui-nav-circle"></span></a></li>
-                    <li><a href="profile.html" class="nav-link"><span data-feather="users"
-                                class="rui-icon rui-icon-stroke-1_5"></span> <span>Manage Users</span> <span
-                                class="rui-nav-circle"></span></a></li>
-                    <li><a href="profile.html" class="nav-link"><span data-feather="check-circle"
-                                class="rui-icon rui-icon-stroke-1_5"></span> <span>Check Updates</span> <span
-                                class="rui-nav-circle"></span></a></li>
-                    <li><a href="profile.html" class="nav-link"><span data-feather="log-out"
-                                class="rui-icon rui-icon-stroke-1_5"></span> <span>Exit</span> <span
-                                class="rui-nav-circle"></span></a></li>
-                </ul>
-            </div><button class="navbar-toggler rui-navbar-toggle" type="button" data-toggle="collapse"
-                data-target="#navbarMobile" aria-controls="navbarMobile" aria-expanded="false"
-                aria-label="Toggle navigation"><span></span></button>
-        </div>
-        <div class="collapse navbar-collapse rui-navbar-collapse" id="navbarMobile">
-            <div class="rui-navbar-content">
-                <ul class="nav">
-                    <li class="dropdown dropdown-keep-open"><a href="#actions" class="dropdown-item"
-                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span
-                                data-feather="layers" class="rui-icon rui-icon-stroke-1_5"></span> <span
-                                class="text-light">Actions</span>
-                            <span class="rui-dropdown-circle"></span></a>
-                        <ul class="nav dropdown-menu">
-                            <li><a href="#create-post" class="nav-link"><span data-feather="plus-circle"
-                                        class="rui-icon rui-icon-stroke-1_5"></span> <span>Create Post</span> <span
-                                        class="rui-nav-circle"></span></a></li>
-                            <li><a href="#create-page" class="nav-link"><span data-feather="plus-circle"
-                                        class="rui-icon rui-icon-stroke-1_5"></span> <span>Create Page</span> <span
-                                        class="rui-nav-circle"></span></a></li>
-                            <li><a href="#manage-users" class="nav-link"><span data-feather="users"
-                                        class="rui-icon rui-icon-stroke-1_5"></span> <span>Manage Users</span> <span
-                                        class="rui-nav-circle"></span></a></li>
-                        </ul>
-                    </li>
-
-                </ul>
-            </div>
-        </div>
-    </div>
-    <div class="rui-navbar-bg"></div>
-    <div class="rui-page content-wrap bg-dark">
-        <div class="rui-page-title">
-            <div class="container-fluid">
-                <nav aria-label="breadcrumb">
-                    <ol class="breadcrumb">
-                        <li class="breadcrumb-item  bg-inf text-light"><a href="index.html">Home</a></li>
-                    </ol>
-                </nav>
-                <h1 id="userName" class="text-light">Welcome Dear, @Name</h1>
-            </div>
-            <div class="summary text-right fw-600 text-light">SUMMARY</div>
-
-        </div>
-
-        <div class="rui-page-content">
-            <div class="container-fluid">
-                <div class="rui-swiper" data-swiper-initialslide="2" data-swiper-loop="false"
-                    data-swiper-grabcursor="true" data-swiper-center="true" data-swiper-slides="auto"
-                    data-swiper-gap="30" data-swiper-speed="400">
-                    <div class="swiper-container">
-                        <div class="swiper-wrapper">
-                            <div class="swiper-slide">
-                                <div class="rui-widget rui-widget-chart">
-                                    <div class="rui-widget-chart-info">
-                                        <div class="rui-widget-title h2 text-light" id="accNo">xxxxxxxxxx</div>
-                                        <h2 class="rui-widget-subtitle text-light">Account Number</h2>
-                                    </div>
-                                    <div class="rui-chartjs-container">
-                                        <div class="rui-chartist rui-chartist-donut" data-width="150" data-height="150"
-                                            data-chartist-series="5,2" data-chartist-width="4"
-                                            data-chartist-gradient="#8e9fff;#2bb7ef"></div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="swiper-slide">
-                                <div class="rui-widget rui-widget-chart">
-                                    <div class="rui-widget-chart-info">
-                                        <div class="rui-widget-title h2 text-light" id="creDit">₦ 0:00</div>
-                                        <h2 class="rui-widget-subtitle">Credit</h2>
-                                    </div>
-                                    <div class="rui-chartjs-container">
-                                        <div class="rui-chartist rui-chartist-donut" data-width="150" data-height="150"
-                                            data-chartist-series="2,8" data-chartist-width="4"
-                                            data-chartist-gradient="#8e9fff;#2bb7ef"></div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="swiper-slide rui-swiper-slide-total">
-                                <div class="rui-widget rui-widget-chart rui-widget-total">
-                                    <div class="rui-widget-chart-info">
-                                        <div class="rui-widget-title h1 text-light" id="accBal">₦</div>
-                                        <h2 class="rui-widget-subtitle text-light">Account Balance</h2>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="swiper-slide">
-                                <div class="rui-widget rui-widget-chart">
-                                    <div class="rui-widget-chart-info">
-                                        <div class="rui-widget-title h2 text-light" id="deBit">₦ 0 :00</div>
-                                        <h2 class="rui-widget-subtitle">Debit</h2>
-                                    </div>
-                                    <div class="rui-chartjs-container">
-                                        <div class="rui-chartist rui-chartist-donut" data-width="150" data-height="150"
-                                            data-chartist-series="5,5" data-chartist-width="4"
-                                            data-chartist-gradient="#8e9fff;#2bb7ef"></div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="swiper-button-next"><span data-feather="chevron-right"
-                            class="rui-icon rui-icon-stroke-1_5"></span></div>
-                    <div class="swiper-button-prev"><span data-feather="chevron-left"
-                            class="rui-icon rui-icon-stroke-1_5"></span></div>
-                </div>
-                <div class="rui-gap-2"></div>
-                <div class="rui-widget-total-chart">
-                    <canvas class="rui-chartjs rui-chartjs-line rui-chartjs-total" data-height="90"
-                        data-chartjs-interval="500" data-chartjs-line-color="#8e9fff"></canvas>
-                </div>
-                <div class="rui-gap-3"></div>
-                <canvas id="chartJsLine" height="100"></canvas>
-
-                <footer class="rui-footer">
-                    <div class="container-fluid">
-                        <p class="mb-0">2022 &copy; Design by John Fix.</p>
-                    </div>
-                </footer>
-            </div>
-
-
-            <div class="toast rui-toast hide" role="alert" aria-live="assertive" aria-atomic="true" data-delay="8000"
-                data-toast-show-on-startup="true">
-                <div class="toast-header">
-                    <h5 class="mr-auto mnb-2" style="font-weight: 800;">@ JOHN FIX</h5><button type="button"
-                        class="ml-15 mnt-4 mnr-4 toast-close close" data-dismiss="toast" aria-label="Close"><span
-                            data-feather="x" class="rui-icon rui-icon-stroke-1_5"></span></button>
-                </div>
-                <div class="toast-body">Hey! welcome to this website.
-                </div>
-            </div>
-            <script src="./assets/vendor/jquery/dist/jquery.min.js"></script>
-            <script src="./assets/vendor/popper.js/dist/umd/popper.min.js"></script>
-            <script src="./assets/vendor/bootstrap/dist/js/bootstrap.min.js"></script>
-            <script src="./assets/vendor/feather-icons/dist/feather.min.js"></script>
-            <script src="./assets/vendor/overlayscrollbars/js/jquery.overlayScrollbars.min.js"></script>
-            <script src="./assets/js/yaybar.js"></script>
-            <script src="./assets/vendor/object-fit-images/dist/ofi.min.js"></script>
-            <script src="./assets/vendor/fancybox/dist/jquery.fancybox.min.js"></script>
-            <script src="./assets/vendor/emojione/lib/js/emojione.min.js"></script>
-            <script src="./assets/vendor/emojionearea/dist/emojionearea.min.js"></script>
-            <script src="./assets/vendor/moment/min/moment.min.js"></script>
-            <script src="./assets/vendor/swiper/swiper-bundle.min.js"></script>
-            <script src="./assets/vendor/chart.js/dist/Chart.min.js"></script>
-            <script src="./assets/vendor/chartist/dist/chartist.min.js"></script>
-            <script src="./assets/vendor/jqvmap/dist/jquery.vmap.min.js"></script>
-            <script src="./assets/vendor/jqvmap/dist/maps/jquery.vmap.usa.js"></script>
-            <script class="rui-page-additional-js">(function () {
-
-
-                    // Chart
-                    $('.rui-chartjs').each(function () {
-                        const $this = $(this);
-                        const ctx = $this[0].getContext('2d');
-
-                        $this.attr('height', parseInt($this.attr('data-height'), 10));
-
-                        // Line Realtime
-                        if ($this.hasClass('rui-chartjs-line')) {
-                            const dataInterval = parseInt($this.attr('data-chartjs-interval'), 10);
-                            const dataBorderColor = $this.attr('data-chartjs-line-color');
-                            const conf = {};
-
-                            const gradient = ctx.createLinearGradient(0, 0, 0, 90);
-                            gradient.addColorStop(0, Chart.helpers.color(dataBorderColor).alpha(0.1).rgbString());
-                            gradient.addColorStop(1, Chart.helpers.color(dataBorderColor).alpha(0).rgbString());
-
-                            const rand = () => Array.from({ length: 40 }, () => Math.floor(Math.random() * (100 - 40) + 40));
-                            function addData(chart, data) {
-                                chart.data.datasets.forEach((dataset) => {
-                                    let data = dataset.data;
-                                    const first = data.shift();
-                                    data.push(first);
-                                    dataset.data = data;
-                                });
-
-                                chart.update();
-                            }
-
-                            conf.type = 'line';
-                            conf.data = {
-                                labels: rand(),
-                                datasets: [
-                                    {
-                                        backgroundColor: gradient,
-                                        borderColor: dataBorderColor,
-                                        borderWidth: 2,
-                                        pointHitRadius: 5,
-                                        pointBorderWidth: 0,
-                                        pointBackgroundColor: 'transparent',
-                                        pointBorderColor: 'transparent',
-                                        pointHoverBorderWidth: 0,
-                                        pointHoverBackgroundColor: dataBorderColor,
-                                        data: rand(),
-                                    }
-                                ],
-                            };
-                            conf.options = {
-                                tooltips: {
-                                    mode: 'index',
-                                    intersect: false,
-                                    backgroundColor: 'blue',
-                                    bodyFontSize: 11,
-                                    bodyFontColor: '#d7d9e0',
-                                    bodyFontFamily: '"Open Sans", sans-serif',
-                                    xPadding: 10,
-                                    yPadding: 10,
-                                    displayColors: false,
-                                    caretPadding: 5,
-                                    cornerRadius: 4,
-                                    // callbacks: {
-                                    //     title: () => {
-                                    //         return;
-                                    //     },
-                                    //     label: (t) => {
-                                    //         if ($this.hasClass('rui-chartjs-memory')) {
-                                    //             return [`In use ${t.value}%`, `${t.value * 100} MB`];
-                                    //         }
-                                    //         if ($this.hasClass('rui-chartjs-disc')) {
-                                    //             return [`Read ${Math.round((t.value / 80) * 100) / 100} MB/s`, `Write ${Math.round((t.value / 90) * 100) / 100} MB/s`];
-                                    //         }
-                                    //         if ($this.hasClass('rui-chartjs-cpu')) {
-                                    //             return [`Utilization ${t.value}%`, `Processes ${parseInt((t.value / 10), 10)}`];
-                                    //         }
-                                    //         if ($this.hasClass('rui-chartjs-total')) {
-                                    //             return `$${t.value}`;
-                                    //         }
-                                    //     }
-                                    // },
-                                },
-                                legend: {
-                                    display: false,
-                                },
-                                maintainAspectRatio: true,
-                                spanGaps: false,
-                                plugins: {
-                                    filler: {
-                                        propagate: false,
-                                    },
-                                },
-                                scales: {
-                                    xAxes: [{ display: false }],
-                                    yAxes: [{
-                                        display: false,
-                                        ticks: {
-                                            beginAtZero: true,
-                                        },
-                                    }],
-                                },
-                            };
-                            const myChart = new Chart(ctx, conf);
-                            setInterval(() => addData(myChart), dataInterval);
-                        }
-                    });
-                }());
-
-                const data = {
-                    labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep'],
-                    datasets: [
-                        {
-                            label: 'Credit',
-                            backgroundColor: 'orange',
-                            borderColor: 'transparent',
-                            borderWidth: 0,
-                            pointRadius: 3,
-                            // pointHoverRadius: 3,
-                            pointHitRadius: 100,
-                            pointBackgroundColor: 'green',
-                            pointHoverBackgroundColor: 'rgba(94, 119, 255, 1)',
-                            data: [0, 9, 15, 10, 30, 15, 25, 18, 20],
-                        },
-                        {
-                            label: 'Debit',
-                            backgroundColor: 'rgba(171, 184, 255, 0.8)',
-                            borderColor: 'transparent',
-                            borderWidth: 0,
-                            pointRadius: 3,
-                            pointHoverRadius: 3,
-                            pointHitRadius: 100,
-                            pointBackgroundColor: 'transparent',
-                            pointHoverBackgroundColor: 'rgba(171, 184, 255, 1)',
-                            data: [0, 10, 10, 13, 10, 20, 10, 10, 25],
-                        }
-                    ],
-                };
-                const options = {
-                    type: 'line',
-                    data: data,
-
-                    options: {
-                        tooltips: {
-                            mode: 'nearest',
-                            intersect: false,
-                            backgroundColor: '#393f49',
-                            titleMarginBottom: 8,
-                            titleFontSize: 14,
-                            titleFontColor: '#f8f9fa',
-                            titleFontFamily: "'Open Sans', sans-serif",
-                            bodyFontSize: 11,
-                            bodyFontColor: '#d7d9e0',
-                            bodyFontFamily: "'Open Sans', sans-serif",
-                            footerMarginTop: 10,
-                            footerFontSize: 11,
-                            footerFontColor: '#f8f9fa',
-                            footerFontFamily: "'Open Sans', sans-serif",
-                            xPadding: 10,
-                            yPadding: 10,
-                            caretPadding: 5,
-                            cornerRadius: 4,
-                        },
-                        legend: {
-                            labels: {
-                                padding: 30,
-                                fontSize: 14,
-                                fontColor: '#6c757d',
-                                fontFamily: "'Open Sans', sans-serif",
-                                boxWidth: 14,
-                            },
-                        },
-                        scales: {
-                            xAxes: [{
-                                gridLines: {
-                                    lineWidth: 0,
-                                    color: 'transparent',
-                                    zeroLineWidth: 0,
-                                    zeroLineColor: 'transparent',
-                                },
-                                ticks: {
-                                    fontSize: 12,
-                                    fontColor: '#bcbec0',
-                                    fontFamily: "'Open Sans', sans-serif",
-                                },
-                            }],
-                            yAxes: [{
-                                gridLines: {
-                                    lineWidth: 0,
-                                    color: 'transparent',
-                                    zeroLineWidth: 0,
-                                    zeroLineColor: 'transparent',
-                                },
-                                ticks: {
-                                    fontSize: 12,
-                                    fontColor: '#bcbec0',
-                                    fontFamily: "'Open Sans', sans-serif",
-                                },
-                            }],
-                        },
-                    },
-                };
-                const chartLine = new Chart(document.getElementById('chartJsLine').getContext('2d'), options);
-
-
-
-
-                //verification of account
-                usersAccount= JSON.parse(localStorage.getItem("details"));
-
-                userName.innerHTML = `Welcome Dear ${usersAccount[usersAccount.length-1].fName}`;
-
-                accNo.innerHTML = usersAccount[usersAccount.length-1].accountNo;
-                k= 5000;
-                accBal.innerHTML += 5000
+                var fName = userName.value;
+                var eMail = email.value;
+                var passWord = password.value;
+                var deposit = 5000
+                var num=[2,4,5,7,8,9,2,4,5,6];
+                var accountNo=Math.floor("2"+ Math.random(num.length)*1000000000);
                 
-
-
-
-
-
-
-                
-                function logOut(){
-                    if(confirm(`You are about to log out your account`)){
-                        location.href="sign-in.html"
-                    }
+                userBal.push(deposit)
+                if(localStorage.details!=null){
+                    usersAccount=JSON.parse(localStorage.getItem("details"))
+                }
+               
+                var participants=usersAccount.find((info)=> eMail==info.eMail)
+                if(participants){
+                        alert(`The email is already taken`);
                 }
 
-            </script>
-            <script src="./assets/js/rootui.js"></script>
-            <script src="./assets/js/rootui-init.js"></script>
+                else{
+                    usersInfo = ({fName,eMail,passWord,accountNo,userBal});
+                    usersAccount.push(usersInfo);
+                    sString = JSON.stringify(usersAccount);
+                    localStorage.setItem("details",sString)
+                    console.log(usersAccount);
+                }
+                   
+                    
+
+                    if(eMail!=""){
+                            location.href="userPin.html"
+                    }
+                    else {
+                        alert("please enter your info")
+                    }
+                    document.getElementById("speak").innerHTML =`Dear ${usersAccount[(usersAccount.length-1)].fName} thanks for open account with us your account number is : ${usersAccount[(usersAccount.length-1)].accountNo} `
+                 
+            }
+           
+        </script>
+
+
 </body>
 
 </html>

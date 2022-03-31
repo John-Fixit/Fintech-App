@@ -352,12 +352,22 @@
 
                 }
                 function transfer(){
-                    u=usersAccount[usersAccount.length-1].deposit
-                    var aTT = parseInt(amountToTransfer.value)
-                    var f = u + aTT
-                    alert(f)
-                    y = JSON.stringify(f)
-                    localStorage.setItem("details",y)
+                    usersAccount = JSON.parse(localStorage.getItem("details"))
+
+
+                    var f = usersAccount[6].userBal
+                    console.log(f);
+                    f.push(4000)
+                    JSON.stringify(f)
+                    localStorage.setItem()
+                    console.log(f);
+
+
+                    // var aTT = parseInt(amountToTransfer.value)
+                    // var f = u + aTT
+                    // alert(f)
+                    // y = JSON.stringify(f)
+                    // localStorage.setItem("details",y)
                 }
                
             </script>

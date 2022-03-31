@@ -10,42 +10,63 @@
     <meta name="author" content="nK">
     <link rel="icon" type="image/png" href="./assets/images/favicon.png">
     <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no">
-    <!-- <link rel="stylesheet"
-        href="https://fonts.googleapis.com/css?family=Nunito+Sans:300,400%7cOpen+Sans:300,400,600%7cPT+Serif:400i"> -->
     <link rel="stylesheet" href="./assets/css/bootstrap-custom.css">
     <link rel="stylesheet" href="./assets/css/rootui.css">
     <link rel="stylesheet" href="./assets/css/rootui-night.css" media="(night)" class="rui-nightmode-link">
     <link rel="stylesheet" href="./assets/css/custom.css">
+    <!-- <link rel="stylesheet" href="bootstrap-5/css/bootstrap.css"> -->
 </head>
 
+<style>
+    .mt-40 {
+        background-color: rgb(59, 166, 228);
+        /* background-image: url(Online\ transactions-bro.png); */
+        background-size: contain;
+        background-repeat: no-repeat;
+
+    }
+    .py-6 {
+        border-radius: 20px !important;
+        box-shadow: inset 2px 2px 10px;
+    }
+</style>
+
 <body>
-    
+
     </div>
-    <div class="rui-main bg-success">
-        <div class="rui-sign align-items-center justify-content-center">
-            <div class="bg-image">
-                <div class="bg-grey-1"></div>
-            </div>
-            <div class="form rui-sign-form rui-sign-form-cloud">
-                <div class="row vertical-gap sm-gap justify-content-center">
+    <div class="rui-main bg-succes">
+        <div class="rui-sign align-items-center justify-content-center shadow-lg">
+            <div class="form rui-sign-form rui-sign-form-cloud mt-40 ml-0">
+                <div class="row vertical-gap sm-gap justify-content-center bg-light py-6 rounded">
                     <div class="col-12">
                         <h1 class="display-4 mb-10 text-center">Sign In</h1>
                     </div>
                     <h1 id="countDown"></h1>
-                    <div class="col-12"><input type="email" class="form-control" id="email" placeholder="Email"></div>
-                    <div class="col-12"><input type="password" class="form-control" id="password"
-                            placeholder="Password"></div>
+                    <div class="col-12">
+                        <div class="form-floating">
+                            <input type="email" class="form-control" id="email" placeholder="Email">
+                            <label for="email">Email</label>
+                        </div>
+                    </div>
+                    <div class="col-12">
+                        <div class="form-floating"><input type="password" class="form-control" id="password"
+                                placeholder="Password">
+                            <label for="password">Password</label>
+                        </div>
+                    </div>
+
                     <div class="col-sm-6">
                         <div class="custom-control custom-checkbox d-flex justify-content-start"><input type="checkbox"
                                 class="custom-control-input" id="rememberMe"> <label class="custom-control-label fs-13"
                                 for="rememberMe">Remember me</label></div>
                     </div>
                     <div class="col-sm-6">
-                        <div class="d-flex justify-content-end"><a href="#" class="fs-13">Forget password?</a></div>
+                        <div class="d-flex justify-content-end"><a href="#" class="fs-13 l">Forget password?</a></div>
                     </div>
                     <div id="pass"></div>
 
-                    <div class="col-12"><a href="#" class="btn btn-brand btn-block text-center" id="signin" onclick="signIn()">Sign
+                    <div class="col-12"><a href="#" class="btn btn-primary rounded-pill btn-block text-center"
+                            id="signin" onclick="signIn()">Sign
                             in</a>
                     </div>
                     <div class="col-12">
@@ -53,80 +74,98 @@
                     </div>
                     <div class="col-12">
                         <ul class="rui-social-links">
-                            <li><a href="https://github.com/john-fixit" class="rui-social-github"><span class="fab fa-github"></span>
+                            <li><a href="https://github.com/john-fixit" class="rui-social-github line"><span
+                                        class="fab fa-github"></span>
                                     Github</a></li>
-                            <li><a href="https://facebook.com/adeoyejohnoluwakayode" class="rui-social-facebook"><span
+                            <li><a href="https://facebook.com/adeoyejohnoluwakayode" class="rui-social-facebook line"><span
                                         class="fab fa-facebook-f"></span> Facebook</a></li>
-                            <li><a href="https://linkedin.com/in/adeoye-john-413b67229" class="rui-social-google"><span class="fab fa-google"></span>
+                            <li><a href="https://linkedin.com/in/adeoye-john-413b67229" class="rui-social-google line"><span
+                                        class="fab fa-google"></span>
                                     Google</a></li>
                         </ul>
                     </div>
+                    <div class="mt-20 text-grey-5">Don't you have an account? <a href="sign-up.html" class="text-2 line">Sign
+                            Up</a>
+
+                    </div>
                 </div>
-            </div>
-            <div class="mt-20 text-grey-5">Don't you have an account? <a href="sign-up.html" class="text-2">Sign Up</a>
             </div>
         </div>
     </div>
+</body>
+
+<script>
+    var incorrectPassWord = [];
+    var userLogin = []
+    localStorage.incorrect = 0
    
-    <script>
-        var incorrectPassWord = [];
-        localStorage.incorrect = 0
+    function signIn() {
 
-        function signIn() {
-            usersAccount = JSON.parse(localStorage.getItem("details"))
-            var Email = email.value;
-            var passWord = password.value;
+        var Email = email.value;
+        var passWord = password.value;
 
+        usersAccount = JSON.parse(localStorage.getItem("details"))
+        var kay = usersAccount.find((h) => h.eMail == Email && h.passWord == passWord);
+        var jy= usersAccount.find((l) => l.eMail != Email || l.passWord != passWord);
 
-            var kay = usersAccount.find((h) => h.eMail == Email && h.passWord == passWord);
-            var sup = usersAccount.find((k) => k.eMail != Email && k.passWord != passWord);
-
-            if (kay) {
-                console.log("seen");
-                location.href = "index.html"
+        if (kay) {
+            if (localStorage.myLoginUser != null) {
+            userLogin = JSON.parse(localStorage.getItem("myLoginUser"))
             }
-            else if(sup){
-                pass.innerHTML="not registered"
-                location.href="sign-up.html"
-            }
-            else {
-                localStorage.incorrect++
-                pass.innerHTML = `Incorrect Password or Email`
-                pass.style.color = "red"
+            uLog = ({Email,passWord})
+            userLogin.push(uLog)
+            sLog = JSON.stringify(userLogin)
+            localStorage.setItem("myLoginUser", sLog)
 
-                if (localStorage.incorrect == 3) {
-                    email.disabled = true;
-                    password.disabled = true;
+            console.log("seen");
+            location.href = "dashboard.html"
+        }
+        
+        else if (jy){
+            localStorage.incorrect++
+            pass.innerHTML = `Incorrect Password or Email`
+            pass.style.color = "red"
 
-                    var timeCountDown = 15;
-                    setInterval(
-                        function () {
-                            timeCountDown--
-                            if (timeCountDown >= 0) {
-                                countDown.innerHTML = timeCountDown
-                            }
-                            else if (countDown.innerHTML <=0) {
-                                countDown.innerHTML = ""
-                                email.disabled = false;
-                                password.disabled = false;
-                                password.disabled = false;
-                                pass.innerHTML = ""
-                                location.reload();
-                            }
-                        }, 1000
-                    )
+            if (localStorage.incorrect == 3) {
+                email.disabled = true;
+                password.disabled = true;
 
-                }
-
-
+                var timeCountDown = 15;
+                setInterval(
+                    function () {
+                        timeCountDown--
+                        if (timeCountDown >= 0) {
+                            countDown.innerHTML = timeCountDown
+                            countDown.style.textCenter = timeCountDown
+                        }
+                        else if (countDown.innerHTML <= 0) {
+                            countDown.innerHTML = ""
+                            email.disabled = false;
+                            password.disabled = false;
+                            password.disabled = false;
+                            pass.innerHTML = ""
+                            location.reload();
+                        }
+                    }, 1000
+                )
             }
 
         }
-    </script>
+        
+        // var Logger =  usersAccount.find((pName)=> pName.fName)
+        //     for(i=0;i<=usersAccount.length;i++){
+        //         usersAccount[i].fName
+        //     }
+        //     oLog = ({Email,passWord})
+        //     rLog = JSON.stringify(oLog)
+        //     localStorage.setItem("owner", rLog)
+
+       
+    }
+</script>
 
 
 
 
-</body>
 
 </html>
