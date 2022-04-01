@@ -72,7 +72,7 @@
                 var accountNo=Math.floor("3"+ Math.random(num.length)*1000000000);
  
                 if(localStorage.details!=null){
-                    usersAccount=JSON.parse(localStorage.getItem("details"))
+                    usersAccount=JSON.parse(localStorage.getItem("adminDetails"))
                 }
                 
                 var participants=usersAccount.find((info)=> eMail==info.eMail)
@@ -80,13 +80,12 @@
                         alert(`The email is already taken`);
                 }
 
-                else{
+                
                     usersInfo = ({fName,eMail,passWord,accountNo,deposit});
                     usersAccount.push(usersInfo);
                     sString = JSON.stringify(usersAccount);
-                    localStorage.setItem("details",sString)
+                    localStorage.setItem("adminDetails",sString)
                     console.log(usersAccount);
-                    }
 
                     if(eMail!=""){
                             location.href="userPin.html"
@@ -96,8 +95,7 @@
                     }
                     document.getElementById("speak").innerHTML =`Dear ${usersAccount[(usersAccount.length-1)].fName} thanks for open account with us your account number is : ${usersAccount[(usersAccount.length-1)].accountNo} `
                  
-            }
-           
+            }           
         </script>
 
 

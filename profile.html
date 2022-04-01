@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Transfer</title>
+    <title>Profile</title>
     <link rel="stylesheet" href="assets/css/bootstrap-custom.css">
     <link rel="stylesheet" href="assets/vendor/overlayscrollbars/css/OverlayScrollbars.css">
     <link rel="stylesheet" href="assets/css/yaybar.css">
@@ -253,41 +253,37 @@
                 </nav>
                 <h1 id="userName">Welcome Dear, @Name</h1>
             </div>
-            <div class="summary text-right fw-600 mr-5">Transfer</div>
+            <div class="summary text-right fw-600 mr-5">My Profile</div>
 
         </div>
         <div class="rui-gap-2"></div>
+
+        <div class="col-md-8">
+            <div class="card">
+                <h1 class="card-header text-center">Users, feedback</h1>
+                <div class="card-body">
+                    <p id="confirmAccountNo">confirmation of recipient account number</p>
+
+                    <div class="rui-gap-2"></div>
+                    <p id="verifyAccount">verification of the account Number</p>
+
+                    <div class="rui-gap-2"></div>
+
+                </div>
+            </div>
+
+        </div>
         <div class="container-fluid row">
             <div class="col-md-4">
                 <div class="card">
                     <h1 class="card-header text-center">Recipient Details</h1>
                     <div class="card-body">
-                        <input type="text" name="" id="recieverAccountNo" placeholder="Enter Beneficiary Account Number"
-                            class="form-control">
-                        <div class="rui-gap-2"></div>
-                        <input type="text" name="" id="amountToTransfer" placeholder="Enter Amount To Transfer"
-                            class="form-control">
-                        <div class="rui-gap-2"></div>
-                        <input type="button" name="" class="form-control bg-info " onclick="check()" value="Enter">
+                        <div class="rui-gap-2" id="myAccountNo"></div>
                     </div>
                 </div>
 
             </div>
-            <div class="col-md-8">
-                <div class="card">
-                    <h1 class="card-header text-center">Users, feedback</h1>
-                    <div class="card-body">
-                        <p id="confirmAccountNo">confirmation of recipient account number</p>
-
-                        <div class="rui-gap-2"></div>
-                        <p id="verifyAccount">verification of the account Number</p>
-
-                        <div class="rui-gap-2"></div>
-
-                    </div>
-                </div>
-
-            </div>
+           
 
         </div>
 
@@ -299,8 +295,6 @@
                 <div class="card-body">
                     <input type="text" name="" id="customerPin" placeholder="Enter pin" class="form-control">
                     <div class="rui-gap-2"></div>
-
-                    <input type="button" name="" class="form-control bg-danger " value="transfer" onclick="tMoney()">
                 </div>
             </div>
 
@@ -344,44 +338,32 @@
         <script src="./assets/js/rootui-init.js"></script>
 
 
-        <script>
-            usersAmount = []
+        <!-- <script>
             usersAccount = JSON.parse(localStorage.getItem("details"))
-            console.log(usersAccount);
+            usersAmount = []
             function check() {
                 var rAN = recieverAccountNo.value;
                 var aTT = amountToTransfer.value;
                 for (i = 0; i <= usersAccount.length; i++) {
                     if (rAN == usersAccount[i].accountNo) {
                         confirmAccountNo.innerHTML = `You want to transfer ${aTT} to ${usersAccount[i].fName} account`;
-                        let obj = {
-                            aTT
-                        }
-                        console.log(usersAccount[i].userBal.push(obj));
-                        let users = JSON.stringify(usersAccount)
-                        localStorage.setItem('details', users)
                     }
                 }
 
             }
             function tMoney() {
-                    var e = usersAccount[6].userBal
+                usersAccount = JSON.parse(localStorage.getItem("details"))
+
+                    var e = usersAccount[i].userBal
                     var f = e.push(2000)
-                    sU = usersAccount
-                    console.log(sU);
-                    // localStorage.setItem("amount", sU)
-                    // var hy = usersAccount[6].userBal
+                    userAccount=[a,b,c,d,f]
+                    sU = JSON.stringify(usersAccount)
+                    localStorage.setItem("amount", sU)
+                    var hy = usersAccount[6].userBal
 
             }
 
-
-
-            function logOut(){
-                if (confirm("Are you sure you want to log out?")){
-                    location.href="sign-In.html"
-                }
-            }
-        </script>
+        </script> -->
 </body>
 
 </html>

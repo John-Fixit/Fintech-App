@@ -61,14 +61,18 @@
         accountNumber.style.color = "Green"
         accountNumber.style.fontSize = "4vh"
         function num(n){
-            pinNo.value +=n
-        }
+            document.getElementById("pinNo").value +=n
+        }   
         function enter(){
+            if(pinNo.value==" "){
+                pinNo.value = "please"
+            }
             pinNo.value = "successful"
+
         }
         function end(){
             if(pinNo.value == "successful"){
-                location.href="sign-up.html"
+                location.href="index.html"
             }
            
         }

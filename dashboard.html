@@ -566,11 +566,12 @@
 
 
 
-
                 //verification of account
-                usersAccount= JSON.parse(localStorage.getItem("details"));
-
-                userName.innerHTML = `Welcome Dear ${usersAccount[usersAccount.length-1].fName}`;
+                usersAccount = JSON.parse(localStorage.getItem("details"));
+                cust = JSON.parse(localStorage.getItem("owner"))
+                
+                userName.innerHTML = `Welcome Dear ${cust.Email}`;
+                console.log(cust);
                 accNo.innerHTML = usersAccount[usersAccount.length-1].accountNo;
                 k= 5000;
                 accBal.innerHTML += 5000
