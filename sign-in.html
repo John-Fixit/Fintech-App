@@ -21,7 +21,9 @@
     .mt-40 {
         background-color: rgb(59, 166, 228);
         /* background-image: url(Online\ transactions-bro.png); */
-        background-size: contain;
+        background-size: cover;
+        background-position: center;
+        height: 76vh;
         background-repeat: no-repeat;
 
     }
@@ -35,10 +37,10 @@
 <body>
 
     </div>
-    <div class="rui-main bg-succes">
-        <div class="rui-sign align-items-center justify-content-center shadow-lg">
-            <div class="form rui-sign-form rui-sign-form-cloud mt-40 ml-0">
-                <div class="row vertical-gap sm-gap justify-content-center bg-light py-6 rounded">
+    <div class="rui-main">
+        <div class="rui-sign align-items-center justify-content-center shadow-lg bg-bran">
+            <div class="form rui-sign-form rui-sign-form-cloud mt-40 ml-0 mx-md-5">
+                <div class="row vertical-gap sm-gap justify-content-center bg-brand py-6 rounded">
                     <div class="col-12">
                         <h1 class="display-4 mb-10 text-center">Sign In</h1>
                     </div>
@@ -46,19 +48,17 @@
                     <div class="col-12">
                         <div class="form-floating">
                             <input type="email" class="form-control" id="email" placeholder="Email">
-                            <label for="email">Email</label>
                         </div>
                     </div>
                     <div class="col-12">
                         <div class="form-floating"><input type="password" class="form-control" id="password"
                                 placeholder="Password">
-                            <label for="password">Password</label>
                         </div>
                     </div>
 
                     <div class="col-sm-6">
                         <div class="custom-control custom-checkbox d-flex justify-content-start"><input type="checkbox"
-                                class="custom-control-input" id="rememberMe"> <label class="custom-control-label fs-13"
+                                class="custom-control-input" id="rememberMe"> <label class="custom-control-label fs-13 text-light"
                                 for="rememberMe">Remember me</label></div>
                     </div>
                     <div class="col-sm-6">
@@ -73,21 +73,15 @@
                     <div class="col-12">
                         <div class="rui-sign-or mt-2 mb-5">or</div>
                     </div>
-                    <div class="col-12">
+                    <!-- <div class="col-12">
                         <ul class="rui-social-links">
-                            <li><a href="https://github.com/john-fixit" class="rui-social-github line"><span
-                                        class="fab fa-github"></span>
-                                    Github</a></li>
-                            <li><a href="https://facebook.com/adeoyejohnoluwakayode"
-                                    class="rui-social-facebook line"><span class="fab fa-facebook-f"></span>
-                                    Facebook</a></li>
                             <li><a href="https://linkedin.com/in/adeoye-john-413b67229"
                                     class="rui-social-google line"><span class="fab fa-google"></span>
                                     Google</a></li>
                         </ul>
-                    </div>
-                    <div class="mt-20 text-grey-5">Don't you have an account? <a href="sign-up.html"
-                            class="text-2 line">Sign
+                    </div> -->
+                    <div class="mt-20 text-grey-5">Don't you have an account? <a href="index.html"
+                            class="text- line text-light">Sign
                             Up</a>
 
                     </div>
@@ -119,8 +113,6 @@
             userLogin.push(uLog)
             sLog = JSON.stringify(userLogin)
             localStorage.setItem("myLoginUser", sLog)
-
-            console.log("seen");
             location.href = "dashboard.html"
         }
 
@@ -155,15 +147,22 @@
 
         }
 
-        var Logger = usersAccount.find((pName) => pName.fName)
-        // for(i=0;i<=usersAccount.length;i++){
-        //     usersAccount[i].fName
-        // }
         usersAccount = JSON.parse(localStorage.getItem("details"));
-       
-        oLog = ({Email,passWord})
-        rLog = JSON.stringify(oLog)
-        localStorage.setItem("owner", rLog)
+        var Logger = usersAccount.find((pName) =>pName.eMail == Email)
+        indexOfUser = usersAccount.indexOf(Logger)
+        console.log(indexOfUser);
+
+        if (Logger) {
+                userName = usersAccount[indexOfUser].fName
+                userAccId = usersAccount[indexOfUser].accountNo
+                userBalance = usersAccount[indexOfUser].userBal
+                oLog = ({Email, passWord,userName,userAccId,userBalance})
+                rLog = JSON.stringify(oLog)
+                localStorage.setItem("owner", rLog)
+
+
+        }
+
 
 
     }

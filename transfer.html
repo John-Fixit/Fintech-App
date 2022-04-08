@@ -63,7 +63,7 @@
                                 class="fw-700 text-dark">Profile</span> <span class="rui-yaybar-circle"></span></a>
                     </li>
 
-                    <li class="lin"><a href="profile2.html" class="yay-sub-toggle"><span stroke-width="1"
+                    <li class="lin"><a href="transfer.html" class="yay-sub-toggle"><span stroke-width="1"
                                 class="text-brand" data-feather="server"></span></span> <span
                                 class="fw-700 text-dark">Transaction Activities</span><span
                                 class="rui-yaybar-circle"></span> <span class="yay-icon-collapse"><span
@@ -268,7 +268,7 @@
                         <input type="text" name="" id="amountToTransfer" placeholder="Enter Amount To Transfer"
                             class="form-control">
                         <div class="rui-gap-2"></div>
-                        <input type="button" name="" class="form-control bg-info " onclick="check()" value="Enter">
+                        <input type="button" name="" class="form-control bg-info " onclick="enter()" value="Enter">
                     </div>
                 </div>
 
@@ -278,10 +278,7 @@
                     <h1 class="card-header text-center">Users, feedback</h1>
                     <div class="card-body">
                         <p id="confirmAccountNo">confirmation of recipient account number</p>
-
-                        <div class="rui-gap-2"></div>
-                        <p id="verifyAccount">verification of the account Number</p>
-
+                        <p id="verifyAmount"></p>
                         <div class="rui-gap-2"></div>
 
                     </div>
@@ -345,40 +342,66 @@
 
 
         <script>
-            usersAmount = []
             usersAccount = JSON.parse(localStorage.getItem("details"))
-            console.log(usersAccount);
-            function check() {
+            cust = JSON.parse(localStorage.getItem("owner"))
+            userName.innerHTML = `Welcome Dear ${cust.userName}`;
+
+
+            function enter() {
+
                 var rAN = recieverAccountNo.value;
-                var aTT = amountToTransfer.value;
+                var aTT = parseInt(amountToTransfer.value);
+
                 for (i = 0; i <= usersAccount.length; i++) {
-                    if (rAN == usersAccount[i].accountNo) {
-                        confirmAccountNo.innerHTML = `You want to transfer ${aTT} to ${usersAccount[i].fName} account`;
-                        let obj = {
-                            aTT
-                        }
-                        console.log(usersAccount[i].userBal.push(obj));
-                        let users = JSON.stringify(usersAccount)
-                        localStorage.setItem('details', users)
+                    acc = usersAccount[i].accountNo
+                    if (rAN == acc) {
+                        confirmAccountNo.innerHTML = `You want to transfer ₦${aTT} to ${usersAccount[i].fName} account`;
                     }
                 }
 
             }
             function tMoney() {
-                    var e = usersAccount[6].userBal
-                    var f = e.push(2000)
-                    sU = usersAccount
-                    console.log(sU);
-                    // localStorage.setItem("amount", sU)
-                    // var hy = usersAccount[6].userBal
+                var rAN = recieverAccountNo.value;
+                var aTT = parseInt(amountToTransfer.value);
+                if (confirmAccountNo.innerHTML != "confirmation of recipient account number") {
+
+                    cus = usersAccount.find((j) => j.accountNo == cust.userAccId)
+                    k = usersAccount.indexOf(cus)
+                    uIndex = usersAccount[k].userBal.length - 1;
+                    deduct = usersAccount[k].userBal[uIndex];
+
+                    if (deduct < aTT) {
+                        verifyAmount.innerHTML = `Insufficient balance`
+                    }
+                    else {
+
+                        bN = usersAccount.find((h) => h.accountNo == rAN)
+                        dd = usersAccount.indexOf(bN)
+                        lastAm = usersAccount[dd].userBal.length - 1
+                        hH = parseInt(usersAccount[dd].userBal[lastAm])
+                        var obj = hH + aTT
+                        console.log(obj);
+                        usersAccount[dd].userBal.push(obj);
+                        sAmount = JSON.stringify(usersAccount);
+                        localStorage.setItem("details", sAmount)
+
+
+                        
+                        let uObj = deduct - aTT;
+                        usersAccount[k].userBal.push(uObj)
+                        sOwner = JSON.stringify(usersAccount);
+                        localStorage.setItem("details", sOwner)
+                    }
+
+                }
 
             }
 
 
 
-            function logOut(){
-                if (confirm("Are you sure you want to log out?")){
-                    location.href="sign-In.html"
+            function logOut() {
+                if (confirm("Are you sure you want to log out?")) {
+                    location.href = "sign-In.html"
                 }
             }
         </script>

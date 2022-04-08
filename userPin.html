@@ -25,7 +25,7 @@
     <div class="rui-main bg-info">
         <div class="rui-sign align-items-center justify-content-center">
             <div id="accountNumber"></div>
-            <div class="phone border border-light h-75 w-25">
+            <!-- <div class="phone border border-light h-75 w-25">
                 <input type="text" name="number" id="pinNo" class="form-control mt-3 fs-3" placeholder="select your pin no" disabled>
                 <div class="buttons">
                     <div class="btn-groups ml-3 mt-3">
@@ -47,9 +47,9 @@
                     </div>
                 </div>
                 
-            </div>
-            <button class="btn btn-success px-3 py-2 mt-3" onclick="end()">Close</button>
+            </div> -->
 
+            <button class="btn btn-success px-3 py-2 mt-3" onclick="end()">Close</button>
 
         </div>
 
@@ -57,25 +57,13 @@
 </body>
     <script>
         usersAccount = JSON.parse(localStorage.getItem("details"))
-        document.getElementById("accountNumber").innerHTML =`Dear ${usersAccount[(usersAccount.length-1)].fName} thanks for open account with us your account number is : ${usersAccount[(usersAccount.length-1)].accountNo} `
-        accountNumber.style.color = "Green"
         accountNumber.style.fontSize = "4vh"
-        function num(n){
-            document.getElementById("pinNo").value +=n
-        }   
-        function enter(){
-            if(pinNo.value==" "){
-                pinNo.value = "please"
-            }
-            pinNo.value = "successful"
-
-        }
         function end(){
-            if(pinNo.value == "successful"){
                 location.href="index.html"
-            }
-           
         }
+
+        document.getElementById("accountNumber").innerHTML =`Dear ${usersAccount[(usersAccount.length-1)].fName} thanks for open account with us your account number is : ${usersAccount[(usersAccount.length-1)].accountNo} and your transfer pin is ${usersAccount[(usersAccount.length-1)].transferPin}`
+
     </script>
 
 

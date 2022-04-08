@@ -334,7 +334,7 @@
             </div>
 
 
-            <div class="toast rui-toast hide" role="alert" aria-live="assertive" aria-atomic="true" data-delay="8000"
+            <!-- <div class="toast rui-toast hide" role="alert" aria-live="assertive" aria-atomic="true" data-delay="8000"
                 data-toast-show-on-startup="true">
                 <div class="toast-header">
                     <h5 class="mr-auto mnb-2" style="font-weight: 800;">@ JOHN FIX</h5><button type="button"
@@ -343,7 +343,7 @@
                 </div>
                 <div class="toast-body">Hey! welcome to this website.
                 </div>
-            </div>
+            </div> -->
             <script src="./assets/vendor/jquery/dist/jquery.min.js"></script>
             <script src="./assets/vendor/popper.js/dist/umd/popper.min.js"></script>
             <script src="./assets/vendor/bootstrap/dist/js/bootstrap.min.js"></script>
@@ -570,16 +570,11 @@
                 usersAccount = JSON.parse(localStorage.getItem("details"));
                 cust = JSON.parse(localStorage.getItem("owner"))
                 
-                userName.innerHTML = `Welcome Dear ${cust.Email}`;
-                console.log(cust);
-                accNo.innerHTML = usersAccount[usersAccount.length-1].accountNo;
-                k= 5000;
-                accBal.innerHTML += 5000
-                
-
-
-
-
+                userName.innerHTML = `Welcome Dear ${cust.userName}`;
+                accNo.innerHTML = cust.userAccId;
+                amountRemain = cust.userBalance.length-1
+                console.log(amountRemain);
+                accBal.innerHTML = `₦ ${cust.userBalance[amountRemain]}`
 
 
                 
