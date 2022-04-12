@@ -5,19 +5,23 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Transfer</title>
-    <link rel="stylesheet" href="assets/css/bootstrap-custom.css">
-    <link rel="stylesheet" href="assets/vendor/overlayscrollbars/css/OverlayScrollbars.css">
-    <link rel="stylesheet" href="assets/css/yaybar.css">
-    <link rel="stylesheet" href="assets/vendor/fancybox/dist/jquery.fancybox.css">
-    <link rel="stylesheet" href="assets/vendor/emojionearea/dist/emojionearea.css">
-    <link rel="stylesheet" href="assets/vendor/swiper/swiper-bundle.min.css">
-    <link rel="stylesheet" href="assets/vendor/chartist/dist/chartist.css">
-    <link rel="stylesheet" href="assets/vendor/jqvmap/dist/jqvmap.css">
-    <link rel="stylesheet" href="assets/css/rootui.css">
-    <link rel="stylesheet" href="assets/css/rootui-night.css" media="(night)" class="rui-nightmode-link">
-    <link rel="stylesheet" href="assets/css/custom.css">
+    <title>Deposit page</title>
+    <link rel="stylesheet" href="bootstrap-5.1.3/dist/css/bootstrap.css">
+
+    <link rel="stylesheet" href="./assets/css/bootstrap-custom.css">
+    <link rel="stylesheet" href="./assets/vendor/overlayscrollbars/css/OverlayScrollbars.css">
+    <link rel="stylesheet" href="./assets/css/yaybar.css">
+    <link rel="stylesheet" href="./assets/vendor/fancybox/dist/jquery.fancybox.css">
+    <link rel="stylesheet" href="./assets/vendor/emojionearea/dist/emojionearea.css">
+    <link rel="stylesheet" href="./assets/vendor/swiper/swiper-bundle.min.css">
+    <link rel="stylesheet" href="./assets/vendor/chartist/dist/chartist.css">
+    <link rel="stylesheet" href="./assets/vendor/jqvmap/dist/jqvmap.css">
+    <link rel="stylesheet" href="./assets/css/rootui.css">
+    <link rel="stylesheet" href="./assets/css/rootui-night.css" media="(night)" class="rui-nightmode-link">
+    <link rel="stylesheet" href="./assets/css/custom.css">
+
 </head>
+
 <style>
     .lin {
         margin-top: 3vh;
@@ -33,10 +37,6 @@
         border-top-right-radius: 30vh !important;
         border-bottom-right-radius: 30vh !important;
     }
-
-    /* .pin{
-       
-    } */
 </style>
 
 <body data-spy="scroll" data-target=".rui-page-sidebar" data-offset="140"
@@ -63,16 +63,16 @@
                                 class="fw-700 text-dark">Profile</span> <span class="rui-yaybar-circle"></span></a>
                     </li>
 
-                    <li class="lin"><a href="transfer.html" class="yay-sub-toggle"><span stroke-width="1"
+                    <li class="lin"><a href="profile2.html" class="yay-sub-toggle"><span stroke-width="1"
                                 class="text-brand" data-feather="server"></span></span> <span
                                 class="fw-700 text-dark">Transaction Activities</span><span
                                 class="rui-yaybar-circle"></span> <span class="yay-icon-collapse"><span
                                     data-feather="chevron-right"
                                     class="rui-icon rui-icon-collapse rui-icon-stroke-1_5"></span></span></a>
                         <ul class="yay-submenu dropdown-triangle bg-brand">
-                            <li><a href="deposit.html">Deposit</a></li>
+                            <li><a href="sign-in.html">Deposit</a></li>
                             <li><a href="transfer.html">Transfer</a></li>
-                            <li><a href="sign-in.html">withdraw</a></li>
+                            <li><a href="withdraw.html">Withdraw</a></li>
                         </ul>
                     </li>
                     <li class="lin"><a href="element-tables.html"><span class="yay-icon"><span data-feather="menu"
@@ -80,7 +80,7 @@
                                 class="fw-700 text-dark">Tables</span> <span class="rui-yaybar-circle"></span></a>
                     </li>
 
-                    <li class="lin"><a href="#"><span class="yay-icon"><span data-feather="settings"
+                    <li class="lin"><a href="sign-in.html"><span class="yay-icon"><span data-feather="settings"
                                     class="rui-icon rui-icon-stroke-1_5 text-brand"></span></span> <span
                                 class="fw-700 text-dark">Settings</span> <span class="rui-yaybar-circle"></span> <span
                                 class="yay-icon-collapse"><span data-feather="chevron-right"
@@ -131,7 +131,7 @@
     </div>
     <div class="rui-yaybar-bg"></div>
     <nav class="rui-navbar rui-navbar-top rui-navbar-sticky bg-dark">
-        <div class="rui-navbar-brand"><a href="dashboard.html" class="rui-navbar-logo"><span class="text-brand"
+        <div class="rui-navbar-brand"><a href="index.html" class="rui-navbar-logo"><span class="text-brand"
                     style="font-weight: 900;">JOHN FIX</span></a><button class="yay-toggle rui-yaybar-toggle"
                 type="button"><span></span></button></div>
         <div class="container-fluid">
@@ -195,11 +195,11 @@
     <div class="rui-navbar rui-navbar-mobile bg-dark">
         <div class="rui-navbar-head"><button class="rui-yaybar-toggle rui-yaybar-toggle-inverse yay-toggle"
                 type="button" aria-label="Toggle side navigation"><span></span></button> <a
-                class="rui-navbar-logo mr-auto" href="dashboard.html"><span class="text" style="font-weight: 900;">JOHN
+                class="rui-navbar-logo mr-auto" href="index.html"><span class="text" style="font-weight: 900;">JOHN
                     FIX</span></a>
             <div class="dropdown dropdown-triangle"><a class="dropdown-item rui-navbar-avatar" href="#"
                     data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img src="john.png" alt=""></a>
-                <ul class="dropdown-menu nav">z
+                <ul class="dropdown-menu nav">
                     <li><a href="profile.html" class="nav-link"><span data-feather="plus-circle"
                                 class="rui-icon rui-icon-stroke-1_5"></span> <span>Create new Post</span> <span
                                 class="rui-nav-circle"></span></a></li>
@@ -243,84 +243,54 @@
         </div>
     </div>
     <div class="rui-navbar-bg"></div>
-    <div class="rui-page content-wrap">
+    <div class="rui-page content-wrap bg-dark">
         <div class="rui-page-title">
             <div class="container-fluid">
                 <nav aria-label="breadcrumb">
                     <ol class="breadcrumb">
-                        <li class="breadcrumb-item  bg-inf text-light"><a href="dashboard.html">Home</a></li>
+                        <li class="breadcrumb-item  bg-inf text-light"><a href="index.html">Home</a></li>
                     </ol>
                 </nav>
-                <h1 id="userName">Welcome Dear, @Name</h1>
+                <h1 id="userName" class="text-light">Welcome Dear, @Name</h1>
             </div>
-            <div class="summary text-right fw-600 mr-5">Transfer</div>
-
-        </div>
-        <div class="rui-gap-2"></div>
-        <div class="container-fluid row">
-            <div class="col-md-4">
-                <div class="card">
-                    <h1 class="card-header text-center">Recipient Details</h1>
-                    <div class="card-body">
-                        <input type="text" name="" id="recieverAccountNo" placeholder="Enter Beneficiary Account Number"
-                            class="form-control">
-                        <div class="rui-gap-2"></div>
-                        <input type="text" name="" id="amountToTransfer" placeholder="Enter Amount To Transfer"
-                            class="form-control">
-                        <div class="rui-gap-2"></div>
-                        <input type="button" name="" class="form-control bg-info" id="enter" onclick="enter()" value="Enter">
-                    </div>
-                </div>
-
-            </div>
-            <div class="col-md-8">
-                <div class="card">
-                    <h1 class="card-header text-center">Users, feedback</h1>
-                    <div class="card-body">
-                        <p id="confirmAccountNo">confirmation of recipient account number</p>
-                        <p id="verifyAmount"></p>
-                        <div class="rui-gap-2"></div>
-
-                    </div>
-                </div>
-
-            </div>
-
+            <div class="summary text-right fw-600 text-light">Deposit</div>
         </div>
 
-        <div class="rui-gap-4"></div>
+        <div class="container mt-5">
+            <h1 class="header text-light text-center fs-1">Deposit</h1>
+            <input type="number" class="form-control fs-1 fw-bold" name="" id="dAmount" placeholder="Enter Amount"
+                maxlength="4" disabled>
 
-        <div class="pin">
-            <div class="card">
-                <h1 class="card-header text-center">customer confirmation</h1>
-                <div class="card-body">
-                    <input type="text" name="" id="customerPin" placeholder="Enter pin" class="form-control">
-                    <div class="rui-gap-2"></div>
-
-                    <input type="button" name="" class="form-control bg-danger " value="transfer" onclick="tMoney()">
+            <div class="d-block col-md-3 border p-3 mx-auto">
+                <div class="row mt-3">
+                    <div class="col-4"><button class="btn btn-light fs-2" onclick="num(1)">1</button></div>
+                    <div class="col-4"><button class="btn btn-light fs-2" onclick="num(2)">2</button></div>
+                    <div class="col-4"><button class="btn btn-light fs-2" onclick="num(3)">3</button></div>
+                    <!-- <div class="col-3"><button class="btn btn-light fs-2" onclick="num(4)">4</button></div> -->
+                </div>
+                <div class="row mt-3">
+                    <div class="col-4"><button class="btn btn-light fs-2" onclick="num(4)">4</button></div>
+                    <div class="col-4"><button class="btn btn-light fs-2" onclick="num(5)">5</button></div>
+                    <div class="col-4"><button class="btn btn-light fs-2" onclick="num(6)">6</button></div>
+                    <!-- <div class="col-3"><button class="btn btn-light fs-2" onclick="num(8)">8</button></div> -->
+                </div>
+                <div class="row mt-3">
+                    <div class="col-4"><button class="btn btn-light fs-2" onclick="num(7)">7</button></div>
+                    <div class="col-4"><button class="btn btn-light fs-2" onclick="num(8)">8</button></div>
+                    <div class="col-4"><button class="btn btn-light fs-2" onclick="num(9)">9</button></div>
+                </div>
+                <div class="row mt-3">
+                    <div class="col-4"><button class="btn btn-light fs-2" onclick="num(0)">0</button></div>
+                    <div class="col-4"><button class="btn btn-light fs-2" onclick="clr()">CLR</button></div>
+                    <div class="col-4"><button class="btn btn-danger text-center h-100 text-center"
+                            onclick="enter();">Enter</button></div>
                 </div>
             </div>
 
         </div>
-
-        <footer class="rui-footer">
-            <div class="container-fluid">
-                <p class="mb-0">2022 &copy; Design by John Fix.</p>
-            </div>
-        </footer>
+        <button class="btn btn-success mx-auto mt-5" onclick="depo()">Deposit</button>
 
 
-
-        <!-- <div class="toast rui-toast hide" role="alert" aria-live="assertive" aria-atomic="true" data-delay="8000"
-            data-toast-show-on-startup="true">
-            <div class="toast-header">
-                <h5 class="mr-auto mnb-2" style="font-weight: 800;">@ JOHN FIX</h5><button type="button"
-                    class="ml-15 mnt-4 mnr-4 toast-close close" data-dismiss="toast" aria-label="Close"><span
-                        data-feather="x" class="rui-icon rui-icon-stroke-1_5"></span></button>
-            </div>
-            <div class="toast-body">Hey! welcome to this website.
-            </div>
-        </div> -->
         <script src="./assets/vendor/jquery/dist/jquery.min.js"></script>
         <script src="./assets/vendor/popper.js/dist/umd/popper.min.js"></script>
         <script src="./assets/vendor/bootstrap/dist/js/bootstrap.min.js"></script>
@@ -337,82 +307,70 @@
         <script src="./assets/vendor/chartist/dist/chartist.min.js"></script>
         <script src="./assets/vendor/jqvmap/dist/jquery.vmap.min.js"></script>
         <script src="./assets/vendor/jqvmap/dist/maps/jquery.vmap.usa.js"></script>
-        <script src="./assets/js/rootui.js"></script>
-        <script src="./assets/js/rootui-init.js"></script>
-
-
-        <script>
-            usersAccount = JSON.parse(localStorage.getItem("details"))
-            cust = JSON.parse(localStorage.getItem("owner"))
-            userName.innerHTML = `Welcome Dear ${cust.userName}`;
-
-
-            function enter() {
-
-                var rAN = recieverAccountNo.value;
-                var aTT = parseInt(amountToTransfer.value)
-
-                for (i = 0; i <= usersAccount.length; i++) {
-                    acc = usersAccount[i].accountNo
-                    if (rAN == acc) {
-                        confirmAccountNo.innerHTML = `You want to transfer NGN${aTT} to ${usersAccount[i].fName} account`;
-                    }
-                }
-
-            }
-            function tMoney() {
-                // document.getElementById("enter").disabled = true;
-                var rAN = recieverAccountNo.value;
-                var aTT = parseInt(amountToTransfer.value);
-                if (confirmAccountNo.innerHTML != "confirmation of recipient account number") {
-
-                    cus = usersAccount.find((j) => j.accountNo == cust.userAccId)
-                    k = usersAccount.indexOf(cus)
-                    uIndex = usersAccount[k].userBal.length - 1;
-                    deduct = usersAccount[k].userBal[uIndex];
-
-
-                    userPin = usersAccount[k].transferPin
-                    if (userPin == customerPin.value) {
-                        if (deduct < aTT) {
-                            verifyAmount.innerHTML = `Insufficient balance`
-                        }
-                        else {
-
-                            bN = usersAccount.find((h) => h.accountNo == rAN)
-                            dd = usersAccount.indexOf(bN)
-                            lastAm = usersAccount[dd].userBal.length - 1
-                            hH = parseInt(usersAccount[dd].userBal[lastAm])
-                            var obj = hH + aTT
-                            console.log(obj);
-                            usersAccount[dd].userBal.push(obj);
-                            usersAccount[dd].credit.push(aTT)
-                            sAmount = JSON.stringify(usersAccount);
-                            localStorage.setItem("details", sAmount)
-
-
-
-                            let uObj = deduct - aTT;
-                            usersAccount[k].userBal.push(uObj)
-                            sOwner = JSON.stringify(usersAccount);
-                            localStorage.setItem("details", sOwner)
-                        }
-                    }
-                    else {
-                        alert("Incorrect Pin")
-                    }
-                }
-
-            }
-
-
-
-            function logOut() {
-                if (confirm("Are you sure you want to log out?")) {
-                    location.href = "sign-In.html"
-                }
-            }
-        </script>
 </body>
+<script src="./assets/js/rootui.js"></script>
+<script src="./assets/js/rootui-init.js"></script>
+
+
+
+
+<script>
+
+    // function clr(){
+    //     dAmount.value = 
+    // }
+
+    var deposit = [];
+    cust = JSON.parse(localStorage.getItem("owner"))
+    usersAccount = JSON.parse(localStorage.getItem("details"))
+    userName.innerHTML = `Welcome Dear ${cust.userName}`;
+    user = usersAccount.find((h) => h.accountNo == cust.userAccId)
+    indexOfUser = usersAccount.indexOf(user)
+    nn = parseInt(dAmount.value)
+
+    num = (press) => {
+        dAmount.value += press
+    }
+
+    function enter() {
+        // if (nn !="Enter Amount") {
+            var message = prompt(`You are about to Deposit ${nn}`)
+        // }
+    }
+    function depo() {
+        if (user) {
+            kk = [];
+            w = JSON.parse(localStorage.getItem("deposited"))
+            userEmail = cust.Email
+            accNo = cust.userAccId
+            usersAccount[indexOfUser].deposit.push(dAmount.value)
+            st = JSON.stringify(usersAccount)
+            localStorage.setItem("details", st)
+            nn = parseInt(dAmount.value)
+            console.log(nn);
+            pp = usersAccount[indexOfUser].userBal
+            lastIndex = pp.length - 1
+            lA = parseInt(usersAccount[indexOfUser].userBal[lastIndex])
+            lastAmount = lA + nn;
+            console.log(lastAmount);
+            usersAccount[indexOfUser].userBal.push(lastAmount)
+            str = JSON.stringify(usersAccount)
+            localStorage.setItem("details", str)
+            if (localStorage.deposited != null) {
+                kk = JSON.parse(localStorage.getItem("deposited"))
+            }
+
+
+        }
+    }
+
+
+
+    function logOut() {
+        if (confirm(`You are about to log out your account`)) {
+            location.href = "sign-in.html"
+        }
+    }
+</script>
 
 </html>

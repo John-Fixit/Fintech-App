@@ -72,7 +72,7 @@
                         <ul class="yay-submenu dropdown-triangle bg-brand">
                             <li><a href="sign-in.html">Deposit</a></li>
                             <li><a href="transfer.html">Transfer</a></li>
-                            <li><a href="sign-in.html">Pay Bills</a></li>
+                            <li><a href="withdraw.html">Withdraw</a></li>
                         </ul>
                     </li>
                     <li class="lin"><a href="element-tables.html"><span class="yay-icon"><span data-feather="menu"
@@ -316,10 +316,7 @@
 
 <script>
 
-    // function clr(){
-    //     dAmount.value = 
-    // }
-
+    
     var deposit = [];
     cust = JSON.parse(localStorage.getItem("owner"))
     usersAccount = JSON.parse(localStorage.getItem("details"))
@@ -327,9 +324,12 @@
     user = usersAccount.find((h) => h.accountNo == cust.userAccId)
     indexOfUser = usersAccount.indexOf(user)
     nn = parseInt(dAmount.value)
-
+    
     num = (press) => {
         dAmount.value += press
+    }
+    function clr(){
+        dAmount.value = dAmount.value.slice(0,-1)
     }
 
     function enter() {

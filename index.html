@@ -75,18 +75,21 @@
                 var usersAccount = [];
 
                 userBal = [];
-                var deposit = []
+                var deposit = [];
+                var credit = []
                 var fName = userName.value;
                 var eMail = email.value;
                 var passWord = password.value;
                 var transferPin = pin.value
                 var moneyAmount = 5000;
                 initialdeposited = 0
+                initialCredit = 0
                 var num = [2, 4, 5, 7, 8, 9, 2, 4, 5, 6];
                 var accountNo = Math.floor("2" + Math.random(num.length) * 1000000000);
 
                 userBal.push(moneyAmount)
                 deposit.push(initialdeposited)
+                credit.push(initialCredit)
                 if (localStorage.details != null) {
                     usersAccount = JSON.parse(localStorage.getItem("details"))
                 }
@@ -102,7 +105,7 @@
                     alert("please enter your info");
 
                 }
-                usersInfo = ({ fName, eMail, passWord, accountNo, userBal, transferPin, deposit });
+                usersInfo = ({ fName, eMail, passWord, accountNo, userBal, transferPin, deposit,credit });
                 usersAccount.push(usersInfo);
                 if (eMail&&fName&&passWord) {
                     sString = JSON.stringify(usersAccount);
