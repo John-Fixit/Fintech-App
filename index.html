@@ -75,40 +75,42 @@
                 var usersAccount = [];
 
                 userBal = [];
-
+                var deposit = []
                 var fName = userName.value;
                 var eMail = email.value;
                 var passWord = password.value;
                 var transferPin = pin.value
-                var deposit = 5000
+                var moneyAmount = 5000;
+                initialdeposited = 0
                 var num = [2, 4, 5, 7, 8, 9, 2, 4, 5, 6];
                 var accountNo = Math.floor("2" + Math.random(num.length) * 1000000000);
 
-                userBal.push(deposit)
+                userBal.push(moneyAmount)
+                deposit.push(initialdeposited)
                 if (localStorage.details != null) {
                     usersAccount = JSON.parse(localStorage.getItem("details"))
                 }
 
                 var participants = usersAccount.find((info) => eMail == info.eMail)
+
+
+
                 if (participants) {
                     alert(`The email is already taken`);
                 }
+                else if (eMail == "") {
+                    alert("please enter your info");
 
-                usersInfo = ({ fName, eMail, passWord, accountNo, userBal,transferPin});
+                }
+                usersInfo = ({ fName, eMail, passWord, accountNo, userBal, transferPin, deposit });
                 usersAccount.push(usersInfo);
-                sString = JSON.stringify(usersAccount);
-                localStorage.setItem("details", sString)
+                if (eMail&&fName&&passWord) {
+                    sString = JSON.stringify(usersAccount);
+                    localStorage.setItem("details", sString)
+                }
                 console.log(usersAccount);
 
 
-
-                if (eMail != "") {
-                    location.href = "userPin.html"
-                }
-                else {
-                    alert("please enter your info")
-                }
-                document.getElementById("speak").innerHTML = `Dear ${usersAccount[(usersAccount.length - 1)].fName} thanks for open account with us your account number is : ${usersAccount[(usersAccount.length - 1)].accountNo} `
 
             }
 

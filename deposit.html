@@ -5,22 +5,24 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Profile</title>
-    <link rel="stylesheet" href="assets/css/bootstrap-custom.css">
-    <link rel="stylesheet" href="assets/vendor/overlayscrollbars/css/OverlayScrollbars.css">
-    <link rel="stylesheet" href="assets/css/yaybar.css">
-    <link rel="stylesheet" href="assets/vendor/fancybox/dist/jquery.fancybox.css">
-    <link rel="stylesheet" href="assets/vendor/emojionearea/dist/emojionearea.css">
-    <link rel="stylesheet" href="assets/vendor/swiper/swiper-bundle.min.css">
-    <link rel="stylesheet" href="assets/vendor/chartist/dist/chartist.css">
-    <link rel="stylesheet" href="assets/vendor/jqvmap/dist/jqvmap.css">
-    <link rel="stylesheet" href="assets/css/rootui.css">
-    <link rel="stylesheet" href="assets/css/rootui-night.css" media="(night)" class="rui-nightmode-link">
-    <link rel="stylesheet" href="assets/css/custom.css">
+    <title>Deposit page</title>
     <link rel="stylesheet" href="bootstrap-5.1.3/dist/css/bootstrap.css">
+
+    <link rel="stylesheet" href="./assets/css/bootstrap-custom.css">
+    <link rel="stylesheet" href="./assets/vendor/overlayscrollbars/css/OverlayScrollbars.css">
+    <link rel="stylesheet" href="./assets/css/yaybar.css">
+    <link rel="stylesheet" href="./assets/vendor/fancybox/dist/jquery.fancybox.css">
+    <link rel="stylesheet" href="./assets/vendor/emojionearea/dist/emojionearea.css">
+    <link rel="stylesheet" href="./assets/vendor/swiper/swiper-bundle.min.css">
+    <link rel="stylesheet" href="./assets/vendor/chartist/dist/chartist.css">
+    <link rel="stylesheet" href="./assets/vendor/jqvmap/dist/jqvmap.css">
+    <link rel="stylesheet" href="./assets/css/rootui.css">
+    <link rel="stylesheet" href="./assets/css/rootui-night.css" media="(night)" class="rui-nightmode-link">
+    <link rel="stylesheet" href="./assets/css/custom.css">
+
 </head>
+
 <style>
-    
     .lin {
         margin-top: 3vh;
     }
@@ -35,13 +37,6 @@
         border-top-right-radius: 30vh !important;
         border-bottom-right-radius: 30vh !important;
     }
-
-        .j{
-            height: 200px !important;
-        }
-    /* .pin{
-       
-    } */
 </style>
 
 <body data-spy="scroll" data-target=".rui-page-sidebar" data-offset="140"
@@ -76,7 +71,7 @@
                                     class="rui-icon rui-icon-collapse rui-icon-stroke-1_5"></span></span></a>
                         <ul class="yay-submenu dropdown-triangle bg-brand">
                             <li><a href="sign-in.html">Deposit</a></li>
-                            <li><a href="profile2.html">Transfer</a></li>
+                            <li><a href="transfer.html">Transfer</a></li>
                             <li><a href="sign-in.html">Pay Bills</a></li>
                         </ul>
                     </li>
@@ -136,7 +131,7 @@
     </div>
     <div class="rui-yaybar-bg"></div>
     <nav class="rui-navbar rui-navbar-top rui-navbar-sticky bg-dark">
-        <div class="rui-navbar-brand"><a href="dashboard.html" class="rui-navbar-logo"><span class="text-brand"
+        <div class="rui-navbar-brand"><a href="index.html" class="rui-navbar-logo"><span class="text-brand"
                     style="font-weight: 900;">JOHN FIX</span></a><button class="yay-toggle rui-yaybar-toggle"
                 type="button"><span></span></button></div>
         <div class="container-fluid">
@@ -200,11 +195,11 @@
     <div class="rui-navbar rui-navbar-mobile bg-dark">
         <div class="rui-navbar-head"><button class="rui-yaybar-toggle rui-yaybar-toggle-inverse yay-toggle"
                 type="button" aria-label="Toggle side navigation"><span></span></button> <a
-                class="rui-navbar-logo mr-auto" href="dashboard.html"><span class="text" style="font-weight: 900;">JOHN
+                class="rui-navbar-logo mr-auto" href="index.html"><span class="text" style="font-weight: 900;">JOHN
                     FIX</span></a>
             <div class="dropdown dropdown-triangle"><a class="dropdown-item rui-navbar-avatar" href="#"
                     data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img src="john.png" alt=""></a>
-                <ul class="dropdown-menu nav">z
+                <ul class="dropdown-menu nav">
                     <li><a href="profile.html" class="nav-link"><span data-feather="plus-circle"
                                 class="rui-icon rui-icon-stroke-1_5"></span> <span>Create new Post</span> <span
                                 class="rui-nav-circle"></span></a></li>
@@ -248,52 +243,54 @@
         </div>
     </div>
     <div class="rui-navbar-bg"></div>
-    <div class="rui-page content-wrap" style="background-color: dark; overflow-y: hidden;">
+    <div class="rui-page content-wrap bg-dark">
         <div class="rui-page-title">
             <div class="container-fluid">
                 <nav aria-label="breadcrumb">
                     <ol class="breadcrumb">
-                        <li class="breadcrumb-item  bg-inf text-light"><a href="dashboard.html">Home</a></li>
+                        <li class="breadcrumb-item  bg-inf text-light"><a href="index.html">Home</a></li>
                     </ol>
                 </nav>
-                <h1 id="userName">Welcome Dear, @Name</h1>
+                <h1 id="userName" class="text-light">Welcome Dear, @Name</h1>
             </div>
-            <div class="summary text-right fw-600 mr-5;">My Profile</div>
-
+            <div class="summary text-right fw-600 text-light">Deposit</div>
         </div>
 
-        <div class="container shadow mt-5 bg-light p-3">
-            <div class="row">
-                <h1 class="card-header text-center fw-bold">Customer Profile</h1>
+        <div class="container mt-5">
+            <h1 class="header text-light text-center fs-1">Deposit</h1>
+            <input type="number" class="form-control fs-1 fw-bold" name="" id="dAmount" placeholder="Enter Amount"
+                maxlength="4" disabled>
+
+            <div class="d-block col-md-3 border p-3 mx-auto">
                 <div class="row mt-3">
-                    <div class="col-6"> <label for="userName" class="fs-2">Full Name</label><input type="text"
-                            name="user" id="username" disabled class="form-control"></div>
-
-                    <div class="col-6"> <label for="email" class="fs-2">Email Address</label><input type="email"
-                            name="user" id="emailAddress" disabled class="form-control"></div>
+                    <div class="col-4"><button class="btn btn-light fs-2" onclick="num(1)">1</button></div>
+                    <div class="col-4"><button class="btn btn-light fs-2" onclick="num(2)">2</button></div>
+                    <div class="col-4"><button class="btn btn-light fs-2" onclick="num(3)">3</button></div>
+                    <!-- <div class="col-3"><button class="btn btn-light fs-2" onclick="num(4)">4</button></div> -->
                 </div>
-
-                <div class="col-6">
-                    <label for="accountNo" class="fs-2 mt-4">Account Number</label>
-                    <input type="text" name="user" id="accId" disabled class="form-control">
+                <div class="row mt-3">
+                    <div class="col-4"><button class="btn btn-light fs-2" onclick="num(4)">4</button></div>
+                    <div class="col-4"><button class="btn btn-light fs-2" onclick="num(5)">5</button></div>
+                    <div class="col-4"><button class="btn btn-light fs-2" onclick="num(6)">6</button></div>
+                    <!-- <div class="col-3"><button class="btn btn-light fs-2" onclick="num(8)">8</button></div> -->
                 </div>
-                <div class="col-6 border h-25 j">
-                    <label for="accountNo" class="fs-2 mt-4">Account ID</label>
-                    <img src="Flag.jpg" alt="" class="card-img-top h-25" id="userImg" onmouseover="chan(this.src)">
+                <div class="row mt-3">
+                    <div class="col-4"><button class="btn btn-light fs-2" onclick="num(7)">7</button></div>
+                    <div class="col-4"><button class="btn btn-light fs-2" onclick="num(8)">8</button></div>
+                    <div class="col-4"><button class="btn btn-light fs-2" onclick="num(9)">9</button></div>
                 </div>
-
+                <div class="row mt-3">
+                    <div class="col-4"><button class="btn btn-light fs-2" onclick="num(0)">0</button></div>
+                    <div class="col-4"><button class="btn btn-light fs-2" onclick="clr()">CLR</button></div>
+                    <div class="col-4"><button class="btn btn-danger text-center h-100 text-center"
+                            onclick="enter();">Enter</button></div>
+                </div>
             </div>
+
         </div>
-
-        <footer class="rui-footer">
-            <div class="container-fluid">
-                <p class="mb-0">2022 &copy; Design by John Fix.</p>
-            </div>
-        </footer>
+        <button class="btn btn-success mx-auto mt-5" onclick="depo()">Deposit</button>
 
 
-
-        
         <script src="./assets/vendor/jquery/dist/jquery.min.js"></script>
         <script src="./assets/vendor/popper.js/dist/umd/popper.min.js"></script>
         <script src="./assets/vendor/bootstrap/dist/js/bootstrap.min.js"></script>
@@ -310,32 +307,70 @@
         <script src="./assets/vendor/chartist/dist/chartist.min.js"></script>
         <script src="./assets/vendor/jqvmap/dist/jquery.vmap.min.js"></script>
         <script src="./assets/vendor/jqvmap/dist/maps/jquery.vmap.usa.js"></script>
-        <script src="./assets/js/rootui.js"></script>
-        <script src="./assets/js/rootui-init.js"></script>
+</body>
+<script src="./assets/js/rootui.js"></script>
+<script src="./assets/js/rootui-init.js"></script>
 
 
-        <script>
-            usersAccount = JSON.parse(localStorage.getItem("details"))
-            cust=JSON.parse(localStorage.getItem("owner"))
-            document.getElementById("userName").innerHTML = `Welcome Dear ${cust.userName}`
-            
-            document.getElementById("username").value = cust.userName
-            document.getElementById("username").style.fontSize = "20px"
-            
-            document.getElementById("emailAddress").value = cust.Email
-            document.getElementById("emailAddress").style.fontSize = "20px"
 
-            document.getElementById("accId").value = cust.userAccId
-            document.getElementById("accId").style.fontSize = "20px"
 
-            
-            function chan(p){
-                document.getElementById("userImg").src = "John Fixit.png"
+<script>
 
+    // function clr(){
+    //     dAmount.value = 
+    // }
+
+    var deposit = [];
+    cust = JSON.parse(localStorage.getItem("owner"))
+    usersAccount = JSON.parse(localStorage.getItem("details"))
+    userName.innerHTML = `Welcome Dear ${cust.userName}`;
+    user = usersAccount.find((h) => h.accountNo == cust.userAccId)
+    indexOfUser = usersAccount.indexOf(user)
+    nn = parseInt(dAmount.value)
+
+    num = (press) => {
+        dAmount.value += press
+    }
+
+    function enter() {
+        // if (nn !="Enter Amount") {
+            var message = prompt(`You are about to Deposit ${nn}`)
+        // }
+    }
+    function depo() {
+        if (user) {
+            kk = [];
+            w = JSON.parse(localStorage.getItem("deposited"))
+            userEmail = cust.Email
+            accNo = cust.userAccId
+            usersAccount[indexOfUser].deposit.push(dAmount.value)
+            st = JSON.stringify(usersAccount)
+            localStorage.setItem("details", st)
+            nn = parseInt(dAmount.value)
+            console.log(nn);
+            pp = usersAccount[indexOfUser].userBal
+            lastIndex = pp.length - 1
+            lA = parseInt(usersAccount[indexOfUser].userBal[lastIndex])
+            lastAmount = lA + nn;
+            console.log(lastAmount);
+            usersAccount[indexOfUser].userBal.push(lastAmount)
+            str = JSON.stringify(usersAccount)
+            localStorage.setItem("details", str)
+            if (localStorage.deposited != null) {
+                kk = JSON.parse(localStorage.getItem("deposited"))
             }
 
 
-        </script>
-</body>
+        }
+    }
 
-</html> 
+
+
+    function logOut() {
+        if (confirm(`You are about to log out your account`)) {
+            location.href = "sign-in.html"
+        }
+    }
+</script>
+
+</html>

@@ -268,7 +268,7 @@
                         <input type="text" name="" id="amountToTransfer" placeholder="Enter Amount To Transfer"
                             class="form-control">
                         <div class="rui-gap-2"></div>
-                        <input type="button" name="" class="form-control bg-info " onclick="enter()" value="Enter">
+                        <input type="button" name="" class="form-control bg-info" id="enter" onclick="enter()" value="Enter">
                     </div>
                 </div>
 
@@ -311,7 +311,7 @@
 
 
 
-        <div class="toast rui-toast hide" role="alert" aria-live="assertive" aria-atomic="true" data-delay="8000"
+        <!-- <div class="toast rui-toast hide" role="alert" aria-live="assertive" aria-atomic="true" data-delay="8000"
             data-toast-show-on-startup="true">
             <div class="toast-header">
                 <h5 class="mr-auto mnb-2" style="font-weight: 800;">@ JOHN FIX</h5><button type="button"
@@ -320,7 +320,7 @@
             </div>
             <div class="toast-body">Hey! welcome to this website.
             </div>
-        </div>
+        </div> -->
         <script src="./assets/vendor/jquery/dist/jquery.min.js"></script>
         <script src="./assets/vendor/popper.js/dist/umd/popper.min.js"></script>
         <script src="./assets/vendor/bootstrap/dist/js/bootstrap.min.js"></script>
@@ -350,17 +350,18 @@
             function enter() {
 
                 var rAN = recieverAccountNo.value;
-                var aTT = parseInt(amountToTransfer.value);
+                var aTT = parseInt(amountToTransfer.value)
 
                 for (i = 0; i <= usersAccount.length; i++) {
                     acc = usersAccount[i].accountNo
                     if (rAN == acc) {
-                        confirmAccountNo.innerHTML = `You want to transfer ₦${aTT} to ${usersAccount[i].fName} account`;
+                        confirmAccountNo.innerHTML = `You want to transfer NGN${aTT} to ${usersAccount[i].fName} account`;
                     }
                 }
 
             }
             function tMoney() {
+                // document.getElementById("enter").disabled = true;
                 var rAN = recieverAccountNo.value;
                 var aTT = parseInt(amountToTransfer.value);
                 if (confirmAccountNo.innerHTML != "confirmation of recipient account number") {
@@ -370,29 +371,35 @@
                     uIndex = usersAccount[k].userBal.length - 1;
                     deduct = usersAccount[k].userBal[uIndex];
 
-                    if (deduct < aTT) {
-                        verifyAmount.innerHTML = `Insufficient balance`
+
+                    userPin = usersAccount[k].transferPin
+                    if (userPin == customerPin.value) {
+                        if (deduct < aTT) {
+                            verifyAmount.innerHTML = `Insufficient balance`
+                        }
+                        else {
+
+                            bN = usersAccount.find((h) => h.accountNo == rAN)
+                            dd = usersAccount.indexOf(bN)
+                            lastAm = usersAccount[dd].userBal.length - 1
+                            hH = parseInt(usersAccount[dd].userBal[lastAm])
+                            var obj = hH + aTT
+                            console.log(obj);
+                            usersAccount[dd].userBal.push(obj);
+                            sAmount = JSON.stringify(usersAccount);
+                            localStorage.setItem("details", sAmount)
+
+
+
+                            let uObj = deduct - aTT;
+                            usersAccount[k].userBal.push(uObj)
+                            sOwner = JSON.stringify(usersAccount);
+                            localStorage.setItem("details", sOwner)
+                        }
                     }
                     else {
-
-                        bN = usersAccount.find((h) => h.accountNo == rAN)
-                        dd = usersAccount.indexOf(bN)
-                        lastAm = usersAccount[dd].userBal.length - 1
-                        hH = parseInt(usersAccount[dd].userBal[lastAm])
-                        var obj = hH + aTT
-                        console.log(obj);
-                        usersAccount[dd].userBal.push(obj);
-                        sAmount = JSON.stringify(usersAccount);
-                        localStorage.setItem("details", sAmount)
-
-
-                        
-                        let uObj = deduct - aTT;
-                        usersAccount[k].userBal.push(uObj)
-                        sOwner = JSON.stringify(usersAccount);
-                        localStorage.setItem("details", sOwner)
+                        alert("Incorrect Pin")
                     }
-
                 }
 
             }
