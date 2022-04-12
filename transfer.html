@@ -72,7 +72,7 @@
                         <ul class="yay-submenu dropdown-triangle bg-brand">
                             <li><a href="deposit.html">Deposit</a></li>
                             <li><a href="transfer.html">Transfer</a></li>
-                            <li><a href="sign-in.html">withdraw</a></li>
+                            <li><a href="withdraw.html">withdraw</a></li>
                         </ul>
                     </li>
                     <li class="lin"><a href="element-tables.html"><span class="yay-icon"><span data-feather="menu"
@@ -363,7 +363,7 @@
             function tMoney() {
                 // document.getElementById("enter").disabled = true;
                 var rAN = recieverAccountNo.value;
-                var aTT = parseInt(amountToTransfer.value);
+                var amount = parseInt(amountToTransfer.value);
                 if (confirmAccountNo.innerHTML != "confirmation of recipient account number") {
 
                     cus = usersAccount.find((j) => j.accountNo == cust.userAccId)
@@ -374,7 +374,7 @@
 
                     userPin = usersAccount[k].transferPin
                     if (userPin == customerPin.value) {
-                        if (deduct < aTT) {
+                        if (deduct < amount) {
                             verifyAmount.innerHTML = `Insufficient balance`
                         }
                         else {
@@ -383,16 +383,19 @@
                             dd = usersAccount.indexOf(bN)
                             lastAm = usersAccount[dd].userBal.length - 1
                             hH = parseInt(usersAccount[dd].userBal[lastAm])
-                            var obj = hH + aTT
+                            var obj = hH + amount
+                            var time = new Date
+                            time=time.toLocaleTimeString()
+                            sendH = {amount,time}
                             console.log(obj);
                             usersAccount[dd].userBal.push(obj);
-                            usersAccount[dd].credit.push(aTT)
+                            usersAccount[dd].credit.push(sendH)
                             sAmount = JSON.stringify(usersAccount);
                             localStorage.setItem("details", sAmount)
 
 
 
-                            let uObj = deduct - aTT;
+                            let uObj = deduct - amount;
                             usersAccount[k].userBal.push(uObj)
                             sOwner = JSON.stringify(usersAccount);
                             localStorage.setItem("details", sOwner)

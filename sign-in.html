@@ -155,9 +155,7 @@
         if (Logger) {
                 userName = usersAccount[indexOfUser].fName
                 userAccId = usersAccount[indexOfUser].accountNo
-                userBalance = usersAccount[indexOfUser].userBal
-                depositedAmount = usersAccount[indexOfUser].deposit
-                oLog = ({Email, passWord,userName,userAccId,userBalance,depositedAmount})
+                oLog = ({Email, passWord,userName,userAccId})
                 rLog = JSON.stringify(oLog)
                 localStorage.setItem("owner", rLog)
 

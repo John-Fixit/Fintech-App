@@ -72,7 +72,7 @@
                         <ul class="yay-submenu dropdown-triangle bg-brand">
                             <li><a href="deposit.html" >Deposit</a></li>
                             <li><a href="transfer.html">Transfer</a></li>
-                            <li><a href="sign-in.html">Pay Bills</a></li>
+                            <li><a href="withdraw.html">Withdraw</a></li>
                         </ul>
                     </li>
                     <li class="lin"><a href="element-tables.html"><span class="yay-icon"><span data-feather="menu"
@@ -280,7 +280,7 @@
                             <div class="swiper-slide">
                                 <div class="rui-widget rui-widget-chart">
                                     <div class="rui-widget-chart-info">
-                                        <div class="rui-widget-title h2 text-light" id="creDit">₦ 0:00</div>
+                                        <div class="rui-widget-title h2 text-light" id="credit">₦ 0:00</div>
                                         <h2 class="rui-widget-subtitle">Credit</h2>
                                     </div>
                                     <div class="rui-chartjs-container">
@@ -301,7 +301,7 @@
                             <div class="swiper-slide">
                                 <div class="rui-widget rui-widget-chart">
                                     <div class="rui-widget-chart-info">
-                                        <div class="rui-widget-title h2 text-light" id="deBit">₦ 0 :00</div>
+                                        <div class="rui-widget-title h2 text-light" id="debit">₦ 0 :00</div>
                                         <h2 class="rui-widget-subtitle">Debit</h2>
                                     </div>
                                     <div class="rui-chartjs-container">
@@ -571,12 +571,22 @@
                 cust = JSON.parse(localStorage.getItem("owner"))
                 
                 userName.innerHTML = `Welcome Dear ${cust.userName}`;
+                
                 accNo.innerHTML = cust.userAccId;
-                amountRemain = cust.userBalance.length-1
-                console.log(amountRemain);
-                accBal.innerHTML = `₦ ${cust.userBalance[amountRemain]}`
 
 
+                d = usersAccount.find((bal)=>bal.eMail==cust.Email)
+                indexOfUser = usersAccount.indexOf(d)
+                lastBal = usersAccount[indexOfUser].userBal.length-1
+
+                accBal.innerHTML = `₦ ${usersAccount[indexOfUser].userBal[lastBal]} : 00`
+
+                
+                lastCr=usersAccount[indexOfUser].credit.length-1
+                credit.innerHTML = `₦ ${usersAccount[indexOfUser].credit[lastCr].amount} : 00`
+
+                lastDr = usersAccount[indexOfUser].withdraw.length-1
+                debit.innerHTML = `₦ ${usersAccount[indexOfUser].withdraw[lastDr].amount} : 00`
                 
                 function logOut(){
                     if(confirm(`You are about to log out your account`)){

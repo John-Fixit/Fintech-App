@@ -70,7 +70,7 @@
                                     data-feather="chevron-right"
                                     class="rui-icon rui-icon-collapse rui-icon-stroke-1_5"></span></span></a>
                         <ul class="yay-submenu dropdown-triangle bg-brand">
-                            <li><a href="sign-in.html">Deposit</a></li>
+                            <li><a href="deposit.html">Deposit</a></li>
                             <li><a href="transfer.html">Transfer</a></li>
                             <li><a href="withdraw.html">Withdraw</a></li>
                         </ul>
@@ -339,11 +339,15 @@
     }
     function depo() {
         if (user) {
-            kk = [];
-            w = JSON.parse(localStorage.getItem("deposited"))
             userEmail = cust.Email
             accNo = cust.userAccId
-            usersAccount[indexOfUser].deposit.push(dAmount.value)
+            amount=dAmount.value
+
+            var time = new Date
+            obj = {amount, time: time.toLocaleTimeString()}
+
+            usersAccount[indexOfUser].deposit.push(obj)
+            
             st = JSON.stringify(usersAccount)
             localStorage.setItem("details", st)
             nn = parseInt(dAmount.value)
@@ -356,9 +360,6 @@
             usersAccount[indexOfUser].userBal.push(lastAmount)
             str = JSON.stringify(usersAccount)
             localStorage.setItem("details", str)
-            if (localStorage.deposited != null) {
-                kk = JSON.parse(localStorage.getItem("deposited"))
-            }
 
 
         }

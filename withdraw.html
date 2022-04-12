@@ -70,7 +70,7 @@
                                     data-feather="chevron-right"
                                     class="rui-icon rui-icon-collapse rui-icon-stroke-1_5"></span></span></a>
                         <ul class="yay-submenu dropdown-triangle bg-brand">
-                            <li><a href="sign-in.html">Deposit</a></li>
+                            <li><a href="deposit.html">Deposit</a></li>
                             <li><a href="transfer.html">Transfer</a></li>
                             <li><a href="withdraw.html">Withdraw</a></li>
                         </ul>
@@ -253,13 +253,13 @@
                 </nav>
                 <h1 id="userName" class="text-light">Welcome Dear, @Name</h1>
             </div>
-            <div class="summary text-right fw-600 text-light">Deposit</div>
+            <div class="summary text-right fw-600 text-light">Withdraw</div>
         </div>
 
         <div class="container mt-5">
-            <h1 class="header text-light text-center fs-1">Deposit</h1>
-            <input type="number" class="form-control fs-1 fw-bold" name="" id="dAmount" placeholder="Enter Amount"
-                maxlength="4" disabled>
+            <h1 class="header text-light text-center fs-1">Withdraw Money</h1>
+            <input type="number" class="form-control fs-1 fw-bold mx-auto" name="" id="dAmount"
+                placeholder="Enter Amount" maxlength="4" disabled>
 
             <div class="d-block col-md-3 border p-3 mx-auto">
                 <div class="row mt-3">
@@ -281,14 +281,14 @@
                 </div>
                 <div class="row mt-3">
                     <div class="col-4"><button class="btn btn-light fs-2" onclick="num(0)">0</button></div>
-                    <div class="col-4"><button class="btn btn-light fs-2" onclick="clr()">CLR</button></div>
+                    <div class="col-4"><button class="btn btn-light h-100" onclick="clr()">CLR</button></div>
                     <div class="col-4"><button class="btn btn-danger text-center h-100 text-center"
                             onclick="enter();">Enter</button></div>
                 </div>
             </div>
 
         </div>
-        <button class="btn btn-success mx-auto mt-5" onclick="depo()">Deposit</button>
+        <button class="btn btn-success mx-auto mt-5" onclick="withdraw()">withdraw</button>
 
 
         <script src="./assets/vendor/jquery/dist/jquery.min.js"></script>
@@ -316,9 +316,6 @@
 
 <script>
 
-    // function clr(){
-    //     dAmount.value = 
-    // }
 
     var deposit = [];
     cust = JSON.parse(localStorage.getItem("owner"))
@@ -331,35 +328,42 @@
     num = (press) => {
         dAmount.value += press
     }
+    function clr() {
+        dAmount.value = dAmount.value.slice(0, -1)
+    }
 
     function enter() {
         // if (nn !="Enter Amount") {
-            var message = prompt(`You are about to Deposit ${nn}`)
+        var message = prompt(`You are about to Deposit ${nn}`)
         // }
     }
-    function depo() {
+    function withdraw() {
+        amount = parseInt(dAmount.value)
         if (user) {
-            kk = [];
-            w = JSON.parse(localStorage.getItem("deposited"))
             userEmail = cust.Email
             accNo = cust.userAccId
-            usersAccount[indexOfUser].deposit.push(dAmount.value)
-            st = JSON.stringify(usersAccount)
-            localStorage.setItem("details", st)
-            nn = parseInt(dAmount.value)
-            console.log(nn);
+            var time = new Date
+            obj = {amount, time: time.toLocaleTimeString() }
+            usersAccount[indexOfUser].withdraw.push(obj)
+            // if(localStorage.detail)
+
             pp = usersAccount[indexOfUser].userBal
             lastIndex = pp.length - 1
             lA = parseInt(usersAccount[indexOfUser].userBal[lastIndex])
-            lastAmount = lA + nn;
-            console.log(lastAmount);
-            usersAccount[indexOfUser].userBal.push(lastAmount)
-            str = JSON.stringify(usersAccount)
-            localStorage.setItem("details", str)
-            if (localStorage.deposited != null) {
-                kk = JSON.parse(localStorage.getItem("deposited"))
-            }
+            if (lA > amount) {
+                st = JSON.stringify(usersAccount)
+                localStorage.setItem("details", st)
 
+
+                lastAmount = lA - amount;
+                console.log(lastAmount);
+                usersAccount[indexOfUser].userBal.push(lastAmount)
+                str = JSON.stringify(usersAccount)
+                localStorage.setItem("details", str)
+            }
+            else if(lA < amount){
+                alert("insufficient Balance")
+            }
 
         }
     }
