@@ -28,10 +28,12 @@
     .lin {
         margin-top: 3vh;
     }
-    .summary{
+
+    .summary {
         font-size: 3vh;
 
     }
+
     .lin:hover {
         background: white;
         border-top-right-radius: 30vh !important;
@@ -41,7 +43,7 @@
 
 <body data-spy="scroll" data-target=".rui-page-sidebar" data-offset="140"
     class="rui-no-transition rui-navbar-autohide rui-section-lines">
-   
+
     <div class="yaybar yay-hide-to-small yay-shrink yay-gestures rui-yaybar bg-info">
         <div class="yay-wrap-menu">
             <div class="yaybar-wrap">
@@ -70,7 +72,7 @@
                                     data-feather="chevron-right"
                                     class="rui-icon rui-icon-collapse rui-icon-stroke-1_5"></span></span></a>
                         <ul class="yay-submenu dropdown-triangle bg-brand">
-                            <li><a href="deposit.html" >Deposit</a></li>
+                            <li><a href="deposit.html">Deposit</a></li>
                             <li><a href="transfer.html">Transfer</a></li>
                             <li><a href="withdraw.html">Withdraw</a></li>
                         </ul>
@@ -332,7 +334,7 @@
                     </div>
                 </footer>
             </div>
-
+            <div id="fd" class="text-light">Goal</div>
 
             <!-- <div class="toast rui-toast hide" role="alert" aria-live="assertive" aria-atomic="true" data-delay="8000"
                 data-toast-show-on-startup="true">
@@ -470,7 +472,7 @@
                 }());
 
                 const data = {
-                    labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep'],
+                    labels: ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'],
                     datasets: [
                         {
                             label: 'Credit',
@@ -478,7 +480,7 @@
                             borderColor: 'transparent',
                             borderWidth: 0,
                             pointRadius: 3,
-                            // pointHoverRadius: 3,
+                            pointHoverRadius: 3,
                             pointHitRadius: 100,
                             pointBackgroundColor: 'green',
                             pointHoverBackgroundColor: 'rgba(94, 119, 255, 1)',
@@ -495,6 +497,18 @@
                             pointBackgroundColor: 'transparent',
                             pointHoverBackgroundColor: 'rgba(171, 184, 255, 1)',
                             data: [0, 10, 10, 13, 10, 20, 10, 10, 25],
+                        },
+                        {
+                            label: 'Debit',
+                            backgroundColor: 'green',
+                            borderColor: 'transparent',
+                            borderWidth: 0,
+                            pointRadius: 3,
+                            pointHoverRadius: 3,
+                            pointHitRadius: 100,
+                            pointBackgroundColor: 'transparent',
+                            pointHoverBackgroundColor: 'rgba(171, 184, 255, 1)',
+                            data: [5, 15, 10, 13, 10, 20, 10, 10, 25],
                         }
                     ],
                 };
@@ -569,34 +583,34 @@
                 //verification of account
                 usersAccount = JSON.parse(localStorage.getItem("details"));
                 cust = JSON.parse(localStorage.getItem("owner"))
-                
+
                 userName.innerHTML = `Welcome Dear ${cust.userName}`;
-                
+
                 accNo.innerHTML = cust.userAccId;
 
 
-                d = usersAccount.find((bal)=>bal.eMail==cust.Email)
+                d = usersAccount.find((bal) => bal.eMail == cust.Email)
                 indexOfUser = usersAccount.indexOf(d)
-                lastBal = usersAccount[indexOfUser].userBal.length-1
+                lastBal = usersAccount[indexOfUser].userBal.length - 1
 
                 accBal.innerHTML = `₦ ${usersAccount[indexOfUser].userBal[lastBal]} : 00`
 
-                
-                lastCr=usersAccount[indexOfUser].credit.length-1
+
+                lastCr = usersAccount[indexOfUser].credit.length - 1
                 credit.innerHTML = `₦ ${usersAccount[indexOfUser].credit[lastCr].amount} : 00`
 
-                lastDr = usersAccount[indexOfUser].withdraw.length-1
+                lastDr = usersAccount[indexOfUser].withdraw.length - 1
                 debit.innerHTML = `₦ ${usersAccount[indexOfUser].withdraw[lastDr].amount} : 00`
-                
-                function logOut(){
-                    if(confirm(`You are about to log out your account`)){
-                        location.href="sign-in.html"
+
+                function logOut() {
+                    if (confirm(`You are about to log out your account`)) {
+                        location.href = "sign-in.html"
                     }
                 }
             </script>
             <script src="./assets/js/rootui.js"></script>
             <script src="./assets/js/rootui-init.js"></script>
-          
+
 </body>
 
 </html>

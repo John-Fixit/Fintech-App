@@ -195,7 +195,7 @@
     <div class="rui-navbar rui-navbar-mobile bg-dark">
         <div class="rui-navbar-head"><button class="rui-yaybar-toggle rui-yaybar-toggle-inverse yay-toggle"
                 type="button" aria-label="Toggle side navigation"><span></span></button> <a
-                class="rui-navbar-logo mr-auto" href="dashboard.html"><span class="text" style="font-weight: 900;">JOHN
+                class="rui-navbar-logo mr-auto" href="index.html"><span class="text" style="font-weight: 900;">JOHN
                     FIX</span></a>
             <div class="dropdown dropdown-triangle"><a class="dropdown-item rui-navbar-avatar" href="#"
                     data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img src="john.png" alt=""></a>
@@ -259,7 +259,7 @@
         <div class="rui-gap-2"></div>
         <div class="container-fluid row">
             <div class="col-md-4">
-                <div class="card">
+                <div class="car">
                     <h1 class="card-header text-center">Recipient Details</h1>
                     <div class="card-body">
                         <input type="text" name="" id="recieverAccountNo" placeholder="Enter Beneficiary Account Number"
@@ -268,36 +268,39 @@
                         <input type="text" name="" id="amountToTransfer" placeholder="Enter Amount To Transfer"
                             class="form-control">
                         <div class="rui-gap-2"></div>
-                        <input type="button" name="" class="form-control bg-info" id="enter" onclick="enter()" value="Enter">
+                        <input type="button" name="" class="form-control bg-info" id="enter" onclick="enter()"
+                            value="Enter">
                     </div>
                 </div>
 
             </div>
             <div class="col-md-8">
-                <div class="card">
-                    <h1 class="card-header text-center">Users, feedback</h1>
-                    <div class="card-body">
-                        <p id="confirmAccountNo">confirmation of recipient account number</p>
-                        <p id="verifyAmount"></p>
-                        <div class="rui-gap-2"></div>
+            
+                    <div class="col-6" id="col-6">
+                        <h1 class="card-header text-center">Users, feedback</h1>
+                        <div class="card-body">
+                            <p id="confirmAccountNo">confirmation of recipient account number</p>
+                            <p id="verifyAmount"></p>
+                            <div class="rui-gap-2"></div>
 
+                        </div>
                     </div>
-                </div>
-
+             
             </div>
 
         </div>
 
         <div class="rui-gap-4"></div>
 
-        <div class="pin">
+        <div id="pin">
             <div class="card">
                 <h1 class="card-header text-center">customer confirmation</h1>
                 <div class="card-body">
                     <input type="text" name="" id="customerPin" placeholder="Enter pin" class="form-control">
                     <div class="rui-gap-2"></div>
 
-                    <input type="button" name="" class="form-control bg-danger " value="transfer" onclick="tMoney()">
+                    <input type="button" name="" class="form-control bg-danger " value="transfer" id="g"
+                        onclick="tMoney()">
                 </div>
             </div>
 
@@ -311,16 +314,7 @@
 
 
 
-        <!-- <div class="toast rui-toast hide" role="alert" aria-live="assertive" aria-atomic="true" data-delay="8000"
-            data-toast-show-on-startup="true">
-            <div class="toast-header">
-                <h5 class="mr-auto mnb-2" style="font-weight: 800;">@ JOHN FIX</h5><button type="button"
-                    class="ml-15 mnt-4 mnr-4 toast-close close" data-dismiss="toast" aria-label="Close"><span
-                        data-feather="x" class="rui-icon rui-icon-stroke-1_5"></span></button>
-            </div>
-            <div class="toast-body">Hey! welcome to this website.
-            </div>
-        </div> -->
+      
         <script src="./assets/vendor/jquery/dist/jquery.min.js"></script>
         <script src="./assets/vendor/popper.js/dist/umd/popper.min.js"></script>
         <script src="./assets/vendor/bootstrap/dist/js/bootstrap.min.js"></script>
@@ -345,8 +339,12 @@
             usersAccount = JSON.parse(localStorage.getItem("details"))
             cust = JSON.parse(localStorage.getItem("owner"))
             userName.innerHTML = `Welcome Dear ${cust.userName}`;
+            document.getElementById("customerPin").disabled = true
+            document.getElementById("g").disabled = true;
 
 
+            document.getElementById("pin").style.display="none"
+            document.getElementById("col-6").style.display="none"
             function enter() {
 
                 var rAN = recieverAccountNo.value;
@@ -355,16 +353,24 @@
                 for (i = 0; i <= usersAccount.length; i++) {
                     acc = usersAccount[i].accountNo
                     if (rAN == acc) {
+                        document.getElementById("col-6").style.display= "block"
+
                         confirmAccountNo.innerHTML = `You want to transfer NGN${aTT} to ${usersAccount[i].fName} account`;
+                        document.getElementById("customerPin").disabled = false;
+                        document.getElementById("g").disabled = false;
+                        document.getElementById("pin").style.display= "block"
                     }
                 }
 
             }
             function tMoney() {
-                // document.getElementById("enter").disabled = true;
                 var rAN = recieverAccountNo.value;
                 var amount = parseInt(amountToTransfer.value);
-                if (confirmAccountNo.innerHTML != "confirmation of recipient account number") {
+                var decision = (rAN == cust.userAccId)
+                if (decision) {
+                    alert("You cannot transfer to your account")
+                }
+                if (confirmAccountNo.innerHTML != "confirmation of recipient account number" && !decision) {
 
                     cus = usersAccount.find((j) => j.accountNo == cust.userAccId)
                     k = usersAccount.indexOf(cus)
@@ -375,7 +381,9 @@
                     userPin = usersAccount[k].transferPin
                     if (userPin == customerPin.value) {
                         if (deduct < amount) {
+                            alert(`Insufficient balance`)
                             verifyAmount.innerHTML = `Insufficient balance`
+                            verifyAmount.style.color = "red"
                         }
                         else {
 
@@ -385,8 +393,8 @@
                             hH = parseInt(usersAccount[dd].userBal[lastAm])
                             var obj = hH + amount
                             var time = new Date
-                            time=time.toLocaleTimeString()
-                            sendH = {amount,time}
+                            time = time.toLocaleTimeString()
+                            sendH = { amount, time }
                             console.log(obj);
                             usersAccount[dd].userBal.push(obj);
                             usersAccount[dd].credit.push(sendH)
@@ -416,6 +424,7 @@
                 }
             }
         </script>
+        <script src="transfer.js"></script>
 </body>
 
 </html>
