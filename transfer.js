@@ -6,7 +6,7 @@ document.getElementById("g").disabled = true;
 
 
 document.getElementById("pin").style.display="none"
-document.getElementById("col-6").style.display="none"
+console.log("Hello");
 function enter() {
 
     var rAN = recieverAccountNo.value;
@@ -15,8 +15,6 @@ function enter() {
     for (i = 0; i <= usersAccount.length; i++) {
         acc = usersAccount[i].accountNo
         if (rAN == acc) {
-            document.getElementById("col-6").style.display= "block"
-
             confirmAccountNo.innerHTML = `You want to transfer NGN${aTT} to ${usersAccount[i].fName} account`;
             document.getElementById("customerPin").disabled = false;
             document.getElementById("g").disabled = false;

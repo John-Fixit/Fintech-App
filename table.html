@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1">
+
+    <title>Transaction History</title>
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="images/fevicon.png" type="image/png" />
+    <link rel="stylesheet" href="css/bootstrap.min.css" />
+
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="css/responsive.css" />
+    <link rel="stylesheet" href="css/colors.css" />
+    <link rel="stylesheet" href="css/bootstrap-select.css" />
+    <link rel="stylesheet" href="css/perfect-scrollbar.css" />
+    <link rel="stylesheet" href="css/custom.css" />
+    <link rel="stylesheet" href="bootstrap-5.1.3/dist/css/bootstrap.css">
+</head>
+
+<body class="dashboard dashboard_1">
+    <div class="full_container">
+        <div class="inner_container">
+            <!-- Sidebar  -->
+            <nav id="sidebar">
+                <div class="sidebar_blog_1">
+                    <div class="sidebar-header">
+                        <div class="logo_section">
+                            <a href="index.html"><img class="logo_icon img-responsive" src="images/logo/logo_icon.png"
+                                    alt="#" /></a>
+                        </div>
+                    </div>
+                    <div class="sidebar_user_info">
+                        <div class="icon_setting"></div>
+                        <div class="user_profle_side">
+                            <div class="user_img"><img class="img-responsive" src="images/layout_img/user_img.jpg"
+                                    alt="#" /></div>
+                            <div class="user_info">
+                                <h6 id="userId">John Fixit</h6>
+                                <p><span class="online_animation"></span> Online</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="sidebar_blog_2">
+                    <h4>General</h4>
+                    <ul class="list-unstyled components">
+                        <li class="active">
+                            <a href="index.html"><i class="fa fa-dashboard yellow_color"></i> <span>Dashboard</span></a>
+                        </li>
+                        <li>
+                            <a href="#element" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><i
+                                    class="fa fa-diamond purple_color"></i> <span>Transaction Activities</span></a>
+                            <ul class="collapse list-unstyled" id="element">
+                                <li><a href="deposit.html">> <span>Deposit</span></a></li>
+                                <li><a href="withdraw.html">> <span>Withdraw</span></a></li>
+                                <li><a href="transfer.html">> <span>Transfer</span></a></li>
+                            </ul>
+                        </li>
+                        <li><a href="table.html"><i class="fa fa-table purple_color2"></i> <span>Transaction
+                                    details</span></a></li>
+
+                        <li><a href="table.html"><i class="fa fa-mobile purple_color2"></i> <span>Recharge
+                                    Online</span></a></li>
+
+                        </li>
+                        <li class="active">
+                            <a href="#additional_page" data-toggle="collapse" aria-expanded="false"
+                                class="dropdown-toggle"><i class="fa fa-clone yellow_color"></i> <span>Additional
+                                    Pages</span></a>
+                            <ul class="collapse list-unstyled" id="additional_page">
+                                <li>
+                                    <a href="profile.html">> <span>Profile</span></a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li><a href="settings.html"><i class="fa fa-cog yellow_color"></i> <span>Settings</span></a>
+                        </li>
+                        <li><a href="#" onclick="logOut()"><i class="fa fa-remove yellow_color"></i> <span>Log
+                                    Out</span></a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+            <div id="content">
+                <div class="topbar">
+                    <nav class="navbar navbar-expand-lg navbar-light">
+                        <div class="full">
+                            <button type="button" id="sidebarCollapse" class="sidebar_toggle"><i
+                                    class="fa fa-bars"></i></button>
+                            <div class="logo_section">
+                                <a href="index.html"><img class="img-responsive" src="images/logo/logo.png"
+                                        alt="#" /></a>
+                            </div>
+                            <div class="right_topbar">
+                                <div class="icon_info">
+                                    <ul>
+                                        <li><a href="#"><i class="fa fa-bell-o"></i><span class="badge">4</span></a>
+                                        </li>
+                                        <li><a href="#"><i class="fa fa-question-circle"></i></a></li>
+                                        <li><a href="#"><i class="fa fa-envelope-o"></i><span class="badge">5</span></a>
+                                        </li>
+                                    </ul>
+                                    <ul class="user_profile_dd">
+                                        <li>
+                                            <a class="dropdown-toggle" data-toggle="dropdown"><img
+                                                    class="img-responsive rounded-circle"
+                                                    src="images/layout_img/user_img.jpg" alt="#" /><span
+                                                    class="name_user" id="userName">Action</span></a>
+                                            <div class="dropdown-menu">
+                                                <a class="dropdown-item" href="profile.html">My Profile</a>
+                                                <a class="dropdown-item" href="settings.html">Settings</a>
+                                                <a class="dropdown-item" href="help.html">Help</a>
+                                                <a class="dropdown-item" href="#" onclick="logOut()"><span>Log
+                                                        Out</span> <i class="fa fa-sign-out"></i></a>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </nav>
+                </div>
+                <div class="midde_cont">
+                    <div class="container-fluid">
+                        <div class="row column_title">
+                            <div class="col-md-12">
+                                <div class="page_title">
+                                    <h2 class="fs-1">Transaction History</h2>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-12 h-100">
+                            <div class="white_shd full margin_bottom_30">
+                                <div class="full graph_head">
+                                    <div class="heading1 margin_0" id="action">
+
+                                    </div>
+                                </div>
+
+                                <div class="container-fluid">
+                                    <div class="footer">
+                                        <p>Designed By <span><a href="https://github.comm/john-fixit.com"> John
+                                                    Fix</a></span>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <script src="js/jquery.min.js"></script>
+                <script src="js/popper.min.js"></script>
+                <script src="js/bootstrap.min.js"></script>
+
+                <script src="js/animate.js"></script>
+
+                <script src="js/bootstrap-select.js"></script>
+                <script src="js/perfect-scrollbar.min.js"></script>
+                <script>
+                    var ps = new PerfectScrollbar('#sidebar');
+                </script>
+
+                <script src="js/custom.js"></script>
+
+                <script>
+                    usersAccount = JSON.parse(localStorage.getItem("details"))
+                    loggedInUser = JSON.parse(localStorage.getItem("owner"))
+                    userId.innerHTML = loggedInUser.userName;
+                    ll = usersAccount.find((g) => g.eMail == loggedInUser.Email)
+                    indv = usersAccount.indexOf(ll)
+                    console.log(indv);
+                    var transferAct = usersAccount[indv].transfer
+                    var wit = usersAccount[indv].withdraw
+                    var depo = usersAccount[indv].deposit
+
+                    tab = "";
+                    tab += `<div class="row">
+                        <div class="col-md-12">
+                           <div class="white_shd full margin_bottom_30">
+                              <div class="full graph_head">
+                                 <div class="heading1 margin_0">
+                                    <h2>Transfer History</h2>
+                                 </div>
+                              </div>`
+                    tab += `<div class="table_section padding_infor_info">
+                                 <div class="table-responsive-sm">
+                                    <table class="table table-striped">
+                                       <thead class="fs-4">
+                                            <th>Reciever's Name</th>
+                                            <th>Recipient Account No</th>
+                                            <th>Amount sent</th>
+                                            <th>Time</th>
+                                            <th>Date</th>
+                                       </thead>`
+                    for (i = 0; i < transferAct.length; i++) {
+                        var Name = transferAct[i].recieverName;
+                        var AccNo = transferAct[i].recieverAccNo;
+                        var amount = transferAct[i].amount;
+                        var time = transferAct[i].Time;
+                        var day = transferAct[i].Day;
+                        console.log(day);
+                        tab += `
+                                           <tbody>
+                                                <tr>
+                                                    <td>${Name}</td>
+                                                    <td>${AccNo}</td>
+                                                    <td>${amount}</td>
+                                                    <td>${time}</td>
+                                                    <td>${day}</td>
+                                                </tr>
+                                            </tbody>`
+                    }
+                    document.getElementById("action").innerHTML = tab
+                    tab += `</table>
+                                        </div>
+                                        </div>
+                                        </div>
+                                        </div>`
+
+
+                    ta = `<div class="row">
+                                       
+                                       <div class="col-md-12">
+                                           <div class="white_shd full margin_bottom_30">
+                                           <div class="full graph_head">
+                                               <div class="heading1 margin_0">
+                                                   <h2>Withrawal History</h2>
+                                               </div>
+                                           </div>`
+                    ta += `<div class="table_section padding_infor_info">
+                                       <div class="table-responsive-sm">
+                                        <table class="table table-striped">
+                                           <thead class="fs-3">
+                                                 <th>Amount</th>
+                                                 <th>Time</th>
+                                                 <th>Date</th>
+                                           </thead>`
+                    for (p = 0; p < wit.length; p++) {
+
+                        ta += `<tbody>
+                                              <tr>
+                                                 <td>${wit[p].amount}</td>
+                                                 <td>${wit[p].Time}</td>
+                                                 <td>${wit[p].Day}</td>
+                                              </tr>
+                                           </tbody>`
+                    }
+                    ta += `</table>
+                                        
+                                       </div>
+                                       </div>
+                                       </div>
+                                       </div>`
+                    document.getElementById("action").innerHTML += ta
+
+                    de = `
+
+            <div class="col-md-12">
+                <div class="white_shd full margin_bottom_30">
+                <div class="full graph_head">
+                    <div class="heading1 margin_0">
+                        <h2>Deposited History</h2>
+                    </div>
+                </div>`
+                    de += `<div class="table_section padding_infor_info">
+          <div class="table-responsive-sm">
+             <table class="table table-striped">
+                <thead class="fs-3">
+                      <th>Amount</th>
+                      <th>Time</th>
+                      <th>Date</th>
+                </thead>`
+                    for (d = 0; d < depo.length; d++) {
+                        console.log(depo[d].amount);
+                        de += `<tbody>
+                   <tr>
+                      <td>${depo[d].amount}</td>
+                      <td>${depo[d].Time}</td>
+                      <td>${depo[d].Day}</td>
+                   </tr>
+                </tbody>`
+                    }
+                    de += `</table>
+             
+          </div>
+       </div>
+       </div>
+       </div>`
+
+                    document.getElementById("action").innerHTML += de
+                    function logOut() {
+                        if (confirm("Are you sure you want to log out?")) {
+                            location.href = "login.html"
+                        }
+                    }
+                </script>
+</body>
+
+</html>

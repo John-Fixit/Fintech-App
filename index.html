@@ -1,127 +1,395 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Sign Up</title>
-    <meta name="description" content="RootUI - clean and powerful solution for your Dashboards, Administration areas.">
-    <meta name="keywords" content="admin, dashboard, template, react, reactjs, html, jquery, clean">
-    <meta name="author" content="nK">
-    <link rel="icon" type="image/png" href="./assets/images/favicon.png">
-    <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no">
-    <link rel="stylesheet" href="./assets/css/bootstrap-custom.css">
-    <link rel="stylesheet" href="./assets/css/rootui.css">
-    <link rel="stylesheet" href="./assets/css/rootui-night.css" media="(night)" class="rui-nightmode-link">
-    <link rel="stylesheet" href="./assets/css/custom.css">
+
+   <meta charset="utf-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+   <meta name="viewport" content="width=device-width, initial-scale=1">
+   <meta name="viewport" content="initial-scale=1, maximum-scale=1">
+
+   <title>Dashboard</title>
+   <meta name="keywords" content="">
+   <meta name="description" content="">
+   <meta name="author" content="">
+   <link rel="icon" href="images/fevicon.png" type="image/png" />
+   <link rel="stylesheet" href="css/bootstrap.min.css" />
+
+   <link rel="stylesheet" href="style.css" />
+   <link rel="stylesheet" href="css/responsive.css" />
+   <link rel="stylesheet" href="css/colors.css" />
+   <link rel="stylesheet" href="css/bootstrap-select.css" />
+   <link rel="stylesheet" href="css/perfect-scrollbar.css" />
+   <link rel="stylesheet" href="css/custom.css" />
+   <link rel="stylesheet" href="bootstrap-5.1.3/dist/css/bootstrap.css">
 </head>
 <style>
-    .bg-info {
-        background-image: url(Credit\ Card\ Payment-amico.png);
-        background-position: center;
-        background-size: cover;
-    }
+   li{
+      font-size: 3vh !important;
+   }
 </style>
 
-<body>
-
-    <div class="rui-main bg-info">
-        <div class="rui-sign align-items-center justify-content-center">
-            <div class="form rui-sign-form rui-sign-form-cloud rounded me-5">
-                <div class="row vertical-gap sm-gap justify-content-center bg-brand rounded">
-                    <div class="col-12">
-                        <h1 class="display-4 mb-10 text-center">Sign Up</h1>
-                    </div>
-                    <div class="col-12"><input class="form-control" placeholder="Name" id="userName"></div>
-                    <div class="col-12"><input type="email" class="form-control" placeholder="Email" id="email"></div>
-                    <div class="col-12"><input type="password" class="form-control" placeholder="Password"
-                            id="password"></div>
-                    <div class="col-12 form-floating"><input type="pin" class="form-control"
-                            placeholder="Enter your transfer pin" id="pin">
-                    </div>
-                    <div class="col-12">
-                        <div class="custom-control custom-checkbox d-flex justify-content-start"><input type="checkbox"
-                                class="custom-control-input" id="rememberMe"> <label
-                                class="custom-control-label text-grey-5 fs-13" for="rememberMe" id="remember">I have
-                                read and agree to
-                                the <a href="#" class="text-2">terms and conditions.</a></label></div>
-                    </div>
-                    <div class="col-12"><a href="#" class="btn btn-brand btn-block text-center" onclick="signUp()">Sign
-                            up</a>
-                    </div>
-                    <div class="col-12">
-                        <div class="rui-sign-or mt-2 mb-5">or</div>
-                    </div>
-                    <div class="col-12">
-                        <ul class="rui-social-links">
-                            <li><a href="dashboard.html" class="rui-social-github"><span class="fab fa-github"></span>
-                                    Github</a></li>
-                            <li><a href="dashboard.html" class="rui-social-facebook"><span
-                                        class="fab fa-facebook-f"></span> Facebook</a></li>
-                            <li><a href="dashboard.html" class="rui-social-google"><span class="fab fa-google"></span>
-                                    Google</a></li>
-                        </ul>
-                    </div>
-                    <div class="mt-20 text-grey-5">Already have an account? <a href="sign-in.html" class="text-2">Sign
-                            In</a>
-
-                    </div>
-                </div>
+<body class="dashboard dashboard_1">
+   <div class="full_container">
+      <div class="inner_container">
+         <!-- Sidebar  -->
+         <nav id="sidebar">
+            <div class="sidebar_blog_1">
+               <div class="sidebar-header">
+                  <div class="logo_section">
+                     <a href="index.html"><img class="logo_icon img-responsive" src="images/logo/logo_icon.png"
+                           alt="#" /></a>
+                  </div>
+               </div>
+               <div class="sidebar_user_info">
+                  <div class="icon_setting"></div>
+                  <div class="user_profle_side">
+                     <div class="user_img"><img class="img-responsive" src="images/layout_img/user_img.jpg" alt="#" />
+                     </div>
+                     <div class="user_info">
+                        <p id="userId" class="text-light">John Fixit</p>
+                        <p><span class="online_animation"></span> Online</p>
+                        <!-- <div id="userId" class="text-light"></div> -->
+                     </div>
+                  </div>
+               </div>
             </div>
-            <div id="speak" class="text-center"></div>
-        </div>
-        <script>
-            function signUp() {
-                var usersAccount = [];
-
-                userBal = [];
-                var deposit = [];
-                var credit = []
-                var withdraw = []
-                var fName = userName.value;
-                var eMail = email.value;
-                var passWord = password.value;
-                var transferPin = pin.value
-                var moneyAmount = 5000;
-                initialdeposited = 0
-                initialCredit = 0
-                withdrawAmount = 0
-                var num = [2, 4, 5, 7, 8, 9, 2, 4, 5, 6];
-                var accountNo = Math.floor("2" + Math.random(num.length) * 1000000000);
-
-                userBal.push(moneyAmount)
-                deposit.push(initialdeposited)
-                credit.push(initialCredit)
-                withdraw.push(withdrawAmount)
-                if (localStorage.details != null) {
-                    usersAccount = JSON.parse(localStorage.getItem("details"))
-                }
-
-                var participants = usersAccount.find((info) => eMail == info.eMail)
+            <div class="sidebar_blog_2">
+               <h4>General</h4>
+               <ul class="list-unstyled components" id="navLink">
+                  <li class="active">
+                     <a href="index.html"><i class="fa fa-dashboard yellow_color"></i> <span>Dashboard</span></a>
+                  </li>
+                  <li>
+                     <a href="#element" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><i
+                           class="fa fa-diamond purple_color"></i> <span>Transaction Activities</span></a>
+                     <ul class="collapse list-unstyled" id="element">
+                        <li><a href="deposit.html">> <span>Deposit</span></a></li>
+                        <li><a href="withdraw.html">> <span>Withdraw</span></a></li>
+                        <li><a href="transfer.html">> <span>Transfer</span></a></li>
+                     </ul>
+                  </li>
+                  <li><a href="table.html"><i class="fa fa-table purple_color2"></i> <span>Transaction
+                           details</span></a></li>
+                  <li><a href="table.html"><i class="fa fa-mobile purple_color2"></i> <span>Recharge Online</span></a>
+                  </li>
 
 
+                  <li class="active">
+                     <a href="#additional_page" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><i
+                           class="fa fa-clone yellow_color"></i> <span>Customer Info</span></a>
+                     <ul class="collapse list-unstyled" id="additional_page">
+                        <li>
+                           <a href="profile.html">> <span>Profile</span></a>
+                        </li>
+                     </ul>
+                  </li>
+                  <li><a href="settings.html"><i class="fa fa-cog yellow_color"></i> <span>Settings</span></a></li>
+                  <li><a href="#" onclick="logOut()"><i class="fa fa-remove yellow_color"></i> <span>Log Out</span></a>
+                  </li>
+               </ul>
+            </div>
+         </nav>
+         <div id="content">
+            <div class="topbar">
+               <nav class="navbar navbar-expand-lg navbar-light">
+                  <div class="full">
+                     <button type="button" id="sidebarCollapse" class="sidebar_toggle"><i
+                           class="fa fa-bars"></i></button>
+                     <div class="logo_section">
+                        <a href="index.html"><img class="img-responsive" src="images/logo/logo.png" alt="#" /></a>
+                     </div>
+                     <div class="right_topbar">
+                        <div class="icon_info">
+                           <ul>
+                              <li><a href="#"><i class="fa fa-bell-o"></i><span class="badge">4</span></a></li>
+                              <li><a href="#"><i class="fa fa-question-circle"></i></a></li>
+                              <li><a href="#"><i class="fa fa-envelope-o"></i><span class="badge">5</span></a></li>
+                           </ul>
+                           <ul class="user_profile_dd">
+                              <li>
+                                 <a class="dropdown-toggle" data-toggle="dropdown"><img
+                                       class="img-responsive rounded-circle" src="images/layout_img/user_img.jpg"
+                                       alt="#" /><span class="name_user" id="userI">Action</span></a>
+                                 <div class="dropdown-menu">
+                                    <a class="dropdown-item" href="profile.html">My Profile</a>
+                                    <a class="dropdown-item" href="settings.html">Settings</a>
+                                    <a class="dropdown-item" href="help.html">Help</a>
+                                    <a class="dropdown-item" href="#" onclick="logOut()"><span>Log Out</span> <i
+                                          class="fa fa-sign-out"></i></a>
+                                 </div>
+                              </li>
+                           </ul>
+                        </div>
+                     </div>
+                  </div>
+               </nav>
+            </div>
+            <div class="midde_cont">
+               <div class="container-fluid">
+                  <div class="row column_title">
+                     <div class="col-md-12">
+                        <div class="page_title">
+                           <h2 class="fs-1">Dashboard</h2>
+                           <h3 id="customerName" style="text-transform: capitalize;"></h3>
+                        </div>
+                     </div>
+                  </div>
+                  <div class="row column1">
+                     <div class="col-md-6 col-lg-3">
+                        <div class="full counter_section margin_bottom_30">
+                           <div class="couter_icon">
+                              <div>
+                                 <i class="fa fa-user yellow_color"></i>
+                              </div>
+                           </div>
+                           <div class="counter_no">
+                              <div>
+                                 <p class="total_no" id="accBal">₦0:00</p>
+                                 <p class="head_couter">Account Balance</p>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                     <div class="col-md-6 col-lg-3">
+                        <div class="full counter_section margin_bottom_30">
+                           <div class="couter_icon">
+                              <div>
+                                 <i class="fa fa-credit-card blue1_color"></i>
+                              </div>
+                           </div>
+                           <div class="counter_no">
+                              <div>
+                                 <p class="total_no" id="credit">₦0:00</p>
+                                 <p class="head_couter">Credit Amount</p>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                     <div class="col-md-6 col-lg-3">
+                        <div class="full counter_section margin_bottom_30">
+                           <div class="couter_icon">
+                              <div>
+                                 <i class="fa fa-check green_color"></i>
+                              </div>
+                           </div>
+                           <div class="counter_no">
+                              <div>
+                                 <p class="total_no" id="debit">₦0:00</p>
+                                 <p class="head_couter">Debit Balance</p>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                     <div class="col-md-6 col-lg-3">
+                        <div class="full counter_section margin_bottom_30">
+                           <div class="couter_icon">
+                              <div>
+                                 <i class="fa fa-ticket red_color"></i>
+                              </div>
+                           </div>
+                           <div class="counter_no">
+                              <div>
+                                 <p class="total_no" id="accNo">xxxxxxxxxx</p>
+                                 <p class="head_couter">Account Number</p>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
 
-                if (participants) {
-                    alert(`The email is already taken`);
-                }
-                else if (eMail == "") {
-                    alert("please enter your info");
+                  <div class="row column2 graph margin_bottom_30">
+                     <div class="col-md-l2 col-lg-12">
+                        <div class="white_shd full">
+                           <div class="full graph_head">
+                              <div class="heading1 margin_0">
+                                 <h2>Transaction Analysis</h2>
+                              </div>
+                           </div>
+                           <div class="full graph_revenue">
+                              <div class="row">
+                                 <div class="col-md-12">
+                                    <div class="content">
+                                       <div class="area_chart">
+                                          <canvas height="120" id="canvas"></canvas>
+                                       </div>
+                                    </div>
+                                 </div>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+                  <div class="row column3">
+                     <div class="col-md-6">
+                        <div class="dark_bg full margin_bottom_30">
+                           <div class="full graph_head">
+                              <div class="heading1 margin_0">
+                                 <h2>Testimonial</h2>
+                              </div>
+                           </div>
+                           <div class="full graph_revenue">
+                              <div class="row">
+                                 <div class="col-md-12">
+                                    <div class="content testimonial">
+                                       <div id="testimonial_slider" class="carousel slide" data-ride="carousel">
+                                          <div class="carousel-inner">
+                                             <div class="item carousel-item active">
+                                                <div class="img-box"><img src="images/layout_img/atm1.jpg" alt=""
+                                                      class="w-100"></div>
 
-                }
-                usersInfo = ({ fName, eMail, passWord, accountNo, userBal, transferPin, deposit,credit,withdraw});
-                usersAccount.push(usersInfo);
-                if (eMail && !participants) {
-                    sString = JSON.stringify(usersAccount);
-                    localStorage.setItem("details", sString)
-                    alert("Registration successful")
-                }
-                console.log(usersAccount);
+                                             </div>
+                                             <div class="item carousel-item">
+                                                <div class="img-box"><img src="images/layout_img/bg1.png"
+                                                      class="d-block w-100" alt=""></div>
+
+                                             </div>
+                                             <div class="item carousel-item">
+                                                <div class="img-box"><img src="images/layout_img/atm2.PNG"
+                                                      class="d-block w-100" alt=""></div>
+
+                                             </div>
+                                          </div>
+                                          Carousel controls
+                                          <a class="carousel-control left carousel-control-prev"
+                                             href="#testimonial_slider" data-slide="prev">
+                                             <i class="fa fa-angle-left"></i>
+                                          </a>
+                                          <a class="carousel-control right carousel-control-next"
+                                             href="#testimonial_slider" data-slide="next">
+                                             <i class="fa fa-angle-right"></i>
+                                          </a>
+                                       </div>
+                                    </div>
+                                 </div>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                     <div class="col-md-6">
+                        <div class="white_shd full margin_bottom_30">
+                           <div class="full graph_head">
+                              <div class="heading1 margin_0">
+                                 <h2>Progress Bar</h2>
+                              </div>
+                           </div>
+                           <div class="full progress_bar_inner">
+                              <div class="row">
+                                 <div class="col-md-12">
+                                    <div class="progress_bar">
+                                       <span class="skill" style="width:73%;">Facebook <span
+                                             class="info_valume">73%</span></span>
+                                       <div class="progress skill-bar ">
+                                          <div class="progress-bar progress-bar-animated progress-bar-striped"
+                                             role="progressbar" aria-valuenow="73" aria-valuemin="0" aria-valuemax="100"
+                                             style="width: 73%;">
+                                          </div>
+                                       </div>
+                                       <span class="skill" style="width:62%;">Twitter <span
+                                             class="info_valume">62%</span></span>
+                                       <div class="progress skill-bar">
+                                          <div class="progress-bar progress-bar-animated progress-bar-striped"
+                                             role="progressbar" aria-valuenow="62" aria-valuemin="0" aria-valuemax="100"
+                                             style="width: 62%;">
+                                          </div>
+                                       </div>
+                                       <span class="skill" style="width:54%;">Instagram <span
+                                             class="info_valume">54%</span></span>
+                                       <div class="progress skill-bar">
+                                          <div class="progress-bar progress-bar-animated progress-bar-striped"
+                                             role="progressbar" aria-valuenow="54" aria-valuemin="0" aria-valuemax="100"
+                                             style="width: 54%;">
+                                          </div>
+                                       </div>
+                                       <span class="skill" style="width:82%;">Google plus <span
+                                             class="info_valume">82%</span></span>
+                                       <div class="progress skill-bar">
+                                          <div class="progress-bar progress-bar-animated progress-bar-striped"
+                                             role="progressbar" aria-valuenow="82" aria-valuemin="0" aria-valuemax="100"
+                                             style="width: 82%;">
+                                          </div>
+                                       </div>
+                                       <span class="skill" style="width:48%;">Other <span
+                                             class="info_valume">48%</span></span>
+                                       <div class="progress skill-bar">
+                                          <div class="progress-bar progress-bar-animated progress-bar-striped"
+                                             role="progressbar" aria-valuenow="48" aria-valuemin="0" aria-valuemax="100"
+                                             style="width: 48%;">
+                                          </div>
+                                       </div>
+                                    </div>
+                                 </div>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+
+               </div>
+               <div class="container-fluid">
+                  <div class="footer">
+                     <p>Designed By <span><a href="https://github.comm/john-fixit.com"> John Fix</a></span>
+                     </p>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+   </div>
+
+   <script src="js/jquery.min.js"></script>
+   <script src="js/popper.min.js"></script>
+   <script src="js/bootstrap.min.js"></script>
+
+   <script src="js/animate.js"></script>
+
+   <script src="js/bootstrap-select.js"></script>
+
+   <script src="js/owl.carousel.js"></script>
+
+   <script src="js/Chart.min.js"></script>
+
+   <script src="js/utils.js"></script>
+   <script src="js/analyser.js"></script>
+
+   <script src="js/perfect-scrollbar.min.js"></script>
+   <script>
+      var ps = new PerfectScrollbar('#sidebar');
+   </script>
+
+   <script src="js/custom.js"></script>
+   <script src="js/chart_custom_style1.js"></script>
+   <script>
+
+      usersAccount = JSON.parse(localStorage.getItem("details"));
+      cust = JSON.parse(localStorage.getItem("owner"))
+      customerName.innerHTML = `Welcome Dear ${cust.userName}`;
+
+      accNo.innerHTML = cust.userAccId;
+
+
+      d = usersAccount.find((bal) => bal.eMail == cust.Email)
+      indexOfUser = usersAccount.indexOf(d)
+      userId.innerHTML = usersAccount[indexOfUser].fName;
+      accBal.innerHTML = `₦ ${usersAccount[indexOfUser].userBal} : 00`
+
+
+      lastDr = usersAccount[indexOfUser].withdraw.length - 1
+      debit.innerHTML = `₦ ${usersAccount[indexOfUser].withdraw[lastDr].amount} : 00`
+
+      lastCr = usersAccount[indexOfUser].credit.length - 1
+      credit.innerHTML = `₦ ${usersAccount[indexOfUser].credit[lastCr].amount} : 00`
 
 
 
-            }
 
-        </script>
+      function logOut() {
+         if (confirm("Are you sure you want to log out?")) {
+            location.href = "login.html"
+         }
+      }
+   </script>
 </body>
 
 </html>
