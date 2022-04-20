@@ -17,24 +17,30 @@
 </style>
 
 <body>
-    <div id="listOfCustomer"></div>
-    <div class="tog d-block mx-3">
+    <!-- <div id="listOfCustomer"></div> -->
+    <div class="tog d-block mx-3 d-none">
         <input type="number" name="pin" id="pin" class="form-control w-25 mt-4"
             placeholder="enter how many to generate">
         <button onclick="generate()" class="btn btn-success mt-3">Generate Recharge Pin</button>
     </div>
+
+
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-3">
+                
+            </div>
+        </div>
+    </div>
+
+
 </body>
 
 <script>
-    var Username;
-    var Useremail;
-    var Useracc;
-    var Userpass;
-    var Userphone;
-    var index;
-    allCustomer = JSON.parse(localStorage.getItem("details"))
-    var tab = "";
-    tab += `<table class ="table table-striped mt-3">
+    dis = () => {
+        allCustomer = JSON.parse(localStorage.getItem("details"))
+        var tab = "";
+        tab += `<table class ="table table-striped mt-3">
         <thead class ="fs-4">
             <th>S/N</th>
             <th>Name</th>
@@ -45,14 +51,13 @@
             <th>Edit</th>
             <th>Delete</th>
         <thead>`
-    for (i = 0; i <= allCustomer.length; i++) {
-        Username = allCustomer[i].fName;
-        Useremail = allCustomer[i].eMail;
-        Useracc = allCustomer[i].accountNo;
-        Userpass = allCustomer[i].passWord;
-        Userphone = allCustomer[i].phone;
-        index = i;
-        tab += `<tr>
+        for (i = 0; i <= allCustomer.length; i++) {
+            Username = allCustomer[i].fName;
+            Useremail = allCustomer[i].eMail;
+            Useracc = allCustomer[i].accountNo;
+            Userpass = allCustomer[i].passWord;
+            Userphone = allCustomer[i].phone;
+            tab += `<tr>
                     <td><div id="sn">${i + 1}.</div></td>
                     <td><div id="fn">${Username}</div></td>
                     <td><div id="em">${Useremail}</div></td>
@@ -123,77 +128,77 @@
                         </div>
                     </div></td>
                 </tr>`
-        document.getElementById("listOfCustomer").innerHTML = tab
-    }
-    tab += `</table>`;
+            document.getElementById("listOfCustomer").innerHTML = tab
+        }
+        tab += `</table>`;
 
-    function edit(i) {
-        var d = allCustomer.find((u) => u.fName == allCustomer[i].fName)
-        var myIndex = allCustomer.indexOf(d)
-        document.getElementById("editedName").value = allCustomer[myIndex].fName;
-        document.getElementById("editedEmail").value = allCustomer[myIndex].eMail;
-        document.getElementById("editedPassword").value = allCustomer[myIndex].passWord;
-        document.getElementById("editedPhone").value = allCustomer[myIndex].phone;
-        document.getElementById("acc").value = allCustomer[myIndex].accountNo;
-    }
-    function saveMe() {
-        allCustomer = JSON.parse(localStorage.getItem("details"))
-        var accountNumber = document.getElementById("acc").value;
-        var eachIndex = allCustomer.find((h) => h.accountNo == accountNumber)
-        var toSaveTo = allCustomer.indexOf(eachIndex);
-        changedName = document.getElementById("editedName").value
-        changedEmail = document.getElementById("editedEmail").value
-        changedPassword = document.getElementById("editedPassword").value
-        changedPhone = document.getElementById("editedPhone").value
-        console.log(`${changedName} ${changedEmail} ${changedPassword} ${changedPhone}`);
-        allCustomer[toSaveTo].fName = changedName;
-        allCustomer[toSaveTo].eMail = changedEmail;
-        allCustomer[toSaveTo].passWord = changedPassword;
-        allCustomer[toSaveTo].phone = changedPhone;
-        var participants = allCustomer.find((info) => info.eMail == changedEmail)
-        sub = JSON.stringify(allCustomer);
-        localStorage.setItem("details", sub)
-        location.reload()
+        function edit(i) {
+            var d = allCustomer.find((u) => u.fName == allCustomer[i].fName)
+            var myIndex = allCustomer.indexOf(d)
+            document.getElementById("editedName").value = allCustomer[myIndex].fName;
+            document.getElementById("editedEmail").value = allCustomer[myIndex].eMail;
+            document.getElementById("editedPassword").value = allCustomer[myIndex].passWord;
+            document.getElementById("editedPhone").value = allCustomer[myIndex].phone;
+            document.getElementById("acc").value = allCustomer[myIndex].accountNo;
+        }
+        function saveMe() {
+            allCustomer = JSON.parse(localStorage.getItem("details"))
+            var accountNumber = document.getElementById("acc").value;
+            var eachIndex = allCustomer.find((h) => h.accountNo == accountNumber)
+            var toSaveTo = allCustomer.indexOf(eachIndex);
+            changedName = document.getElementById("editedName").value
+            changedEmail = document.getElementById("editedEmail").value
+            changedPassword = document.getElementById("editedPassword").value
+            changedPhone = document.getElementById("editedPhone").value
+            console.log(`${changedName} ${changedEmail} ${changedPassword} ${changedPhone}`);
+            allCustomer[toSaveTo].fName = changedName;
+            allCustomer[toSaveTo].eMail = changedEmail;
+            allCustomer[toSaveTo].passWord = changedPassword;
+            allCustomer[toSaveTo].phone = changedPhone;
+            var participants = allCustomer.find((info) => info.eMail == changedEmail)
+            sub = JSON.stringify(allCustomer);
+            localStorage.setItem("details", sub)
+            location.reload()
 
-        // obj = ({ fName, eMail, passWord, phone })
+            // obj = ({ fName, eMail, passWord, phone })
 
-        // var participants = usersAccount.find((info) => eMail == info.eMail)
-        // if (participants) {
-        //     alert(`The email is already taken`);
-        // }
+            // var participants = usersAccount.find((info) => eMail == info.eMail)
+            // if (participants) {
+            //     alert(`The email is already taken`);
+            // }
 
-    }
-
-    function dlt(s){
-        user=allCustomer[s];
-        document.getElementById("instruction").innerHTML=`You want to delete ${user.fName}, click delete button to DELETE`
-    }
-    function del(t) {
-        allInfo = allCustomer[t];
-        among = allCustomer.find((r) => r.eMail == allInfo.eMail)
-        indexOfUser = allCustomer.indexOf(among)
-        console.log(`you deleted ${allCustomer[indexOfUser].fName}`);
-
-        allCustomer.splice(indexOfUser, 1)
-        localStorage.setItem("details", JSON.stringify(allCustomer))
-        y = JSON.parse(localStorage.getItem("details"))
-        location.reload()
-        console.log(y);
-
-    }
-
-
-
-    function generate() {
-        var total = pin.value
-        var num = [2, 3, 4, 5]
-        for (i = 0; i <= total; i++) {
-            rechargePin = `${Math.floor(Math.random(num.length) * 10)}${Math.floor(Math.random(num.length) * 10)}${Math.floor(Math.random(num.length) * 10)}${Math.floor(Math.random(num.length) * 10)}  ${Math.floor(Math.random(num.length) * 10)}${Math.floor(Math.random(num.length) * 10)}${Math.floor(Math.random(num.length) * 10)}${Math.floor(Math.random(num.length) * 10)}  ${Math.floor(Math.random(num.length) * 10)}${Math.floor(Math.random(num.length) * 10)}${Math.floor(Math.random(num.length) * 10)}${Math.floor(Math.random(num.length) * 10)}  ${Math.floor(Math.random(num.length) * 10)}${Math.floor(Math.random(num.length) * 10)}${Math.floor(Math.random(num.length) * 10)}${Math.floor(Math.random(num.length) * 10)}${Math.floor(Math.random(num.length) * 10)}`;
-            console.log(rechargePin);
         }
 
-    }
+        function dlt(s) {
+            user = allCustomer[s];
+            document.getElementById("instruction").innerHTML = `You want to delete ${user.fName}, click delete button to DELETE`
+        }
+        function del(t) {
+            allInfo = allCustomer[t];
+            among = allCustomer.find((r) => r.eMail == allInfo.eMail)
+            indexOfUser = allCustomer.indexOf(among)
+            console.log(`you deleted ${allCustomer[indexOfUser].fName}`);
 
+            allCustomer.splice(indexOfUser, 1)
+            localStorage.setItem("details", JSON.stringify(allCustomer))
+            y = JSON.parse(localStorage.getItem("details"))
+            location.reload()
+            console.log(y);
+
+        }
+
+
+
+        function generate() {
+            var total = pin.value
+            var num = [2, 3, 4, 5]
+            for (i = 0; i <= total; i++) {
+                rechargePin = `${Math.floor(Math.random(num.length) * 10)}${Math.floor(Math.random(num.length) * 10)}${Math.floor(Math.random(num.length) * 10)}${Math.floor(Math.random(num.length) * 10)}  ${Math.floor(Math.random(num.length) * 10)}${Math.floor(Math.random(num.length) * 10)}${Math.floor(Math.random(num.length) * 10)}${Math.floor(Math.random(num.length) * 10)}  ${Math.floor(Math.random(num.length) * 10)}${Math.floor(Math.random(num.length) * 10)}${Math.floor(Math.random(num.length) * 10)}${Math.floor(Math.random(num.length) * 10)}  ${Math.floor(Math.random(num.length) * 10)}${Math.floor(Math.random(num.length) * 10)}${Math.floor(Math.random(num.length) * 10)}${Math.floor(Math.random(num.length) * 10)}${Math.floor(Math.random(num.length) * 10)}`;
+                console.log(rechargePin);
+            }
+
+        }
+    }
       // function Cancel(){
     //     history.back();
     // }
