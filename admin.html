@@ -18,141 +18,185 @@
 
 <body>
     <div id="listOfCustomer"></div>
+    <div class="tog d-block mx-3">
+        <input type="number" name="pin" id="pin" class="form-control w-25 mt-4"
+            placeholder="enter how many to generate">
+        <button onclick="generate()" class="btn btn-success mt-3">Generate Recharge Pin</button>
+    </div>
+</body>
 
-    <script>
-        var Username;
-        var Useremail;
-        var Useracc;
-        var Userpass;
-        var Userphone;
-        var index;
-        allCustomer = JSON.parse(localStorage.getItem("details"))
-        var tab = "";
-        tab += `<table class ="table table-striped mt-3">
-            <thead class ="fs-4">
-                <th>S/N</th>
-                <th>Name</th>
-                <th>Email</th>
-                <th>Account Number</th>
-                <th>Password</th>
-                <th>Contact</th>
-                <th>Edit</th>
-                <th>Delete</th>
-            <thead>`
-        for (i = 0; i <= allCustomer.length; i++) {
-            Username = allCustomer[i].fName;
-            Useremail = allCustomer[i].eMail;
-            Useracc = allCustomer[i].accountNo;
-            Userpass = allCustomer[i].passWord;
-            Userphone = allCustomer[i].phone;
-            index = i;
-            tab += `<tr>
-                        <td><div id="sn">${i + 1}.</div></td>
-                        <td><div id="fn">${Username}</div></td>
-                        <td><div id="em">${Useremail}</div></td>
-                        <td><div id="ac">${Useracc}</div></td>
-                        <td><div id="ps">${Userpass}</div></td>
-                        <td><div id="pn">${Userphone}</div></td>
+<script>
+    var Username;
+    var Useremail;
+    var Useracc;
+    var Userpass;
+    var Userphone;
+    var index;
+    allCustomer = JSON.parse(localStorage.getItem("details"))
+    var tab = "";
+    tab += `<table class ="table table-striped mt-3">
+        <thead class ="fs-4">
+            <th>S/N</th>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Account Number</th>
+            <th>Password</th>
+            <th>Contact</th>
+            <th>Edit</th>
+            <th>Delete</th>
+        <thead>`
+    for (i = 0; i <= allCustomer.length; i++) {
+        Username = allCustomer[i].fName;
+        Useremail = allCustomer[i].eMail;
+        Useracc = allCustomer[i].accountNo;
+        Userpass = allCustomer[i].passWord;
+        Userphone = allCustomer[i].phone;
+        index = i;
+        tab += `<tr>
+                    <td><div id="sn">${i + 1}.</div></td>
+                    <td><div id="fn">${Username}</div></td>
+                    <td><div id="em">${Useremail}</div></td>
+                    <td><div id="ac">${Useracc}</div></td>
+                    <td><div id="ps">${Userpass}</div></td>
+                    <td><div id="pn">${Userphone}</div></td>
 
 
-                        <td><button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#myModal" onclick="edit(${i})"><i class="fa fa-edit fa-2x re_color"></i></button>
-                        <div class="modal fade" id="myModal" data-bs-backdrop="static" data-bs-keyboard="false" aria-labelledby="message" aria-hidden="true">
-                            <div class="modal-dialog modal-dialog-centered">
-                                <div class="modal-content">
-                                    <div class="modal-header">
-                                        <p class="modal-title" id="message">Title</p>
-                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="close"></button>
-                                    </div>
-                                    <div class="modal-body">
-                                        <div class="ro">
-                                            <div class="col-">
-                                                <label for="name" class="fs-3 text-muted">Name</label>
-                                                <input type="text" class="form-control border-dark border-bottom border-0 fs-2" id="editedName" >
-                                            </div>                                   
-                                            <div class="col-">
-                                                <label for="name" class="fs-3 text-muted mt-3">Email</label>
-                                                <input type="text" class="form-control border-dark border-bottom border-0 fs-2" id="editedEmail">
-                                            </div>                                   
+                    <td><button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#myModal" onclick="edit(${i})"><i class="fa fa-edit fa-2x re_color"></i></button>
+                    <div class="modal fade" id="myModal" data-bs-backdrop="static" data-bs-keyboard="false" aria-labelledby="message" aria-hidden="true">
+                        <div class="modal-dialog modal-dialog-centered">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <p class="modal-title" id="message">Title</p>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="close"></button>
+                                </div>
+                                <div class="modal-body">
+                                    <div class="ro">
+                                        <div class="col-">
+                                            <label for="name" class="fs-3 text-muted">Name</label>
+                                            <input type="text" class="form-control border-dark border-bottom border-0 fs-2" id="editedName" >
                                         </div>                                   
-                                        <div class="ro">
-                                            <div class="col-">
-                                                <label for="name" class="fs-3 text-muted mt-3">password</label>
-                                                <input type="text" class="form-control border-dark border-bottom border-0 fs-2" id="editedPassword">
-                                            </div>                                   
-                                            <div class="col-">
-                                                <label for="name" class="fs-3 text-muted mt-3">Contact</label>
-                                                <input type="text" class="form-control border-dark border-bottom border-0 fs-2" id="editedPhone">
-                                            </div>                                   
-                                            <div class="col-">
-                                                <label for="name" class="fs-3 text-muted mt-3">AccountNumber</label>
-                                                <input type="text" class="form-control border-dark border-bottom border-0 fs-2" id="acc" disabled>
-                                            </div>                                   
-                                                                        
+                                        <div class="col-">
+                                            <label for="name" class="fs-3 text-muted mt-3">Email</label>
+                                            <input type="text" class="form-control border-dark border-bottom border-0 fs-2" id="editedEmail">
                                         </div>                                   
-                                    </div>
-                                    <div class="modal-footer">
-                                        <button type="button" class="btn btn-danger px-4" data -bs-dismiss="modal" onclick="Cancel()">Cancel</button>
-                                        <button type="buttton" class="btn btn-success px-5" onclick="saveMe()">Save</button>
-                                    </div>
+                                    </div>                                   
+                                    <div class="ro">
+                                        <div class="col-">
+                                            <label for="name" class="fs-3 text-muted mt-3">password</label>
+                                            <input type="text" class="form-control border-dark border-bottom border-0 fs-2" id="editedPassword">
+                                        </div>                                   
+                                        <div class="col-">
+                                            <label for="name" class="fs-3 text-muted mt-3">Contact</label>
+                                            <input type="text" class="form-control border-dark border-bottom border-0 fs-2" id="editedPhone">
+                                        </div>                                   
+                                        <div class="col-">
+                                            <label for="name" class="fs-3 text-muted mt-3">AccountNumber</label>
+                                            <input type="text" class="form-control border-dark border-bottom border-0 fs-2" id="acc" disabled>
+                                        </div>                                   
+                                                                    
+                                    </div>                                   
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-danger px-4"
+                                     data-bs-dismiss="modal">Cancel</button>
+                                    <button type="buttton" class="btn btn-success px-5" onclick="saveMe()">Save</button>
                                 </div>
                             </div>
-                        </div></td>
-                        <td><button class="btn btn-danger" style = "border-radius:5px;" onclick=del()><i class="fa fa-trash-o fa-2x ed_color"></i></button></td>
-                    </tr>`
-            document.getElementById("listOfCustomer").innerHTML = tab
-        }
-        tab += `</table>`;
+                        </div>
+                    </div></td>
+                    <td><button type="button" class="btn btn-danger" style = "border-radius:5px;" data-bs-toggle="modal" data-bs-target="#exampleModal" onclick="dlt(${i})"><i class="fa fa-trash-o fa-2x ed_color"></i></button>
+                    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title text-center" id="exampleModalLabel">Notice!!!</h5>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body">
+                                    <p id="instruction" class="fs-4 text-dark"></p>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                                    <button type="button" class="btn btn-danger" onclick="del(${i})">Delete</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div></td>
+                </tr>`
+        document.getElementById("listOfCustomer").innerHTML = tab
+    }
+    tab += `</table>`;
 
-        function edit(i) {
-            var d = allCustomer.find((u) => u.fName == allCustomer[i].fName)
-            var myIndex = allCustomer.indexOf(d)
-            document.getElementById("editedName").value = allCustomer[myIndex].fName;
-            document.getElementById("editedEmail").value = allCustomer[myIndex].eMail;
-            document.getElementById("editedPassword").value = allCustomer[myIndex].passWord;
-            document.getElementById("editedPhone").value = allCustomer[myIndex].phone;
-            document.getElementById("acc").value = allCustomer[myIndex].accountNo;
-        }
-        function saveMe() {
-            allCustomer = JSON.parse(localStorage.getItem("details"))
-            var accountNumber = document.getElementById("acc").value;
-            var eachIndex = allCustomer.find((h) => h.accountNo == accountNumber)
-            var toSaveTo = allCustomer.indexOf(eachIndex);
-            changedName = document.getElementById("editedName").value
-            changedEmail = document.getElementById("editedEmail").value
-            changedPassword = document.getElementById("editedPassword").value
-            changedPhone = document.getElementById("editedPhone").value
-            console.log(`${changedName} ${changedEmail} ${changedPassword} ${changedPhone}`);
-            allCustomer[toSaveTo].fName = changedName;
-            allCustomer[toSaveTo].eMail = changedEmail;
-            allCustomer[toSaveTo].passWord = changedPassword;
-            allCustomer[toSaveTo].phone = changedPhone;
-            var participants = allCustomer.find((info) => info.eMail == changedEmail)
-                sub = JSON.stringify(allCustomer);
-                localStorage.setItem("details", sub)
-                location.reload()
-                
-            // obj = ({ fName, eMail, passWord, phone })
+    function edit(i) {
+        var d = allCustomer.find((u) => u.fName == allCustomer[i].fName)
+        var myIndex = allCustomer.indexOf(d)
+        document.getElementById("editedName").value = allCustomer[myIndex].fName;
+        document.getElementById("editedEmail").value = allCustomer[myIndex].eMail;
+        document.getElementById("editedPassword").value = allCustomer[myIndex].passWord;
+        document.getElementById("editedPhone").value = allCustomer[myIndex].phone;
+        document.getElementById("acc").value = allCustomer[myIndex].accountNo;
+    }
+    function saveMe() {
+        allCustomer = JSON.parse(localStorage.getItem("details"))
+        var accountNumber = document.getElementById("acc").value;
+        var eachIndex = allCustomer.find((h) => h.accountNo == accountNumber)
+        var toSaveTo = allCustomer.indexOf(eachIndex);
+        changedName = document.getElementById("editedName").value
+        changedEmail = document.getElementById("editedEmail").value
+        changedPassword = document.getElementById("editedPassword").value
+        changedPhone = document.getElementById("editedPhone").value
+        console.log(`${changedName} ${changedEmail} ${changedPassword} ${changedPhone}`);
+        allCustomer[toSaveTo].fName = changedName;
+        allCustomer[toSaveTo].eMail = changedEmail;
+        allCustomer[toSaveTo].passWord = changedPassword;
+        allCustomer[toSaveTo].phone = changedPhone;
+        var participants = allCustomer.find((info) => info.eMail == changedEmail)
+        sub = JSON.stringify(allCustomer);
+        localStorage.setItem("details", sub)
+        location.reload()
 
-            // var participants = usersAccount.find((info) => eMail == info.eMail)
-            // if (participants) {
-            //     alert(`The email is already taken`);
-            // }
+        // obj = ({ fName, eMail, passWord, phone })
 
-        }
-        function del() {
-            var mail = document.getElementById("editedEmail").value;
-            var id = allCustomer.find((y) => y.eMail == mail)
-            var toSave = allCustomer.indexOf(id)
-            console.log(toSave);
-        }
-
-          // function Cancel(){
-        //     history.back();
+        // var participants = usersAccount.find((info) => eMail == info.eMail)
+        // if (participants) {
+        //     alert(`The email is already taken`);
         // }
-    </script>
-    <script>
 
-    </script>
-</body>
+    }
+
+    function dlt(s){
+        user=allCustomer[s];
+        document.getElementById("instruction").innerHTML=`You want to delete ${user.fName}, click delete button to DELETE`
+    }
+    function del(t) {
+        allInfo = allCustomer[t];
+        among = allCustomer.find((r) => r.eMail == allInfo.eMail)
+        indexOfUser = allCustomer.indexOf(among)
+        console.log(`you deleted ${allCustomer[indexOfUser].fName}`);
+
+        allCustomer.splice(indexOfUser, 1)
+        localStorage.setItem("details", JSON.stringify(allCustomer))
+        y = JSON.parse(localStorage.getItem("details"))
+        location.reload()
+        console.log(y);
+
+    }
+
+
+
+    function generate() {
+        var total = pin.value
+        var num = [2, 3, 4, 5]
+        for (i = 0; i <= total; i++) {
+            rechargePin = `${Math.floor(Math.random(num.length) * 10)}${Math.floor(Math.random(num.length) * 10)}${Math.floor(Math.random(num.length) * 10)}${Math.floor(Math.random(num.length) * 10)}  ${Math.floor(Math.random(num.length) * 10)}${Math.floor(Math.random(num.length) * 10)}${Math.floor(Math.random(num.length) * 10)}${Math.floor(Math.random(num.length) * 10)}  ${Math.floor(Math.random(num.length) * 10)}${Math.floor(Math.random(num.length) * 10)}${Math.floor(Math.random(num.length) * 10)}${Math.floor(Math.random(num.length) * 10)}  ${Math.floor(Math.random(num.length) * 10)}${Math.floor(Math.random(num.length) * 10)}${Math.floor(Math.random(num.length) * 10)}${Math.floor(Math.random(num.length) * 10)}${Math.floor(Math.random(num.length) * 10)}`;
+            console.log(rechargePin);
+        }
+
+    }
+
+      // function Cancel(){
+    //     history.back();
+    // }
+</script>
 
 </html>
