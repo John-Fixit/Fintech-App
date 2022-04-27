@@ -5,10 +5,15 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Admin</title>
+    <title>Customer list</title>
     <link rel="stylesheet" href="bootstrap-5.1.3/dist/css/bootstrap.css">
     <script src="bootstrap-5.1.3/dist/js/bootstrap.bundle.js"></script>
     <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="css/bootstrap.min.css" />
+
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="css/responsive.css" />
+    <link rel="stylesheet" href="css/bootstrap-select.css" />
 </head>
 <style>
     .modal-dialog {
@@ -17,40 +22,148 @@
 </style>
 
 <body>
-    <!-- <div id="listOfCustomer"></div> -->
-    <div class="tog d-block mx-3 d-none">
-        <input type="number" name="pin" id="pin" class="form-control w-25 mt-4"
-            placeholder="enter how many to generate">
-        <button onclick="generate()" class="btn btn-success mt-3">Generate Recharge Pin</button>
-    </div>
 
+    <body class="dashboard dashboard_1">
+        <div class="full_container">
+            <div class="inner_container">
+                <nav id="sidebar">
+                    <div class="sidebar_blog_1">
+                        <div class="sidebar-header">
+                            <div class="logo_section">
+                                <a href="adminDashboard.html"><img class="logo_icon img-responsive"
+                                        src="images/logo/logo_icon.png" alt="#" /></a>
+                            </div>
+                        </div>
+                        <div class="sidebar_user_info">
+                            <div class="icon_setting"></div>
+                            <div class="user_profle_side">
+                                <div class="user_img"><img class="img-responsive" src="John.png" alt="#" />
+                                </div>
+                                <div class="user_info">
+                                    <p id="userId" class="text-light">John Fixit</p>
+                                    <p><span class="online_animation"></span> Online</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="sidebar_blog_2">
+                        <h4>General</h4>
+                        <ul class="list-unstyled components" id="navLink">
+                            <li class="active">
+                                <a href="adminDashboard.html"><i class="fa fa-dashboard yellow_color"></i>
+                                    <span>Dashboard</span></a>
+                            </li>
 
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col-md-3">
-                
+                            <li class="active">
+                                <a href="#additional_page" data-toggle="collapse" aria-expanded="false"
+                                    class="dropdown-toggle"><i class="fa fa-archive yellow_color"></i>
+                                    <span>Customer's History</span></a>
+                                <ul class="collapse list-unstyled" id="additional_page">
+                                    <li><a href="customerList.html"><i class="fa fa-table purple_color2"></i> <span>Customer List</span></a></li>
+                                    <li><a href="customerTrans.html"><i class="fa fa-table purple_color2"></i> <span>Customer Transaction History</span></a></li>
+                                </ul>
+                            </li>
+                            <li><a href="staffList.html"><i class="fa fa-plus purple_color2"></i> <span>Staff
+                                        List</span></a>
+                            <li><a href="addStaff.html"><i class="fa fa-user-plus purple_color2"></i> <span>Add
+                                        staff</span></a>
+                            </li>
+
+                            <li><a href="settings.html"><i class="fa fa-cog yellow_color"></i> <span>Settings</span></a>
+                            </li>
+                            <li><a href="#" onclick="logOut()"><i class="fa fa-remove yellow_color"></i> <span>Log
+                                        Out</span></a>
+                            </li>
+                        </ul>
+                    </div>
+                </nav>
+                <div id="content">
+                    <div class="topbar">
+                        <nav class="navbar navbar-expand-lg navbar-light">
+                            <div class="full">
+                                <button type="button" id="sidebarCollapse" class="sidebar_toggle"><i
+                                        class="fa fa-bars"></i></button>
+                                <div class="logo_section">
+                                    <a href="adminDashboard.html" class="text-light fs-1 fw-bold">FIX Bank</a>
+                                </div>
+                                <div class="right_topbar">
+                                    <div class="icon_info">
+                                        <ul>
+                                            <li><a href="#"><i class="fa fa-bell-o"></i><span class="badge">4</span></a>
+                                            </li>
+                                            <li><a href="#"><i class="fa fa-envelope-o"></i><span
+                                                        class="badge">5</span></a></li>
+                                        </ul>
+                                        <ul class="user_profile_dd">
+                                            <li>
+                                                <a class="dropdown-toggle" data-toggle="dropdown"><img
+                                                        class="img-responsive rounded-circle"
+                                                        src="images/layout_img/user_img.jpg" alt="#" /><span
+                                                        class="name_user" id="userI">Action</span></a>
+                                                <div class="dropdown-menu">
+                                                    <a class="dropdown-item" href="profile.html">My Profile</a>
+                                                    <a class="dropdown-item" href="settings.html">Settings</a>
+                                                    <a class="dropdown-item" href="help.html">Help</a>
+                                                    <a class="dropdown-item" href="#" onclick="logOut()"><span>Log
+                                                            Out</span> <i class="fa fa-sign-out"></i></a>
+                                                </div>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </nav>
+                    </div>
+                    <div class="midde_cont">
+                        <div class="container-fluid">
+                            <div class="row column_title">
+                                <div class="col-md-12">
+                                    <div class="page_title">
+                                        <h2 class="fs-1">Admin Page</h2>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row column1">
+                                <div id="listOfCustomer"></div>
+                            </div>
+
+                        </div>
+                        <div class="container-fluid">
+                            <div class="footer">
+                                <p>Designed By <span><a href="https://github.comm/john-fixit.com"> John Fix</a></span>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
-    </div>
+
+        <script src="js/jquery.min.js"></script>
+        <script src="js/bootstrap.min.js"></script>
+
+        <script src="js/custom.js"></script>
 
 
-</body>
+    </body>
 
-<script>
-    dis = () => {
+    <script>
+
         allCustomer = JSON.parse(localStorage.getItem("details"))
+        activeStaff = JSON.parse(localStorage.getItem("loggedInStaff"))
+        userId.innerHTML = activeStaff.Name
         var tab = "";
-        tab += `<table class ="table table-striped mt-3">
-        <thead class ="fs-4">
-            <th>S/N</th>
-            <th>Name</th>
-            <th>Email</th>
-            <th>Account Number</th>
-            <th>Password</th>
-            <th>Contact</th>
-            <th>Edit</th>
-            <th>Delete</th>
-        <thead>`
+        tab += `<table class ="table table-striped mt-3"><p class="fs-3 text-center text-dark fw-bold">Customer List</p>
+            <thead class ="fs-4">
+                <th>S/N</th>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Account Number</th>
+                <th>Password</th>
+                <th>Contact</th>
+                <th>Edit</th>
+                <th>Delete</th>
+            <thead>`
         for (i = 0; i <= allCustomer.length; i++) {
             Username = allCustomer[i].fName;
             Useremail = allCustomer[i].eMail;
@@ -171,7 +284,7 @@
 
         function dlt(s) {
             user = allCustomer[s];
-            document.getElementById("instruction").innerHTML = `You want to delete ${user.fName}, click delete button to DELETE`
+            document.getElementById("instruction").innerHTML = `${user.fName} account will be deleted permanently on click of Delete button below`
         }
         function del(t) {
             allInfo = allCustomer[t];
@@ -196,12 +309,23 @@
                 rechargePin = `${Math.floor(Math.random(num.length) * 10)}${Math.floor(Math.random(num.length) * 10)}${Math.floor(Math.random(num.length) * 10)}${Math.floor(Math.random(num.length) * 10)}  ${Math.floor(Math.random(num.length) * 10)}${Math.floor(Math.random(num.length) * 10)}${Math.floor(Math.random(num.length) * 10)}${Math.floor(Math.random(num.length) * 10)}  ${Math.floor(Math.random(num.length) * 10)}${Math.floor(Math.random(num.length) * 10)}${Math.floor(Math.random(num.length) * 10)}${Math.floor(Math.random(num.length) * 10)}  ${Math.floor(Math.random(num.length) * 10)}${Math.floor(Math.random(num.length) * 10)}${Math.floor(Math.random(num.length) * 10)}${Math.floor(Math.random(num.length) * 10)}${Math.floor(Math.random(num.length) * 10)}`;
                 console.log(rechargePin);
             }
-
         }
-    }
-      // function Cancel(){
-    //     history.back();
-    // }
-</script>
+        function gen() {
+            document.getElementById("listOfCustomer").innerHTML = `<div class="tog d-block mx-3">
+        <input type="number" name="pin" id="pin" class="form-control w-25 mt-4"
+            placeholder="enter how many to generate">
+        <button onclick="generate()" class="btn btn-success mt-3">Generate Recharge Pin</button>
+        </div>`
+        }
+        // function Cancel(){
+        //     history.back();
+        // }
+        logOut = () => {
+            if (confirm(`Are you sure to log out?`)) {
+                location.href = "login.html"
+            }
+        }
+
+    </script>
 
 </html>

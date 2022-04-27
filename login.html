@@ -44,7 +44,7 @@
                         <fieldset>
                            <p id="countDown" class="text-center"></p>
                            <div class="field">
-                              <label class="label_field">Email Address</label>
+                               <label class="label_field">Email Address</label>
                               <input type="email" name="email" placeholder="E-mail" id="email" />
                            </div>
                            <div class="field">
@@ -61,7 +61,7 @@
                               <label class="label_field hidden">hidden label</label>
                               <div class="d-flex justify-content-center mb-5">
                               <a class="main_bt text-light" onclick="signIn()" type="submit" role="button">Sign In</a>
-                              <span>Don't you have an account already? <strong><a href="Sign-Up.html" class="text-primary">Sign Up</a></strong></span>
+                              <span>Don't you have an account already? <strong><a href="signup.html" class="text-primary">Sign Up</a></strong></span>
                            </div>
                            </div>
                         </fieldset>
@@ -80,7 +80,7 @@
      
          function signIn() {
             
-             var Email = email.value;
+             var Email = email.value;z
              var passWord = password.value;
              usersAccount = JSON.parse(localStorage.getItem("details"))
              var kay = usersAccount.find((h) => h.eMail == Email && h.passWord == passWord);
@@ -94,7 +94,7 @@
                  userLogin.push(uLog)
                  sLog = JSON.stringify(userLogin)
                  localStorage.setItem("myLoginUser", sLog)
-                 location.href = "index.html"
+                 location.href = "dashboard.html"
              }
      
              else if (jy) {

@@ -32,7 +32,7 @@
             <div class="sidebar_blog_1">
                <div class="sidebar-header">
                   <div class="logo_section">
-                     <a href="index.html"><img class="logo_icon img-responsive" src="images/logo/logo_icon.png"
+                     <a href="dashboard.html"><img class="logo_icon img-responsive" src="images/logo/logo_icon.png"
                            alt="#" /></a>
                   </div>
                </div>
@@ -52,7 +52,7 @@
                <h4>General</h4>
                <ul class="list-unstyled components">
                   <li class="active">
-                     <a href="index.html"><i class="fa fa-dashboard yellow_color"></i> <span>Dashboard</span></a>
+                     <a href="dashboard.html"><i class="fa fa-dashboard yellow_color"></i> <span>Dashboard</span></a>
                   </li>
                   <li>
                      <a href="#element" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><i
@@ -64,18 +64,10 @@
                      </ul>
                   </li>
                   <li><a href="table.html"><i class="fa fa-table purple_color2"></i> <span>Transaction
-                           details</span></a></li>
-                  <li><a href="recharge.html"><i class="fa fa-mobile purple_color2"></i> <span>Recharge Online</span></a>
-                  </li>
-
-                  <li class="active">
-                     <a href="#additional_page" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><i
-                           class="fa fa-clone yellow_color"></i> <span>Profile</span></a>
-                     <ul class="collapse list-unstyled" id="additional_page">
-                        <li>
-                           <a href="profile.html">> <span>Profile</span></a>
-                        </li>
-                     </ul>
+                           History</span></a></li>
+                  <li><a href="recharge.html"><i class="fa fa-mobile purple_color2"></i> <span>Recharge
+                           Online</span></a></li>
+                  <li><a href="profile.html"><i class="fa fa-user yellow_color"></i> <span>User Profile</span></a>
                   </li>
                   <li><a href="settings.html"><i class="fa fa-cog yellow_color"></i> <span>Settings</span></a></li>
                   <li><a href="#" onclick="logOut()"><i class="fa fa-remove yellow_color"></i> <span>Log Out</span></a>
@@ -90,7 +82,7 @@
                      <button type="button" id="sidebarCollapse" class="sidebar_toggle"><i
                            class="fa fa-bars"></i></button>
                      <div class="logo_section">
-                        <a href="index.html" class="text-light fs-1 fw-bold">FIX Bank</a>
+                        <a href="dashboard.html" class="text-light fs-1 fw-bold">FIX Bank</a>
                      </div>
                      <div class="right_topbar">
                         <div class="icon_info">
@@ -101,8 +93,8 @@
                            <ul class="user_profile_dd">
                               <li>
                                  <a class="dropdown-toggle" data-toggle="dropdown"><img
-                                       class="img-responsive rounded-circle" src="John.png"
-                                       alt="#" /><span class="name_user">Action</span></a>
+                                       class="img-responsive rounded-circle" src="John.png" alt="#" /><span
+                                       class="name_user">Action</span></a>
                                  <div class="dropdown-menu">
                                     <a class="dropdown-item" href="profile.html">My Profile</a>
                                     <a class="dropdown-item" href="settings.html">Settings</a>
@@ -188,28 +180,8 @@
    </div>
 
    <script src="js/jquery.min.js"></script>
-   <script src="js/popper.min.js"></script>
    <script src="js/bootstrap.min.js"></script>
-
-   <script src="js/animate.js"></script>
-
-   <script src="js/bootstrap-select.js"></script>
-
-   <script src="js/owl.carousel.js"></script>
-
-   <script src="js/Chart.min.js"></script>
-
-   <script src="js/utils.js"></script>
-   <script src="js/analyser.js"></script>
-
-   <script src="js/perfect-scrollbar.min.js"></script>
-   <script>
-      var ps = new PerfectScrollbar('#sidebar');
-   </script>
-
    <script src="js/custom.js"></script>
-   <script src="js/chart_custom_style1.js"></script>
-
    <script>
       usersAccount = JSON.parse(localStorage.getItem("details"));
       cust = JSON.parse(localStorage.getItem("owner"))
@@ -223,7 +195,7 @@
 
       function logOut() {
          if (confirm("Are you sure you want to log out?")) {
-            location.href = "login.html"
+            location.href = "index.html"
          }
       }
    </script>

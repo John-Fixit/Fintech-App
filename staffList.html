@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Staff List</title>
+    <link rel="stylesheet" href="bootstrap-5.1.3/dist/css/bootstrap.css">
+    <script src="bootstrap-5.1.3/dist/js/bootstrap.bundle.js"></script>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="css/bootstrap.min.css" />
+
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="css/responsive.css" />
+    <link rel="stylesheet" href="css/bootstrap-select.css" />
+</head>
+<style>
+    .modal-dialog {
+        width: 200vh;
+    }
+</style>
+
+<body>
+
+    <body class="dashboard dashboard_1">
+        <div class="full_container">
+            <div class="inner_container">
+                <nav id="sidebar">
+                    <div class="sidebar_blog_1">
+                        <div class="sidebar-header">
+                            <div class="logo_section">
+                                <a href="adminDashboard.html"><img class="logo_icon img-responsive"
+                                        src="images/logo/logo_icon.png" alt="#" /></a>
+                            </div>
+                        </div>
+                        <div class="sidebar_user_info">
+                            <div class="icon_setting"></div>
+                            <div class="user_profle_side">
+                                <div class="user_img"><img class="img-responsive" src="John.png" alt="#" />
+                                </div>
+                                <div class="user_info">
+                                    <p id="userId" class="text-light">John Fixit</p>
+                                    <p><span class="online_animation"></span> Online</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="sidebar_blog_2">
+                        <h4>General</h4>
+                        <ul class="list-unstyled components" id="navLink">
+                            <li class="active">
+                                <a href="adminDashboard.html"><i class="fa fa-dashboard yellow_color"></i>
+                                    <span>Dashboard</span></a>
+                            </li>
+
+                            <li class="active">
+                                <a href="#additional_page" data-toggle="collapse" aria-expanded="false"
+                                    class="dropdown-toggle"><i class="fa fa-archive yellow_color"></i>
+                                    <span>Customer's History</span></a>
+                                <ul class="collapse list-unstyled" id="additional_page">
+                                    <li><a href="customerList.html"><i class="fa fa-table purple_color2"></i> <span>Customer List</span></a></li>
+                                    <li><a href="customerTrans.html"><i class="fa fa-table purple_color2"></i> <span>Customer Transaction History</span></a></li>
+                                </ul>
+                            </li>
+
+
+
+                            <!-- <li><a href="customerList.html"><i class="fa fa-table purple_color2"></i> <span>Customer List</span></a></li>
+                    <li><a href="customerTrans.html"><i class="fa fa-table purple_color2"></i> <span>Customer Transaction History</span></a></li> -->
+                            <li><a href="staffList.html"><i class="fa fa-plus purple_color2"></i> <span>Staff
+                                        List</span></a>
+                            <li><a href="addStaff.html"><i class="fa fa-user-plus purple_color2"></i> <span>Add
+                                        staff</span></a>
+                            </li>
+
+                            <li><a href="settings.html"><i class="fa fa-cog yellow_color"></i> <span>Settings</span></a>
+                            </li>
+                            <li><a href="#" onclick="logOut()"><i class="fa fa-remove yellow_color"></i> <span>Log
+                                        Out</span></a>
+                            </li>
+                        </ul>
+                    </div>
+                </nav>
+                <div id="content">
+                    <div class="topbar">
+                        <nav class="navbar navbar-expand-lg navbar-light">
+                            <div class="full">
+                                <button type="button" id="sidebarCollapse" class="sidebar_toggle"><i
+                                        class="fa fa-bars"></i></button>
+                                <div class="logo_section">
+                                    <a href="adminDashboard.html" class="text-light fs-1 fw-bold">FIX Bank</a>
+                                </div>
+                                <div class="right_topbar">
+                                    <div class="icon_info">
+                                        <ul>
+                                            <li><a href="#"><i class="fa fa-bell-o"></i><span class="badge">4</span></a>
+                                            </li>
+                                            <li><a href="#"><i class="fa fa-envelope-o"></i><span
+                                                        class="badge">5</span></a></li>
+                                        </ul>
+                                        <ul class="user_profile_dd">
+                                            <li>
+                                                <a class="dropdown-toggle" data-toggle="dropdown"><img
+                                                        class="img-responsive rounded-circle"
+                                                        src="images/layout_img/user_img.jpg" alt="#" /><span
+                                                        class="name_user" id="userI">Action</span></a>
+                                                <div class="dropdown-menu">
+                                                    <a class="dropdown-item" href="profile.html">My Profile</a>
+                                                    <a class="dropdown-item" href="settings.html">Settings</a>
+                                                    <a class="dropdown-item" href="help.html">Help</a>
+                                                    <a class="dropdown-item" href="#" onclick="logOut()"><span>Log
+                                                            Out</span> <i class="fa fa-sign-out"></i></a>
+                                                </div>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </nav>
+                    </div>
+                    <div class="midde_cont">
+                        <div class="container-fluid">
+                            <div class="row column_title">
+                                <div class="col-md-12">
+                                    <div class="page_title">
+                                        <h2 class="fs-1">Admin Page</h2>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row column1">
+                                <div id="listOfCustomer"></div>
+                            </div>
+
+                        </div>
+                        <div class="container-fluid">
+                            <div class="footer">
+                                <p>Designed By <span><a href="https://github.comm/john-fixit.com"> John Fix</a></span>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <script src="js/jquery.min.js"></script>
+        <script src="js/bootstrap.min.js"></script>
+
+        <script src="js/custom.js"></script>
+
+
+    </body>
+
+    <script>
+        var myIndex;
+        var user;
+        allStaff = JSON.parse(localStorage.getItem("admins"))
+        activeStaff = JSON.parse(localStorage.getItem("loggedInStaff"))
+        userId.innerHTML = activeStaff.Name
+        var tab = "";
+        tab += `<table class ="table table-responsive table-striped mt-3"><p class="fs-3 text-center text-dark fw-bold">Customer List</p>
+            <thead class ="fs-4">
+                <th>S/N</th>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Password</th>
+                <th>Contact</th>
+                <th>Edit</th>
+                <th>Delete</th>
+            <thead>`
+        for (i = 0; i <= allStaff.length; i++) {
+            Username = allStaff[i].fullName;
+            Useremail = allStaff[i].Email;
+            Userpass = allStaff[i].Password;
+            Userphone = allStaff[i].Contact;
+            tab += `<tr>
+                    <td><div id="sn">${i + 1}.</div></td>
+                    <td><div id="fn">${Username}</div></td>
+                    <td><div id="em">${Useremail}</div></td>
+                    <td><div id="ps">${Userpass}</div></td>
+                    <td><div id="pn">${Userphone}</div></td>
+
+
+                    <td><button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#myModal" onclick="edit(${i})"><i class="fa fa-edit fa-2x re_color"></i></button>
+                    <div class="modal fade" id="myModal" data-bs-backdrop="static" data-bs-keyboard="false" aria-labelledby="message" aria-hidden="true">
+                        <div class="modal-dialog modal-dialog-centered">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <p class="modal-title" id="message">Title</p>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="close"></button>
+                                </div>
+                                <div class="modal-body">
+                                    <div class="ro">
+                                        <div class="col-">
+                                            <label for="name" class="fs-3 text-muted">Name</label>
+                                            <input type="text" class="form-control border-dark border-bottom border-0 fs-2" id="editedName" >
+                                        </div>                                   
+                                        <div class="col-">
+                                            <label for="name" class="fs-3 text-muted mt-3">Email</label>
+                                            <input type="text" class="form-control border-dark border-bottom border-0 fs-2" id="editedEmail">
+                                        </div>                                   
+                                    </div>                                   
+                                    <div class="ro">
+                                        <div class="col-">
+                                            <label for="name" class="fs-3 text-muted mt-3">password</label>
+                                            <input type="text" class="form-control border-dark border-bottom border-0 fs-2" id="editedPassword">
+                                        </div>                                   
+                                        <div class="col-">
+                                            <label for="name" class="fs-3 text-muted mt-3">Contact</label>
+                                            <input type="text" class="form-control border-dark border-bottom border-0 fs-2" id="editedPhone">
+                                        </div>                                   
+                                                        
+                                    </div>                                   
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-danger px-4"
+                                     data-bs-dismiss="modal">Cancel</button>
+                                    <button type="buttton" class="btn btn-success px-5" onclick="saveMe(${i})">Save</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div></td>
+                    <td><button type="button" class="btn btn-danger" style = "border-radius:5px;" data-bs-toggle="modal" data-bs-target="#exampleModal" onclick="dlt(${i})"><i class="fa fa-trash-o fa-2x ed_color"></i></button>
+                    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title text-center" id="exampleModalLabel">Notice!!!</h5>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body">
+                                    <p id="instruction" class="fs-4 text-dark"></p>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                                    <button type="button" class="btn btn-danger" onclick="del()">Delete</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div></td>
+                </tr>`
+            document.getElementById("listOfCustomer").innerHTML = tab
+        }
+        tab += `</table>`;
+
+        function edit(i) {
+            var d = allStaff.find((u) => u.Email == allStaff[i].Email)
+            console.log(allStaff[i].Email);
+            myIndex = allStaff.indexOf(d)
+            document.getElementById("editedName").value = allStaff[myIndex].fullName;
+            document.getElementById("editedEmail").value = allStaff[myIndex].Email;
+            document.getElementById("editedPassword").value = allStaff[myIndex].Password;
+            document.getElementById("editedPhone").value = allStaff[myIndex].Contact;
+
+        }
+        function saveMe(i) {
+            console.log(myIndex);
+            changedName = document.getElementById("editedName").value
+            changedEmail = document.getElementById("editedEmail").value
+            changedPassword = document.getElementById("editedPassword").value
+            changedContact = document.getElementById("editedPhone").value
+            // console.log(`${changedName} ${changedEmail} ${changedPassword} ${changedContact}`);
+            allStaff[myIndex].fullName = changedName;
+            allStaff[myIndex].Email = changedEmail;
+            allStaff[myIndex].Password = changedPassword;
+            allStaff[myIndex].Contact = changedContact;
+            // var participants = allStaff.find((info) => info.eMail == changedEmail)
+            sub = JSON.stringify(allStaff);
+            localStorage.setItem("admins", sub)
+            location.reload()
+
+            // obj = ({ fName, eMail, passWord, phone })
+
+            // var participants = usersAccount.find((info) => eMail == info.eMail)
+            // if (participants) {
+            //     alert(`The email is already taken`);
+            // }
+
+        }
+
+        function dlt(s) {
+            user = allStaff[s];
+            document.getElementById("instruction").innerHTML = `${user.fullName} account will be deleted permanently as a staff member`
+        }
+        function del() {
+            among = allStaff.find((r) => r.Email == user.Email)
+            indexOfUser = allStaff.indexOf(among);
+            console.log(`you deleted ${allStaff[indexOfUser].fullName}`);
+
+            allStaff.splice(indexOfUser, 1)
+            localStorage.setItem("admins", JSON.stringify(allStaff))
+            location.reload()
+
+        }
+
+
+        logOut = () => {
+            if (confirm(`Are you sure to log out?`)) {
+                location.href = "login.html"
+            }
+        }
+
+    </script>
+
+</html>
