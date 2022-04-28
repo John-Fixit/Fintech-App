@@ -26,7 +26,7 @@
                     <div class="bg-img"></div>
                 </div>
                 <div class="col-md-6 shadow">
-                    <img src="images/logo/logo.png" class="card-img-top " alt="">
+                    <div class="container-fluid text-center fs-1 fw-bold text-light" style="background-color:#FF5722;">FIX BANK</div>
                     <h2 class="text-center">LOG IN</h2>
                     <p class="fs-3" id="countDown"></p>
                     <div class="form-group px-5">
@@ -41,7 +41,7 @@
                         <label for="name" class="px-">Password</label>
                         <div class="input-group px-">
                             <span class="input-group-text"><i class="fa fa-key fa-2x"></i></span>
-                            <input type="password" name="Password" id="Password" class="form-control">
+                            <input type="password" name="Password" id="PassWord" class="form-control">
                         </div>
                     </div>
                     <div class="form-group px-5 mt-3">
@@ -63,14 +63,14 @@
     document.getElementById("loginIn").addEventListener("click", () => {
         staffs = JSON.parse(localStorage.getItem("admins"))
         mail = Email.value;
-        Password = Password.value;
+        Password = PassWord.value;
 
 
         localStorage.incorrect = 0
-        var kay = staffs.find((h) => h.Email == Email && h.Password == Password);
+        var kay = staffs.find((h) => h.Email == mail && h.Password == Password);
         var core = staffs.find((h) => h.Email ==mail);
         console.log(core);
-        var jy = staffs.find((l) => l.Email != Email || l.Password != Password);
+        var jy = staffs.find((l) => l.Email != mail || l.Password != Password);
         indexOfUser = staffs.indexOf(core)
         console.log(indexOfUser);
         if (kay) {
@@ -79,7 +79,7 @@
             oLog = ({ Email, Password,Name})
             rLog = JSON.stringify(oLog)
             localStorage.setItem("loggedInStaff", rLog)
-            // location.href = "dashboard.html"
+            location.href = "dashboard.html"
         }
 
         else if (jy) {
@@ -89,7 +89,7 @@
 
             if (localStorage.incorrect == 3) {
                 Email.disabled = true;
-                Password.disabled = true;
+                PassWord.disabled = true;
 
                 var timeCountDown = 15;
                 setInterval(
@@ -102,7 +102,7 @@
                         else if (countDown.innerHTML <= 0) {
                             countDown.innerHTML = ""
                             Email.disabled = false;
-                            Password.disabled = false;
+                            PassWord.disabled = false;
                             pass.innerHTML = ""
                             location.reload();
                         }
@@ -112,17 +112,18 @@
 
         }
 
-        // staffs = JSON.parse(localStorage.getItem("details"));
-        // var Logger = staffs.find((pName) => pName.Email == Email)
-        // indexOfUser = staffs.indexOf(Logger)
-        // console.log(indexOfUser);
+        staffs = JSON.parse(localStorage.getItem("details"));
+        console.log(staffs);
+        var Logger = staffs.find((pName) => pName.Email == mail)
+        indexOfUser = staffs.indexOf(Logger)
+        console.log(indexOfUser + "hi");
 
-        // // if (Logger) {
-        //     userName = staffs[indexOfUser].fName
-        //     userAccId = staffs[indexOfUser].accountNo
-        //     obj = ({ Email, Password})
-        //     rLog = JSON.stringify(oLog)
-        //     localStorage.setItem("loggedInStaff", rLog)
+        // if (Logger) {
+            userName = staffs[indexOfUser].fName
+            userAccId = staffs[indexOfUser].accountNo
+            obj = ({ Email, Password})
+            rLog = JSON.stringify(oLog)
+            localStorage.setItem("loggedInStaff", rLog)
 
 
         // // }

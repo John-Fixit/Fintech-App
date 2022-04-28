@@ -89,9 +89,11 @@
                             <div class="right_topbar">
                                 <div class="icon_info">
                                     <ul>
-                                        <li><a href="#"><i class="fa fa-bell-o"></i><span class="badge">4</span></a>
+                                        <li><a href="#"><i class="fa fa-bell-o"></i><span class="badge" id="notify"
+                                                    onclick="notification()">4</span></a>
                                         </li>
-                                        <li><a href="#"><i class="fa fa-envelope-o"></i><span class="badge">5</span></a>
+                                        <li><a href="#"><i class="fa fa-envelope-o"></i><span class="badge"
+                                                    id="allMessage" onclick="messageBtn()">5</span></a>
                                         </li>
                                     </ul>
                                     <ul class="user_profile_dd">
@@ -118,14 +120,15 @@
                         <div class="row column_title">
                             <div class="col-md-12">
                                 <div class="page_title">
-                                    <h2 class="fs-1">Transfer</h2>
+                                    <h2 class="fs-1" id="title">Transfer</h2>
                                 </div>
                             </div>
                         </div>
-
                         <div class="row">
                             <div class="col-md-6">
-                                <div class="full white_shd">
+                                <div id="g"></div>
+
+                                <div class="full white_shd" id="det">
                                     <div class="full graph_head">
                                         <div class="heading1 margin_0">
                                             <h2>Payment Methods</h2>
@@ -219,6 +222,16 @@
             user = usersAccount.find((h) => h.accountNo == cust.userAccId)
             indexOfUser = usersAccount.indexOf(user)
             userId.innerHTML = usersAccount[indexOfUser].fName;
+
+            var recieverAccNo = recieverAccountNo.value;
+            bN = usersAccount.find((h) => h.accountNo == recieverAccNo)
+            dd = usersAccount.indexOf(bN)
+
+            cus = usersAccount.find((j) => j.accountNo == cust.userAccId)
+            k = usersAccount.indexOf(cus)
+
+            notify.innerHTML = (usersAccount[k].notification).length
+            allMessage.innerHTML = (usersAccount[k].messages).length
             function enter() {
                 var recieverAccNo = recieverAccountNo.value;
                 var aTT = parseInt(amountToTransfer.value)
@@ -235,7 +248,7 @@
 
             }
             function tMoney() {
-                var recieverAccNo = recieverAccountNo.value;
+                // var recieverAccNo = recieverAccountNo.value;
                 var amount = parseInt(amountToTransfer.value);
 
                 var decision = (recieverAccNo == cust.userAccId)
@@ -244,8 +257,8 @@
                 }
                 else if (confirmAccountNo.innerHTML != "confirmation of recipient account number" && !decision) {
 
-                    cus = usersAccount.find((j) => j.accountNo == cust.userAccId)
-                    k = usersAccount.indexOf(cus)
+                    // cus = usersAccount.find((j) => j.accountNo == cust.userAccId)
+                    // k = usersAccount.indexOf(cus)
                     deduct = usersAccount[k].userBal;
 
                     userPin = usersAccount[k].transferPin
@@ -257,8 +270,8 @@
                         }
                         else {
 
-                            bN = usersAccount.find((h) => h.accountNo == recieverAccNo)
-                            dd = usersAccount.indexOf(bN)
+                            // bN = usersAccount.find((h) => h.accountNo == recieverAccNo)
+                            // dd = usersAccount.indexOf(bN)
                             hH = parseInt(usersAccount[dd].userBal)
                             recieverName = usersAccount[dd].fName
                             var obj = hH + amount
@@ -266,9 +279,15 @@
                             Time = time.toLocaleTimeString()
                             Day = time.toLocaleDateString()
                             sendH = { amount, Time, Day }
+                            notificationforReciever = `Credit Acc:xxxx2765 Ref: NIBSS=> ${usersAccount[dd].fName} Time:${Time} on ${Day}  Bal :${usersAccount[dd].userBal}`
+                            notificationforSender = `Debit Acc:xxxx989  Ref: USSD.BNKG:058/${usersAccount[k].fName} Time:${Time} on ${Day}  Bal :${usersAccount[k].userBal}`
+                            console.log(notificationforReciever);
+                            console.log(notificationforSender);
                             console.log(obj);
                             usersAccount[dd].userBal = obj;
                             usersAccount[dd].credit.push(sendH)
+                            usersAccount[dd].notification.push(notificationforReciever);
+                            usersAccount[dd].messages.push(notificationforSender)
                             sAmount = JSON.stringify(usersAccount);
                             localStorage.setItem("details", sAmount)
 
@@ -278,6 +297,8 @@
                             usersAccount[k].userBal = uObj
                             transferObj = { recieverName, recieverAccNo, amount, Time, Day }
                             usersAccount[k].transfer.push(transferObj)
+                            usersAccount[k].notification.push(notificationforSender)
+                            usersAccount[k].messages.push(notificationforSender)
                             sOwner = JSON.stringify(usersAccount);
                             localStorage.setItem("details", sOwner)
                             confirmAccountNo.innerHTML = "";
@@ -293,6 +314,25 @@
 
             }
 
+            notification = () => {
+                var ms;
+                document.getElementById("title").innerHTML = `Notifications`
+                for (r = 0; r < (usersAccount[k].messages).length; r++) {
+                    console.log(usersAccount[k].messages[r]);
+                    ms += `
+                        <div class="card shadow mt-4 p-3" style="display: flex; justify-content: center;" id="messages">${usersAccount[k].messages[r]}
+                            <span><button onclick="del()" class="btn btn-danger"><i class="fa fa-trash"></i></button></span>
+                            </div>
+                        `
+                    g.innerHTML = ms
+                    det.style.display = "none"
+                }
+                g.innerHTML+=`<button onclick="del()">Back</button>`
+
+            }
+            del=()=>{
+                history.back()
+            }
 
 
             function logOut() {

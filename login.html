@@ -1,151 +1,175 @@
 <!DOCTYPE html>
 <html lang="en">
-   <head>
-      <meta charset="utf-8">
-      <meta http-equiv="X-UA-Compatible" content="IE=edge">
-      
-      <meta name="viewport" content="width=device-width, initial-scale=1">
-      <meta name="viewport" content="initial-scale=1, maximum-scale=1">
 
-      <title>Login Page</title>
-      <meta name="keywords" content="">
-      <meta name="description" content="">
-      <meta name="author" content="">
-      <link rel="icon" href="images/fevicon.png" type="image/png" />
-      
-      <link rel="stylesheet" href="css/bootstrap.min.css" />
-      <link rel="stylesheet" href="style.css" />
-      
-      <link rel="stylesheet" href="css/responsive.css" />
+<head>
+   <meta charset="utf-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
-      <link rel="stylesheet" href="css/bootstrap-select.css" />
-      
-      <link rel="stylesheet" href="css/perfect-scrollbar.css" />
-   
-      <link rel="stylesheet" href="css/custom.css" />
+   <meta name="viewport" content="width=device-width, initial-scale=1">
+   <meta name="viewport" content="initial-scale=1, maximum-scale=1">
+
+   <title>Login Page</title>
+   <meta name="keywords" content="">
+   <meta name="description" content="">
+   <meta name="author" content="">
+   <link rel="icon" href="images/fevicon.png" type="image/png" />
+
+   <link rel="stylesheet" href="css/bootstrap.min.css" />
+   <link rel="stylesheet" href="style.css" />
+
+   <link rel="stylesheet" href="css/responsive.css" />
+
+   <link rel="stylesheet" href="css/bootstrap-select.css" />
+
+   <link rel="stylesheet" href="css/perfect-scrollbar.css" />
+
+   <link rel="stylesheet" href="css/custom.css" />
+   <link rel="stylesheet" href="bootstrap-5.1.3/dist/css/bootstrap.css">
    <style>
-      #countDown{
-         font-size: 5vh !important;
+      #countDown {
+         font-size: 3vh !important;
       }
-   </style>      
-   </head>
-   <body class="inner_page login">
-      <div class="full_container">
-         <div class="container">
-            <div class="center verticle_center full_height">
-               <div class="login_section">
-                  <div class="logo_login">
-                     <div class="center">
-                        <img width="210" src="images/logo/logo.png" alt="#" />
-                     </div>
+   </style>
+</head>
+
+<body class="inner_page login">
+   <div class="full_container">
+      <div class="container">
+         <div class="center verticle_center full_height">
+            <div class="login_section">
+               <div class="logo_login">
+                  <div class="center">
+                     <header class="text-light fs-1 fw-bold">FIX BANK</header>
                   </div>
-                  <div class="login_form">
-                     <form>
-                        <fieldset>
-                           <p id="countDown" class="text-center"></p>
-                           <div class="field">
-                               <label class="label_field">Email Address</label>
-                              <input type="email" name="email" placeholder="E-mail" id="email" />
+               </div>
+               <div class="login_form">
+                  <form>
+                     <fieldset>
+                        <p id="countDown" class="text-center"></p>
+                        <div class="field">
+                           <label class="label_field">Email Address</label>
+                           <input type="email" name="email" placeholder="E-mail" id="email" class="border form-control">
+                           <p id="err" class="text-center"></p>
+                        </div>
+                        <div class="field">
+                           <label class="label_field">Password</label>
+                           <input type="password" name="password" placeholder="Password" id="password"
+                              class="form-control border">
+                           <p id="pErr" class="text-center"></p>
+                        </div>
+                        <div class="field ">
+                           <label class="label_field hidden">hidden label</label>
+                           <label class="form-check-label"><input type="checkbox" class="form-check-input border"><span
+                                 class="ms-2">Remember Me</span></label>
+                           <a class="forgot" href="">Forgotten Password?</a>
+                        </div>
+                        <p id="pass" class="text-center"></p>
+                        <a class="main_bt text-light" onclick="signIn()" role="button">Sign In</a>
+                        <div class="field margin_0">
+                           <label class="label_field hidden">hidden label</label>
+                           <div class="d-flex justify-content-center mb-5">
+                              <span>Don't you have an account already? <strong><a href="signup.html"
+                                       class="text-primary">Sign Up</a></strong></span>
                            </div>
-                           <div class="field">
-                              <label class="label_field">Password</label>
-                              <input type="password" name="password" placeholder="Password" id="password" />
-                           </div>
-                           <div class="field ">
-                              <label class="label_field hidden">hidden label</label>
-                              <label class="form-check-label"><input type="checkbox" class="form-check-input"> Remember Me</label>
-                             <a class="forgot" href="">Forgotten Password?</a>
-                           </div>
-                           <p id="pass" class="text-center"></p>
-                           <div class="field margin_0">
-                              <label class="label_field hidden">hidden label</label>
-                              <div class="d-flex justify-content-center mb-5">
-                              <a class="main_bt text-light" onclick="signIn()" type="submit" role="button">Sign In</a>
-                              <span>Don't you have an account already? <strong><a href="signup.html" class="text-primary">Sign Up</a></strong></span>
-                           </div>
-                           </div>
-                        </fieldset>
-                     </form>
-                      
-                  </div>
+                        </div>
+                     </fieldset>
+                  </form>
+
                </div>
             </div>
          </div>
       </div>
-   
-      <script>
-         var incorrectPassWord = [];
-         var userLogin = []
-         localStorage.incorrect = 0
-     
-         function signIn() {
-            
-             var Email = email.value;z
-             var passWord = password.value;
-             usersAccount = JSON.parse(localStorage.getItem("details"))
-             var kay = usersAccount.find((h) => h.eMail == Email && h.passWord == passWord);
-             var jy = usersAccount.find((l) => l.eMail != Email || l.passWord != passWord);
-     
-             if (kay) {
-                 if (localStorage.myLoginUser != null) {
-                     userLogin = JSON.parse(localStorage.getItem("myLoginUser"))
-                 }
-                 uLog = ({ Email, passWord })
-                 userLogin.push(uLog)
-                 sLog = JSON.stringify(userLogin)
-                 localStorage.setItem("myLoginUser", sLog)
-                 location.href = "dashboard.html"
-             }
-     
-             else if (jy) {
-                 localStorage.incorrect++
-                 pass.innerHTML = `Incorrect Password or Email !!!`
-                 pass.style.color = "red"
-     
-                 if (localStorage.incorrect == 3) {
-                     email.disabled = true;
-                     password.disabled = true;
-     
-                     var timeCountDown = 15;
-                     setInterval(
-                         function () {
-                             timeCountDown--
-                             if (timeCountDown >= 0) {
-                                 countDown.innerHTML = timeCountDown
-                                 countDown.style.textCenter = timeCountDown
-                             }
-                             else if (countDown.innerHTML <= 0) {
-                                 countDown.innerHTML = ""
-                                 email.disabled = false;
-                                 password.disabled = false;
-                                 password.disabled = false;
-                                 pass.innerHTML = ""
-                                 location.reload();
-                             }
-                         }, 1000
-                     )
-                 }
-     
-             }
-     
-             usersAccount = JSON.parse(localStorage.getItem("details"));
-             var Logger = usersAccount.find((pName) =>pName.eMail == Email)
-             indexOfUser = usersAccount.indexOf(Logger)
-             console.log(indexOfUser);
-     
-             if (Logger) {
-                     userName = usersAccount[indexOfUser].fName
-                     userAccId = usersAccount[indexOfUser].accountNo
-                     oLog = ({Email, passWord,userName,userAccId})
-                     rLog = JSON.stringify(oLog)
-                     localStorage.setItem("owner", rLog)
-     
-     
-             }
-     
-     
-     
+   </div>
+
+   <script>
+      var incorrectPassWord = [];
+      var userLogin = []
+      localStorage.incorrect = 0
+      if (email.value == "") {
+         console.log("true");
+      }
+      function signIn() {
+
+         var Email = email.value;
+         var passWord = password.value;
+         usersAccount = JSON.parse(localStorage.getItem("details"))
+         var kay = usersAccount.find((h) => h.eMail == Email && h.passWord == passWord);
+         var jy = usersAccount.find((l) => l.eMail != Email || l.passWord != passWord);
+
+         if (kay) {
+            if (localStorage.myLoginUser != null) {
+               userLogin = JSON.parse(localStorage.getItem("myLoginUser"))
+            }
+            uLog = ({ Email, passWord })
+            userLogin.push(uLog)
+            sLog = JSON.stringify(userLogin)
+            localStorage.setItem("myLoginUser", sLog)
+            location.href = "dashboard.html"
          }
-     </script>
-   </body>
+         else if (Email == "") {
+            err.innerHTML = `This field is required !`
+            err.style.color = "red"
+         }
+         else if (passWord == "") {
+            pErr.innerHTML = `This field is required !`
+            pErr.style.color = "red"
+         }
+         else if (Email != "" || passWord != "") {
+            err.innerHTML = ""
+            pErr.innerHTML = ""
+
+            if (jy) {
+            localStorage.incorrect++
+            pass.innerHTML = `Incorrect Password or Email !!!`
+            pass.style.color = "red"
+
+            if (localStorage.incorrect == 3) {
+               email.disabled = true;
+               password.disabled = true;
+
+               var timeCountDown = 15;
+               setInterval(
+                  function () {
+                     timeCountDown--
+                     if (timeCountDown >= 0) {
+                        countDown.innerHTML = `wait for ${timeCountDown} secs and try again`
+                        countDown.style.textCenter = timeCountDown
+                     }
+                     else if (countDown.innerHTML <= 0) {
+                        countDown.innerHTML = ""
+                        email.disabled = false;
+                        password.disabled = false;
+                        password.disabled = false;
+                        pass.innerHTML = ""
+                        location.reload();
+                     }
+                  }, 1000
+               )
+            }
+
+         }
+         }
+       
+
+         usersAccount = JSON.parse(localStorage.getItem("details"));
+         var Logger = usersAccount.find((pName) => pName.eMail == Email)
+         indexOfUser = usersAccount.indexOf(Logger)
+         console.log(indexOfUser);
+
+         if (Logger) {
+            userName = usersAccount[indexOfUser].fName
+            userAccId = usersAccount[indexOfUser].accountNo
+            oLog = ({ Email, passWord, userName, userAccId })
+            rLog = JSON.stringify(oLog)
+            localStorage.setItem("owner", rLog)
+
+
+         }
+
+
+
+      }
+   </script>
+</body>
+
 </html>

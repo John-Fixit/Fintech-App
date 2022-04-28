@@ -253,7 +253,7 @@
                                             </thead>`
                         for (p = 0; p < wit.length; p++) {
 
-                            ta += `<tbody>aa
+                            ta += `<tbody>
                                                 <tr>
                                                     <td>${wit[p].amount}</td>
                                                     <td>${wit[p].Time}</td>
@@ -312,7 +312,7 @@
 
             }
             function Clos(){
-                history.back()
+                location.reload();
             }
             function save(){
                 window.print()

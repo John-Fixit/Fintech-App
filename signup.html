@@ -14,6 +14,7 @@
     <link rel="stylesheet" href="./assets/css/rootui.css">
     <link rel="stylesheet" href="./assets/css/rootui-night.css" media="(night)" class="rui-nightmode-link">
     <link rel="stylesheet" href="./assets/css/custom.css">
+    <script src="bootstrap-5.1.3/dist/js/bootstrap.bundle.js"></script>
 </head>
 <style>
     .bg-info {
@@ -49,82 +50,85 @@
                                 read and agree to
                                 the <a href="#" class="text-2">terms and conditions.</a></label></div>
                     </div>
-                    <div class="col-12"><a href="#" class="btn btn-brand btn-block text-center" onclick="signUp()">Sign
+                    <div class="col-12"><a href="#" class="btn btn-outline-light btn-block text-center"
+                            onclick="signUp()">Sign
                             up</a>
-                    </div>
-                    <div class="col-12">
-                        <div class="rui-sign-or mt-2 mb-5">or</div>
-                    </div>
-                    <div class="col-12">
-                        <ul class="rui-social-links">
-                            <li><a href="dashboard.html" class="rui-social-github"><span class="fab fa-github"></span>
-                                    Github</a></li>
-                            <li><a href="dashboard.html" class="rui-social-facebook"><span
-                                        class="fab fa-facebook-f"></span> Facebook</a></li>
-                            <li><a href="dashboard.html" class="rui-social-google"><span class="fab fa-google"></span>
-                                    Google</a></li>
-                        </ul>
-                    </div>
-                    <div class="mt-20 text-grey-5">Already have an account? <a href="login.html" class="text-light" style="font-size: large;">Sign
-                            In</a>
+                        <button type="button" class="btn btn-primary w-100 text-center mt-5"
+                            style="background-image: linear-gradient( to left, orangered 20%,purple 50%, blue 60%);"
+                            data-bs-toggle="modal" data-bs-target="#exampleModal" onclick="cont()">
+                            continue
+                        </button>
 
                     </div>
+                
+                <div class="col-12">
+                    <div class="rui-sign-or mt-2 mb-5">or</div>
+                </div>
+                <div class="mt-20 text-grey-5">Already have an account? <a href="login.html" class="text-light"
+                        style="font-size: large;">Sign
+                        In</a>
+
                 </div>
             </div>
-            <div id="speak" class="text-center"></div>
+            </div>
         </div>
-        <script>
-            function signUp() {
-                var usersAccount = [];
+    </div>
+    <script>
+        function signUp() {
+            var usersAccount = [];
 
-                userBal = [];
-                var deposit = [];
-                var credit = []
-                var withdraw = []
-                var transfer = []
-                var fName = userName.value;
-                var eMail = email.value;
-                var  passWord = password.value;
-                var transferPin = pin.value
-                var phone = phoneNo.value
-                var moneyAmount = 5000;
-                var num = [2, 4, 5, 7, 8, 9, 2, 4, 5, 6];
-                var accountNo = Math.floor("2" + Math.random(num.length) * 1000000000);
+            userBal = [];
+            var deposit = [];
+            var credit = [];
+            var withdraw = [];
+            var transfer = [];
+            var messages = [];
+            var notification = [];
+            var fName = userName.value;
+            var eMail = email.value;
+            var passWord = password.value;
+            var transferPin = pin.value;
+            var phone = phoneNo.value;
+            var moneyAmount = 5000;
+            var num = [2, 4, 5, 7, 8, 9, 2, 4, 5, 6];
+            var accountNo = Math.floor("2" + Math.random(num.length) * 1000000000);
 
-                userBal.push(moneyAmount)
+            userBal.push(moneyAmount);
 
-                if (localStorage.details != null) {
-                    usersAccount = JSON.parse(localStorage.getItem("details"))
-                }
-
-                var participants = usersAccount.find((info) => eMail == info.eMail)
-                var callNo = usersAccount.find((call) => phone == call.phone)
-
-
-                if (participants) {
-                    alert(`The email is already used`);
-                }
-                if (callNo) {
-                    alert(`The Phone Number is already used`);
-                }
-                else if (eMail == "") {
-                    alert("please enter your info");
-
-                }
-                usersInfo = ({ fName, eMail, passWord, accountNo, userBal, transferPin, deposit,credit,withdraw,phone,transfer});
-                usersAccount.push(usersInfo);
-                if (eMail && !participants) {
-                    sString = JSON.stringify(usersAccount);
-                    localStorage.setItem("details", sString)
-                    alert("Registration successful")
-                }
-                console.log(usersAccount);
-
-
-
+            if (localStorage.details != null) {
+                usersAccount = JSON.parse(localStorage.getItem("details"))
             }
 
-        </script>
+            var participants = usersAccount.find((info) => eMail == info.eMail)
+            var callNo = usersAccount.find((call) => phone == call.phone)
+
+
+            if (participants) {
+                alert(`The email is already used`);
+            }
+            if (callNo) {
+                alert(`The Phone Number is already used`);
+            }
+            else if (eMail == "") {
+                alert("please enter your info");
+
+            }
+            usersInfo = ({ fName, eMail, passWord, accountNo, userBal, transferPin, deposit, credit, withdraw, phone, transfer, messages, notification});
+            usersAccount.push(usersInfo);
+            if (eMail && !participants) {
+                sString = JSON.stringify(usersAccount);
+                localStorage.setItem("details", sString)
+                alert("Registration successful")
+
+            }
+            console.log(usersAccount);
+
+        }
+        cont=()=>{
+            location.href="login.html"
+        }
+
+    </script>
 </body>
 
 </html>

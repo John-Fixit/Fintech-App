@@ -57,7 +57,7 @@
                         </li>
                         <li>
                             <a href="#element" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><i
-                                    class="fa fa-diamond purple_color"></i> <span>Transaction Activities</span></a>
+                                    class="fa fa-money purple_color2"></i> <span>Transaction Activities</span></a>
                             <ul class="collapse list-unstyled" id="element">
                                 <li><a href="deposit.html">> <span>Deposit</span></a></li>
                                 <li><a href="withdraw.html">> <span>Withdraw</span></a></li>
@@ -65,22 +65,11 @@
                             </ul>
                         </li>
                         <li><a href="table.html"><i class="fa fa-table purple_color2"></i> <span>Transaction
-                                    details</span></a></li>
-
+                                    History</span></a></li>
                         <li><a href="recharge.html"><i class="fa fa-mobile purple_color2"></i> <span>Recharge
                                     Online</span></a></li>
-
-                        <li class="active">
-                            <a href="#additional_page" data-toggle="collapse" aria-expanded="false"
-                                class="dropdown-toggle"><i class="fa fa-clone yellow_color"></i>
-                                <span>Profile</span></a>
-                            <ul class="collapse list-unstyled" id="additional_page">
-                                <li>
-                                    <a href="profile.html">> <span>Profile</span></a>
-                                </li>
-                            </ul>
-                        </li>
-                        <li><a href="settings.html"><i class="fa fa-cog yellow_color"></i> <span>Settings</span></a>
+                        <li><a href="profile.html"><i class="fa fa-user yellow_color"></i> <span>User Profile</span></a>
+                        </li>                        <li><a href="settings.html"><i class="fa fa-cog yellow_color"></i> <span>Settings</span></a>
                         </li>
                         <li><a href="#" onclick="logOut()"><i class="fa fa-remove yellow_color"></i> <span>Log
                                     Out</span></a>
@@ -174,8 +163,6 @@
                                                 <div id="eModal"></div>
                                             </div>
                                         </div>
-                                        <!-- <p class="note_cont">If you use this site regularly and would like to help keep
-                                            the site on the Internet.</p> -->
                                     </div>
                                 </div>
                             </div>
@@ -264,7 +251,7 @@
                                                             <div class="modal-footer">
                                                                 <button type="button" class="btn btn-secondary"
                                                                     data-bs-dismiss="modal">Cancel</button>
-                                                                 <button type="button" class="btn btn-primary" onclick="save()">Ok</button>
+                                                                 <button type="button" class="btn btn-primary" onclick="saveMe()">Ok</button>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -272,7 +259,6 @@
 `
 
             cust = JSON.parse(localStorage.getItem("owner"))
-            userId.innerHTML = cust.userName;
             usersAccount = JSON.parse(localStorage.getItem("details"))
             user = usersAccount.find((h) => h.accountNo == cust.userAccId)
             indexOfUser = usersAccount.indexOf(user)
@@ -287,7 +273,9 @@
             function del() {
                 dAmount.value = dAmount.value.slice(0, -1)
             }
-
+            clr=()=>{
+                dAmount.value = " "
+            }
 
             function withdraw() {
                 amount = parseInt(dAmount.value)
@@ -313,8 +301,8 @@
                             var show = document.getElementById("showMe").checked
                             var HideMe = document.getElementById("HideMe").checked
                             if (show) {
-                                alert("hdhdhdh")
-                                document.getElementById("rcp").innerHTML = `<div class = bg-success style=width:150px; height: 150px>`
+                               location.href="rcp.html"
+
                             }
 
                             st = JSON.stringify(usersAccount)
@@ -338,7 +326,9 @@
 
             }
 
-
+            function saveMe() {
+                location.reload()
+            }
             function logOut() {
                 if (confirm("Are you sure you want to log out?")) {
                     location.href = "index.html"
