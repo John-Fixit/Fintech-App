@@ -86,9 +86,11 @@
                             <div class="right_topbar">
                                 <div class="icon_info">
                                     <ul>
-                                        <li><a href="#"><i class="fa fa-bell-o"></i><span class="badge" id="notify" onclick="notification()">4</span></a>
+                                        <li><a href="#"><i class="fa fa-bell-o"></i><span class="badge" id="notify"
+                                                    onclick="notification()">4</span></a>
                                         </li>
-                                        <li><a href="#"><i class="fa fa-envelope-o"></i><span class="badge" id="messageBtn" onclick="messages()">5</span></a>
+                                        <li><a href="#"><i class="fa fa-envelope-o"></i><span class="badge"
+                                                    id="allMessage" onclick="messageBtn()">5</span></a>
                                         </li>
                                     </ul>
                                     <ul class="user_profile_dd">
@@ -115,13 +117,14 @@
                         <div class="row column_title">
                             <div class="col-md-12">
                                 <div class="page_title">
-                                    <h2 class="fs-1">Transaction History</h2>
+                                    <h2 class="fs-1" id="title">Transaction History</h2>
                                 </div>
                             </div>
                         </div>
                         <div class="col-md-12">
+                            <div id="g"></div>
                             <div class="white_shd full margin_bottom_30">
-                                <div class="full graph_head">
+                                <div class="full graph_head" id="det">
                                     <div id="action">
                                     </div>
                                 </div>
@@ -269,14 +272,106 @@
        </div>`
 
                     document.getElementById("action").innerHTML += de
+                    
+                    
+                    notify.innerHTML = (usersAccount[indv].notification).length
+                    allMessage.innerHTML = (usersAccount[indv].messages).length
+                    
+
+                    notification = () => {
+                document.getElementById("title").innerHTML = `Notifications`
+                var ms=""
+                for (r = 0; r < (usersAccount[indv].notification).length; r++) {
+                    ms += `<div class="card shadow mt-4 p-3" style="display: flex; justify-content: center;" id="messages">${usersAccount[indv].notification[r]}
+                            <span><button class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal" onclick="del(${r})"><i class="fa fa-trash"></i></button><div class="modal fade" id="exampleModal" tabindex="-1"
+                                                    aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                                    <div class="modal-dialog modal-dialog-centered">
+                                                        <div class="modal-content">
+                                                            <div class="modal-header">
+                                                                <h5 class="modal-title" id="exampleModalLabel">Attention</h5>
+                                                                
+                                                            </div>
+                                                            <div class="modal-body text-center fs-3">
+                                                                Delete this Notification?
+                                                            </div>
+                                                            <div class="modal-footer">
+                                                                <button type="button" class="btn btn-secondary"
+                                                                    data-bs-dismiss="modal">Cancel</button>
+                                                                 <button type="button" class="btn btn-primary" onclick="DeleteNtf()">Delete</button>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div></span>
+                            </div>`
+                        
+                    g.innerHTML = ms;
+                    document.getElementById('det').style.display = "none"
+                }
+                g.innerHTML += `<button onclick="Back()" class="btn btn-primary">Back</button>`
+
+            }
+            messageBtn = () => {
+                document.getElementById("title").innerHTML = `Messages`
+                var ms=""
+                for (r = 0; r < (usersAccount[indv].messages).length; r++) {
+                    ms += `
+                        <div class="card shadow mt-4 p-3" style="display: flex; justify-content: center;" id="messages">${usersAccount[indv].messages[r]}
+                            <span><button class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal" onclick="del(${r})"><i class="fa fa-trash"></i></button><div class="modal fade" id="exampleModal" tabindex="-1"
+                                                    aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                                    <div class="modal-dialog modal-dialog-centered">
+                                                        <div class="modal-content">
+                                                            <div class="modal-header">
+                                                                <h5 class="modal-title" id="exampleModalLabel">Attention</h5>
+                                                               
+                                                            </div>
+                                                            <div class="modal-body text-center fs-3">
+                                                                Delete this message?
+                                                            </div>
+                                                            <div class="modal-footer">
+                                                                <button type="button" class="btn btn-secondary"
+                                                                    data-bs-dismiss="modal">Cancel</button>
+                                                                 <button type="button" class="btn btn-primary" onclick="DeleteMsg()">Delete</button>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div></span>
+                            </div>
+                            </div>
+                        `
+
+                    g.innerHTML = ms
+                    det.style.display = "none"
+                }
+                g.innerHTML += `<button onclick="Back()" class="btn btn-primary">Back</button>`
+            }
+
+            function del(r) {
+                delIndex = r
+            }
+            function DeleteNtf() {
+                mn = usersAccount[indv].notification
+                mn.splice(delIndex, 1)
+                localStorage.setItem("details", JSON.stringify(usersAccount));
+                location.reload();
+
+            }
+            function DeleteMsg() {
+                mm = usersAccount[indv].messages
+                mm.splice(delIndex, 1)
+                localStorage.setItem("details", JSON.stringify(usersAccount));
+                location.reload();
+
+            }
+
+
+            function Back() {
+                location.reload();
+            }
+
                     function logOut() {
                         if (confirm("Are you sure you want to log out?")) {
                             location.href = "index.html"
                         }
-                    }
-
-                    notification=()=>{
-                        alert(notify.innerHTML)
                     }
                 </script>
 </body>

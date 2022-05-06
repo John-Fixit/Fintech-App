@@ -21,6 +21,10 @@
         background-image: url(Credit\ Card\ Payment-amico.png);
         background-position: center;
         background-size: cover;
+        background-color: #15283C!important;
+    }
+    .bg-brand{
+        background-color: orangered !important;
     }
 </style>
 
@@ -28,10 +32,11 @@
 
     <div class="rui-main bg-info">
         <div class="rui-sign align-items-center justify-content-center">
-            <div class="form rui-sign-form rui-sign-form-cloud rounded me-5">
+            <div class="form rui-sign-form rui-sign-form-cloud rounded me-5" style="background-color: #15283C;">
                 <div class="row vertical-gap sm-gap justify-content-center bg-brand rounded">
+                    <div id="logo" style="-webkit-text-stroke: 1px white; color: transparent; font-size: 5vh;" class="mt-2 text-center text-light px-4">Fix Bank</div>
                     <div class="col-12">
-                        <h1 class="display-4 mb-10 text-center">Sign Up</h1>
+                        <h1 class="display-4 mb-10 text-center text-light">Sign Up</h1>
                     </div>
                     <div class="col-12"><input class="form-control" placeholder="Full Name" id="userName"></div>
                     <div class="col-12"><input type="email" class="form-control" placeholder="Email" id="email"></div>
@@ -43,6 +48,9 @@
                     <div class="col-12 form-floating"><input type="number" class="form-control"
                             placeholder="Phone Number" id="phoneNo">
                     </div>
+                    <div class="col-12 form-floating"><input type="text" class="form-control"
+                            placeholder="Residential Address" id="address">
+                    </div>
                     <div class="col-12">
                         <div class="custom-control custom-checkbox d-flex justify-content-start"><input type="checkbox"
                                 class="custom-control-input" id="rememberMe"> <label
@@ -51,14 +59,11 @@
                                 the <a href="#" class="text-2">terms and conditions.</a></label></div>
                     </div>
                     <div class="col-12"><a href="#" class="btn btn-outline-light btn-block text-center"
-                            onclick="signUp()">Sign
+                            onclick="signUp()" style="background-color:  #15283C;">Sign
                             up</a>
-                        <button type="button" class="btn btn-primary w-100 text-center mt-5"
-                            style="background-image: linear-gradient( to left, orangered 20%,purple 50%, blue 60%);"
-                            data-bs-toggle="modal" data-bs-target="#exampleModal" onclick="cont()">
-                            continue
-                        </button>
-
+                     
+                        <div id="imgBTN"></div>
+                        <img src="" id="imgB" alt="">
                     </div>
                 
                 <div class="col-12">
@@ -90,7 +95,12 @@
             var transferPin = pin.value;
             var phone = phoneNo.value;
             var moneyAmount = 5000;
+            var address = address.value;
+            console.log(pic);
             var num = [2, 4, 5, 7, 8, 9, 2, 4, 5, 6];
+                c=[[],[],[],[],[],[],[],[],[],[],[],[]]
+                d=[[],[],[],[],[],[],[],[],[],[],[],[]]
+            var chart = {c,d};
             var accountNo = Math.floor("2" + Math.random(num.length) * 1000000000);
 
             userBal.push(moneyAmount);
@@ -113,19 +123,16 @@
                 alert("please enter your info");
 
             }
-            usersInfo = ({ fName, eMail, passWord, accountNo, userBal, transferPin, deposit, credit, withdraw, phone, transfer, messages, notification});
+            usersInfo = ({ fName, eMail, passWord, accountNo, userBal, transferPin, deposit, credit, withdraw, phone, transfer, messages, notification, chart, address});
             usersAccount.push(usersInfo);
             if (eMail && !participants) {
                 sString = JSON.stringify(usersAccount);
                 localStorage.setItem("details", sString)
                 alert("Registration successful")
-
+                location.href="login.html"
             }
-            console.log(usersAccount);
 
-        }
-        cont=()=>{
-            location.href="login.html"
+
         }
 
     </script>

@@ -91,9 +91,11 @@
                             <div class="right_topbar">
                                 <div class="icon_info">
                                     <ul>
-                                        <li><a href="#"><i class="fa fa-bell-o"></i><span class="badge">4</span></a>
+                                        <li><a href="#"><i class="fa fa-bell-o"></i><span class="badge" id="notify"
+                                                    onclick="notification()">4</span></a>
                                         </li>
-                                        <li><a href="#"><i class="fa fa-envelope-o"></i><span class="badge">5</span></a>
+                                        <li><a href="#"><i class="fa fa-envelope-o"></i><span class="badge"
+                                                    id="allMessage" onclick="messageBtn()">5</span></a>
                                         </li>
                                     </ul>
                                     <ul class="user_profile_dd">
@@ -120,19 +122,19 @@
                         <div class="row column_title">
                             <div class="col-md-12">
                                 <div class="page_title">
-                                    <h2>Settings</h2>
+                                    <h2 id="title">Settings</h2>
                                 </div>
                             </div>
                         </div>
-
-                        <div class="container-fluid">
+                        <div id="g"></div>
+                        <div class="container-fluid" id="det">
 
                             <div class="row">
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <div class="input-group input-group-lg d-flex">
                                             <span class="input-group-text fs-3">Name</span>
-                                            <input type="text" name="" id="Name" class="form-control border-buttom fs-3"
+                                            <input type="text" name="p" id="Name" class="form-control border-buttom fs-3"
                                                 disabled>
                                         </div>
                                     </div>
@@ -141,51 +143,61 @@
                                     <div class="form-group">
                                         <div class="input-group input-group-lg d-flex">
                                             <span class="input-group-text fs-3">Email</span>
-                                            <input type="email" name="Email" id="email"
+                                            <input type="email" name="p" id="email"
                                                 class="form-control border-buttom fs-3" disabled>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-6">
-                                <div class="form-group">
-                                    <div class="input-group input-group-lg d-flex">
-                                        <span class="input-group-text fs-3">Password</span>
-                                        <input type="text" name="" id="password" class="form-control border-buttom fs-3"
-                                            disabled>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <div class="input-group input-group-lg d-flex">
+                                            <span class="input-group-text fs-3">Password</span>
+                                            <input type="text" name="p" id="password"
+                                                class="form-control border-buttom fs-3" disabled>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <div class="input-group input-group-lg d-flex">
+                                            <span class="input-group-text fs-3">Contact</span>
+                                            <input type="email" name="p" id="contact"
+                                                class="form-control border-buttom fs-3 " disabled>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-
-                            <div class="col-md-6">
-                                <div class="form-group">
-                                    <div class="input-group input-group-lg d-flex">
-                                        <span class="input-group-text fs-3">Contact</span>
-                                        <input type="email" name="" id="contact"
-                                            class="form-control border-buttom fs-3 " disabled>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <div class="input-group input-group-lg d-flex">
+                                            <span class="input-group-text fs-3">Address</span>
+                                            <input type="text" name="p" id="address"
+                                                class="form-control border-buttom fs-3" disabled>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-
-                        </div>
-                        <div class="row">
                             <button class="btn btn-success w-50 mx-auto" onclick="edit()">Edit Profile</button>
                             <button class="btn btn-danger w-50" onclick="saveMe()">Save Profile</button>
                         </div>
                     </div>
+
                 </div>
             </div>
         </div>
-        <div class="container-fluid">
-            <div class="footer">
-                <p>Designed By <span><a href="https://github.comm/john-fixit.com"> John
-                            Fix</a></span>
-                </p>
+    </div>
+    <div class="container-fluid">
+        <div class="footer">
+            <p>Designed By <span><a href="https://github.comm/john-fixit.com"> John
+                        Fix</a></span>
+            </p>
 
-            </div>
         </div>
+    </div>
     </div>
     </div>
     </div>
@@ -206,13 +218,18 @@
         document.getElementById("email").value = usersAccount[indexOfUser].eMail
         document.getElementById("password").value = usersAccount[indexOfUser].passWord
         document.getElementById("contact").value = usersAccount[indexOfUser].phone
+        document.getElementById("address").value = usersAccount[indexOfUser].address
         document.getElementById("Name").disabled = "true"
+
+        notify.innerHTML = (usersAccount[indexOfUser].notification).length
+        allMessage.innerHTML = (usersAccount[indexOfUser].messages).length
 
         function edit() {
             document.getElementById("Name").disabled = false;
             document.getElementById("email").disabled = false;
             document.getElementById("password").disabled = false;
             document.getElementById("contact").disabled = false;
+            document.getElementById("address").disabled = false;
         }
         saveMe = () => {
             usersAccount[indexOfUser].fName = document.getElementById("Name").value
@@ -223,6 +240,101 @@
             localStorage.setItem("details", JSON.stringify(usersAccount));
             location.reload();
         }
+
+        notification = () => {
+            document.getElementById("title").innerHTML = `Notifications`
+            var ms = ""
+
+            for (r = 0; r < (usersAccount[indexOfUser].notification).length; r++) {
+                ms += `<div class="card shadow mt-4 p-3" style="display: flex; justify-content: center;" id="messages">${usersAccount[indexOfUser].notification[r]}
+                            <span><button class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal" onclick="del(${r})"><i class="fa fa-trash"></i></button><div class="modal fade" id="exampleModal" tabindex="-1"
+                                                    aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                                    <div class="modal-dialog modal-dialog-centered">
+                                                        <div class="modal-content">
+                                                            <div class="modal-header">
+                                                                <h5 class="modal-title" id="exampleModalLabel">Attention</h5>
+                                                                
+                                                            </div>
+                                                            <div class="modal-body text-center fs-3">
+                                                                Delete this Notification?
+                                                            </div>
+                                                            <div class="modal-footer">
+                                                                <button type="button" class="btn btn-secondary"
+                                                                    data-bs-dismiss="modal">Cancel</button>
+                                                                 <button type="button" class="btn btn-primary" onclick="DeleteNtf()">Delete</button>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div></span>
+                            </div>`
+
+                g.innerHTML = ms;
+                document.getElementById('det').style.display = "none"
+            }
+            g.innerHTML += `<button onclick="Back()" class="btn btn-primary">Back</button>`
+
+        }
+        messageBtn = () => {
+            document.getElementById("title").innerHTML = `Messages`
+            var ms = ""
+
+            for (r = 0; r < (usersAccount[indexOfUser].messages).length; r++) {
+                ms += `
+                        <div class="card shadow mt-4 p-3" style="display: flex; justify-content: center;" id="messages">${usersAccount[indexOfUser].messages[r]}
+                            <span><button class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal" onclick="del(${r})"><i class="fa fa-trash"></i></button><div class="modal fade" id="exampleModal" tabindex="-1"
+                                                    aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                                    <div class="modal-dialog modal-dialog-centered">
+                                                        <div class="modal-content">
+                                                            <div class="modal-header">
+                                                                <h5 class="modal-title" id="exampleModalLabel">Attention</h5>
+                                                               
+                                                            </div>
+                                                            <div class="modal-body text-center fs-3">
+                                                                Delete this message?
+                                                            </div>
+                                                            <div class="modal-footer">
+                                                                <button type="button" class="btn btn-secondary"
+                                                                    data-bs-dismiss="modal">Cancel</button>
+                                                                 <button type="button" class="btn btn-primary" onclick="DeleteMsg()">Delete</button>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div></span>
+                            </div>
+                            </div>
+                        `
+
+                g.innerHTML = ms
+                det.style.display = "none"
+            }
+            g.innerHTML += `<button onclick="Back()" class="btn btn-primary">Back</button>`
+
+        }
+
+        function del(r) {
+            delIndex = r
+        }
+        function DeleteNtf() {
+            mn = usersAccount[indexOfUser].notification
+            mn.splice(delIndex, 1)
+            localStorage.setItem("details", JSON.stringify(usersAccount));
+            location.reload();
+
+        }
+        function DeleteMsg() {
+            mm = usersAccount[indexOfUser].messages
+            mm.splice(delIndex, 1)
+            localStorage.setItem("details", JSON.stringify(usersAccount));
+            location.reload();
+
+        }
+
+
+        function Back() {
+            location.reload();
+        }
+
+
         function logOut() {
             if (confirm("Are you sure you want to log out?")) {
                 location.href = "index.html"

@@ -10,25 +10,52 @@
     <link rel="stylesheet" href="font-awesome-4/css/font-awesome.css">
 </head>
 <style>
+    #bod{
+            /* overflow-x: hidden !important; */
+            width: 100%;
+        }
     .bg-img {
         background-image: url(Capture.PNG);
-        height: 70vh;
+        height: 50vh;
         background-size: cover;
         background-position: center;
     }
+    .fw-bold{
+        -webkit-text-stroke: 2px white;
+        color: transparent !important;
+
+    }
+    @media only screen and (max-width:768px){
+        
+        .bg-img{
+            display: none;
+        }
+        .fw-bold{
+            background-image: url(Capture.PNG);
+            height: 13vh;
+            text-align: left !important;
+            padding: 1vh 3vh;
+           -webkit-text-stroke: 2px #FF5722;
+           font-size: 10vh !important;
+            color: transparent !important;
+        }
+        .log{
+            height: 87vh;
+        }
+    }
 </style>
 
-<body>
+<body id="bod">
     <div class="container mt-5">
         <div class="shadow">
             <div class="row">
                 <div class="col-md-6">
                     <div class="bg-img"></div>
                 </div>
-                <div class="col-md-6 shadow">
+                <div class="col-md-6 shadow log">
                     <div class="container-fluid text-center fs-1 fw-bold text-light" style="background-color:#FF5722;">FIX BANK</div>
-                    <h2 class="text-center">LOG IN</h2>
-                    <p class="fs-3" id="countDown"></p>
+                    <h2 class="text-center mt-2">LOG IN</h2>
+                    <p class="fs-2 text-center" id="countDown"></p>
                     <div class="form-group px-5">
                         <label for="name">Email</label>
                         <div class="input-group">
@@ -47,10 +74,10 @@
                     <div class="form-group px-5 mt-3">
                         <input type="checkbox" name="" id=""><span class="ms-3">Remember me</span>
                     </div>
-                    <p id="pass"></p>
+                    <p id="pass" class="text-center"></p>
                     <div class="form-group px-5 mt-3">
                         <input type="button" name="" id="loginIn" value="Sign In"
-                            class="btn btn-primary rounded-pill px-5">
+                            class="btn btn-primary rounded-pill px-5 " style="background-image: linear-gradient(to right, orangered,rgb(82, 82, 211));">
                     </div>
                     
                 </div>
@@ -60,46 +87,47 @@
     </div>
 </body>
 <script>
+        localStorage.adminIncorrect = 0
+
     document.getElementById("loginIn").addEventListener("click", () => {
         staffs = JSON.parse(localStorage.getItem("admins"))
         mail = Email.value;
         Password = PassWord.value;
 
 
-        localStorage.incorrect = 0
         var kay = staffs.find((h) => h.Email == mail && h.Password == Password);
-        var core = staffs.find((h) => h.Email ==mail);
-        console.log(core);
+        var core = staffs.find((y) => y.Email ==mail);
+
         var jy = staffs.find((l) => l.Email != mail || l.Password != Password);
         indexOfUser = staffs.indexOf(core)
         console.log(indexOfUser);
         if (kay) {
-          
             Name = staffs[indexOfUser].fullName
-            oLog = ({ Email, Password,Name})
+            oLog = ({ mail, Password,Name})
             rLog = JSON.stringify(oLog)
             localStorage.setItem("loggedInStaff", rLog)
-            location.href = "dashboard.html"
+            location.href = "adminDashboard.html"
         }
 
         else if (jy) {
-            localStorage.incorrect++
+            localStorage.adminIncorrect++
+            console.log(localStorage.adminIncorrect);
             pass.innerHTML = `Incorrect Password or Email !!!`
             pass.style.color = "red"
 
-            if (localStorage.incorrect == 3) {
+            if (localStorage.adminIncorrect == 3) {
                 Email.disabled = true;
                 PassWord.disabled = true;
 
-                var timeCountDown = 15;
+                var timeCountDown = 5;
                 setInterval(
                     function () {
                         timeCountDown--
                         if (timeCountDown >= 0) {
-                            countDown.innerHTML = timeCountDown
+                            countDown.innerHTML = `wait for ${timeCountDown} secs and try again`
                             countDown.style.textCenter = timeCountDown
                         }
-                        else if (countDown.innerHTML <= 0) {
+                        else if (timeCountDown <= 0) {
                             countDown.innerHTML = ""
                             Email.disabled = false;
                             PassWord.disabled = false;
@@ -112,21 +140,7 @@
 
         }
 
-        staffs = JSON.parse(localStorage.getItem("details"));
-        console.log(staffs);
-        var Logger = staffs.find((pName) => pName.Email == mail)
-        indexOfUser = staffs.indexOf(Logger)
-        console.log(indexOfUser + "hi");
-
-        // if (Logger) {
-            userName = staffs[indexOfUser].fName
-            userAccId = staffs[indexOfUser].accountNo
-            obj = ({ Email, Password})
-            rLog = JSON.stringify(oLog)
-            localStorage.setItem("loggedInStaff", rLog)
-
-
-        // // }
+    
 
     })
 

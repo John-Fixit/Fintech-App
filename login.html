@@ -135,7 +135,7 @@
                         countDown.innerHTML = `wait for ${timeCountDown} secs and try again`
                         countDown.style.textCenter = timeCountDown
                      }
-                     else if (countDown.innerHTML <= 0) {
+                     else if (timeCountDown <= 0) {
                         countDown.innerHTML = ""
                         email.disabled = false;
                         password.disabled = false;

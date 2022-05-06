@@ -69,7 +69,8 @@
                         <li><a href="recharge.html"><i class="fa fa-mobile purple_color2"></i> <span>Recharge
                                     Online</span></a></li>
                         <li><a href="profile.html"><i class="fa fa-user yellow_color"></i> <span>User Profile</span></a>
-                        </li>                        <li><a href="settings.html"><i class="fa fa-cog yellow_color"></i> <span>Settings</span></a>
+                        </li>
+                        <li><a href="settings.html"><i class="fa fa-cog yellow_color"></i> <span>Settings</span></a>
                         </li>
                         <li><a href="#" onclick="logOut()"><i class="fa fa-remove yellow_color"></i> <span>Log
                                     Out</span></a>
@@ -89,9 +90,11 @@
                             <div class="right_topbar">
                                 <div class="icon_info">
                                     <ul>
-                                        <li><a href="#"><i class="fa fa-bell-o"></i><span class="badge">4</span></a>
+                                        <li><a href="#"><i class="fa fa-bell-o"></i><span class="badge" id="notify"
+                                                    onclick="notification()">4</span></a>
                                         </li>
-                                        <li><a href="#"><i class="fa fa-envelope-o"></i><span class="badge">5</span></a>
+                                        <li><a href="#"><i class="fa fa-envelope-o"></i><span class="badge"
+                                                    id="allMessage" onclick="messageBtn()">5</span></a>
                                         </li>
                                     </ul>
                                     <ul class="user_profile_dd">
@@ -118,12 +121,12 @@
                         <div class="row column_title">
                             <div class="col-md-12">
                                 <div class="page_title">
-                                    <h2 class="fs-1">Withdraw</h2>
+                                    <h2 class="fs-1" id="title">Withdraw</h2>
                                 </div>
                             </div>
                         </div>
-
-                        <div class="row">
+                        <div id="g"></div>
+                        <div class="row" id="det">
                             <div class="col-md-6">
                                 <div class="full white_shd">
                                     <div class="full graph_head">
@@ -139,7 +142,7 @@
                                         </ul>
                                         <div class="car">
                                             <div class="card-body ms-3">
-                                                <input type="text" name="" disabled id="dAmount"
+                                                <input type="number" name="" id="dAmount"
                                                     placeholder="Enter Amount To Withdraw" class="form-control fs-3">
                                                 <div class="mt-4 row">
                                                     <div class="d-flex">
@@ -157,81 +160,40 @@
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <!-- <input type="text" name="" id="pinNo" placeholder="Pin Required"
-                                                    class="form-control text-center"> -->
-                                                <div class="mt-5"></div>
-                                                <div id="eModal"></div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-md-6">
-                                <table class="table table-striped text-center table-bordered">
-                                    <tr>
-                                        <td><button class="btn btn-light fs-2 px-4 py-2" onclick="num(1)">1</button>
-                                        </td>
-                                        <td><button class="btn btn-light fs-2 px-4 py-2" onclick="num(2)">2</button>
-                                        </td>
-                                        <td><button class="btn btn-light fs-2 px-4 py-2" onclick="num(3)">3</button>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td><button class="btn btn-outline-danger fs-2 px-4 py-2"
-                                                onclick="num(4)">4</button></td>
-                                        <td><button class="btn btn-outline-danger fs-2 px-4 py-2"
-                                                onclick="num(5)">5</button></td>
-                                        <td><button class="btn btn-outline-danger fs-2 px-4 py-2"
-                                                onclick="num(6)">6</button></td>
-                                    </tr>
-                                    <tr>
-                                        <td><button class="btn btn-light fs-2 px-4 py-2" onclick="num(7)">7</button>
-                                        </td>
-                                        <td><button class="btn btn-light fs-2 px-4 py-2" onclick="num(8)">8</button>
-                                        </td>
-                                        <td><button class="btn btn-light fs-2 px-4 py-2" onclick="num(9)">9</button>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td><button class="btn btn-outline-danger fs-2 px-4 py-2"
-                                                onclick="num(0)">0</button>
-                                        </td>
-                                        <td><button class="btn btn-outline-danger fs-2 px-4 py-2"
-                                                onclick="del()">DEL</button>
-                                        </td>
-                                        <td><button class="btn btn-outline-danger fs-2 px-4 py-2"
-                                                onclick="clr()">CLEAR</button>
-                                        </td>
-                                    </tr>
-                                </table>
-                                <div id="rcp"></div>
-                            </div>
+
+                            <div id="eModal"></div>
+                        </div>
 
 
-                        </div>
-                        <div class="card border-0 mt-2">
-                            <p class="note_cont text-center">If you use this site regularly you would like to help keep
-                                the site on the Internet.</p>
-                        </div>
-                        <div class="container-fluid">
-                            <div class="footer">
-                                <p>Designed By <span><a href="https://github.comm/john-fixit.com"> John Fix</a></span>
-                                </p>
-                            </div>
+                    </div>
+                    <div class="card border-0 mt-2">
+                        <p class="note_cont text-center">If you use this site regularly you would like to help keep
+                            the site on the Internet.</p>
+                    </div>
+                    <div class="container-fluid">
+                        <div class="footer">
+                            <p>Designed By <span><a href="https://github.comm/john-fixit.com"> John Fix</a></span>
+                            </p>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
+    </div>
 
-        <script src="js/jquery.min.js"></script>
-        <script src="js/bootstrap.min.js"></script>
-        <script src="js/custom.js"></script>
+    <script src="js/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/custom.js"></script>
 
-        <script>
+    <script>
 
-            document.getElementById("eModal").innerHTML = `
-<button type="button" class="btn btn-primary w-100"
+        document.getElementById("eModal").innerHTML = `
+                                                <button type="button" class="btn btn-primary w-100"
                                                     data-bs-toggle="modal" data-bs-target="#exampleModal"
                                                     onclick="withdraw()">
                                                     Withdraw
@@ -258,84 +220,178 @@
                                                 </div>
 `
 
-            cust = JSON.parse(localStorage.getItem("owner"))
-            usersAccount = JSON.parse(localStorage.getItem("details"))
-            user = usersAccount.find((h) => h.accountNo == cust.userAccId)
-            indexOfUser = usersAccount.indexOf(user)
-            nn = parseInt(dAmount.value)
-            originalPin = usersAccount[indexOfUser].transferPin
-            userId.innerHTML = usersAccount[indexOfUser].fName;
+        cust = JSON.parse(localStorage.getItem("owner"))
+        usersAccount = JSON.parse(localStorage.getItem("details"))
+        user = usersAccount.find((h) => h.accountNo == cust.userAccId)
+        indexOfUser = usersAccount.indexOf(user)
+        nn = parseInt(dAmount.value)
+        originalPin = usersAccount[indexOfUser].transferPin
+        userId.innerHTML = usersAccount[indexOfUser].fName;
 
-            num = (press) => {
-                dAmount.value += press
-            }
-
-            function del() {
-                dAmount.value = dAmount.value.slice(0, -1)
-            }
-            clr=()=>{
-                dAmount.value = " "
-            }
-
-            function withdraw() {
-                amount = parseInt(dAmount.value)
-
-                if (user) {
-                    var time = new Date
-                    Time = time.toLocaleTimeString()
-                    Day = time.toLocaleDateString()
-                    obj = { amount, Time, Day }
-                    usersAccount[indexOfUser].withdraw.push(obj)
-
-                    pp = usersAccount[indexOfUser].userBal
-                    lastIndex = pp.length - 1
-                    lA = parseInt(usersAccount[indexOfUser].userBal)
-                    // if (pin == originalPin) {
-                    if (dAmount.value == "") {
-                        document.getElementById("feedBack").innerHTML = " Enter Amount to withdraw !!!"
-                        document.getElementById("feedBack").style.color = " red"
-                    }
-                    else {
-                        if (lA > amount) {
-
-                            var show = document.getElementById("showMe").checked
-                            var HideMe = document.getElementById("HideMe").checked
-                            if (show) {
-                               location.href="rcp.html"
-
-                            }
-
-                            st = JSON.stringify(usersAccount)
-                            localStorage.setItem("details", st)
+        notify.innerHTML = (usersAccount[indexOfUser].notification).length
+        allMessage.innerHTML = (usersAccount[indexOfUser].messages).length
 
 
+        function withdraw() {
+            amount = parseInt(dAmount.value)
+
+            if (user) {
+                var time = new Date
+                Time = time.toLocaleTimeString()
+                Day = time.toLocaleDateString()
+                obj = { amount, Time, Day }
+                usersAccount[indexOfUser].withdraw.push(obj)
+
+                pp = usersAccount[indexOfUser].userBal
+                lastIndex = pp.length - 1
+                lA = parseInt(usersAccount[indexOfUser].userBal)
+                if (dAmount.value == "") {
+                    document.getElementById("feedBack").innerHTML = " Enter Amount to withdraw !!!"
+                    document.getElementById("feedBack").style.color = " red"
+                }
+                else {
+                    if (lA > amount) {
+
+                        var show = document.getElementById("showMe").checked
+                        var HideMe = document.getElementById("HideMe").checked
+
+                        if (show) {
                             lastAmount = lA - amount;
                             usersAccount[indexOfUser].userBal = lastAmount
-                            str = JSON.stringify(usersAccount)
-                            localStorage.setItem("details", str)
+                            notificationforUser = `Debit Acc:xxxx2765 amt: N ${amount} Ref: Ref: USSD.BNKG:058/ ${usersAccount[indexOfUser].fName} Time:${Time} on ${Day}  Bal :${usersAccount[indexOfUser].userBal}`
+                            usersAccount[indexOfUser].notification.push(notificationforUser)
+                            usersAccount[indexOfUser].messages.push(notificationforUser)
+                            location.href = "rcp.html"
+
+                        }
+
+
+                        else if (HideMe || (!show || !HideMe)) {
+                            lastAmount = lA - amount;
+                            usersAccount[indexOfUser].userBal = lastAmount
+                            notificationforUser = `Debit Acc:xxxx2765 amt: N ${amount} Ref: Ref: USSD.BNKG:058/ ${usersAccount[indexOfUser].fName} Time:${Time} on ${Day}  Bal :${usersAccount[indexOfUser].userBal}`
+                            usersAccount[indexOfUser].notification.push(notificationforUser)
+                            usersAccount[indexOfUser].messages.push(notificationforUser)
+                            var Month = new Date;
+                            var yy = usersAccount[indexOfUser].chart.d[Month.getMonth()];
+                            yy.push(amount)
                             document.getElementById("feedBack").innerHTML = " Transaction Successfully"
 
+                        }
+                        str = JSON.stringify(usersAccount)
+                        localStorage.setItem("details", str)
 
-                        }
-                        else if (lA < amount) {
-                            document.getElementById("feedBack").innerHTML = "withdraw unsuccessfull due to insufficient balance!!!"
-                            document.getElementById("feedBack").style.color = " red"
-                        }
+
+                    }
+                    else if (lA < amount) {
+                        document.getElementById("feedBack").innerHTML = "withdraw unsuccessfull due to insufficient balance!!!"
+                        document.getElementById("feedBack").style.color = " red"
                     }
                 }
-
             }
 
-            function saveMe() {
-                location.reload()
-            }
-            function logOut() {
-                if (confirm("Are you sure you want to log out?")) {
-                    location.href = "index.html"
-                }
-            }
+        }
 
-        </script>
+        function saveMe() {
+            location.reload()
+        }
+
+        notification = () => {
+            document.getElementById("title").innerHTML = `Notifications`
+            var ms = ""
+            for (r = 0; r < (usersAccount[indexOfUser].notification).length; r++) {
+                ms += `<div class="card shadow mt-4 p-3" style="display: flex; justify-content: center;" id="messages">${usersAccount[indexOfUser].notification[r]}
+                            <span><button class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal" onclick="del(${r})"><i class="fa fa-trash"></i></button><div class="modal fade" id="exampleModal" tabindex="-1"
+                                                    aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                                    <div class="modal-dialog modal-dialog-centered">
+                                                        <div class="modal-content">
+                                                            <div class="modal-header">
+                                                                <h5 class="modal-title" id="exampleModalLabel">Attention</h5>
+                                                                
+                                                            </div>
+                                                            <div class="modal-body text-center fs-3">
+                                                                Delete this Notification?
+                                                            </div>
+                                                            <div class="modal-footer">
+                                                                <button type="button" class="btn btn-secondary"
+                                                                    data-bs-dismiss="modal">Cancel</button>
+                                                                 <button type="button" class="btn btn-primary" onclick="DeleteNtf()">Delete</button>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div></span>
+                            </div>`
+
+                g.innerHTML = ms;
+                document.getElementById('det').style.display = "none"
+            }
+            g.innerHTML += `<button onclick="Back()" class="btn btn-primary">Back</button>`
+
+        }
+        messageBtn = () => {
+            document.getElementById("title").innerHTML = `Messages`
+            var ms = ""
+            for (r = 0; r < (usersAccount[indexOfUser].messages).length; r++) {
+                ms += `
+                        <div class="card shadow mt-4 p-3" style="display: flex; justify-content: center;" id="messages">${usersAccount[indexOfUser].messages[r]}
+                            <span><button class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal" onclick="del(${r})"><i class="fa fa-trash"></i></button><div class="modal fade" id="exampleModal" tabindex="-1"
+                                                    aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                                    <div class="modal-dialog modal-dialog-centered">
+                                                        <div class="modal-content">
+                                                            <div class="modal-header">
+                                                                <h5 class="modal-title" id="exampleModalLabel">Attention</h5>
+                                                               
+                                                            </div>
+                                                            <div class="modal-body text-center fs-3">
+                                                                Delete this message?
+                                                            </div>
+                                                            <div class="modal-footer">
+                                                                <button type="button" class="btn btn-secondary"
+                                                                    data-bs-dismiss="modal">Cancel</button>
+                                                                 <button type="button" class="btn btn-primary" onclick="DeleteMsg()">Delete</button>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div></span>
+                            </div>
+                            </div>
+                        `
+
+                g.innerHTML = ms
+                det.style.display = "none"
+            }
+            g.innerHTML += `<button onclick="Back()" class="btn btn-primary">Back</button>`
+        }
+
+        function del(r) {
+            delIndex = r
+        }
+        function DeleteNtf() {
+            mn = usersAccount[indexOfUser].notification
+            mn.splice(delIndex, 1)
+            localStorage.setItem("details", JSON.stringify(usersAccount));
+            location.reload();
+
+        }
+        function DeleteMsg() {
+            mm = usersAccount[indexOfUser].messages
+            mm.splice(delIndex, 1)
+            localStorage.setItem("details", JSON.stringify(usersAccount));
+            location.reload();
+
+        }
+
+
+        function Back() {
+            location.reload();
+        }
+        function logOut() {
+            if (confirm("Are you sure you want to log out?")) {
+                location.href = "index.html"
+            }
+        }
+
+    </script>
 </body>
 
 </html>

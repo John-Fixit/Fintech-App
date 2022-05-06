@@ -87,8 +87,12 @@
                      <div class="right_topbar">
                         <div class="icon_info">
                            <ul>
-                              <li><a href="#"><i class="fa fa-bell-o"></i><span class="badge">4</span></a></li>
-                              <li><a href="#"><i class="fa fa-envelope-o"></i><span class="badge">5</span></a></li>
+                              <li><a href="#" onclick="notification()"><i class="fa fa-bell-o"></i><span class="badge"
+                                       id="notify">4</span></a>
+                              </li>
+                              <li><a href="#" onclick="messageBtn()"><i class="fa fa-envelope-o"></i><span class="badge"
+                                       id="allMessage">5</span></a>
+                              </li>
                            </ul>
                            <ul class="user_profile_dd">
                               <li>
@@ -114,11 +118,12 @@
                   <div class="row column_title">
                      <div class="col-md-12">
                         <div class="page_title">
-                           <h2>Profile</h2>
+                           <h2 id="title">Profile</h2>
                         </div>
                      </div>
                   </div>
-                  <div class="row column1">
+                  <div id="g"></div>
+                  <div class="row column1" id="det">
                      <div class="col-md-2"></div>
                      <div class="col-md-8">
                         <div class="white_shd full margin_bottom_30">
@@ -131,17 +136,19 @@
                               <div class="row">
                                  <div class="col-lg-12">
                                     <div class="full dis_flex center_text">
-                                       <div class="profile_img"><img width="180" class="rounded-circle"
-                                             src="John.png" alt="#" /></div>
+                                       <div class="profile_img"><img width="180" class="rounded-circle" src="John.png"
+                                             alt="#" /></div>
                                        <div class="profile_contant">
                                           <div class="contact_inner">
                                              <h3 id="Name">John Smith</h3>
                                              <ul class="list-unstyled">
                                                 <li><i class="fa fa-enve">Account Number :</i> <span id="accNo">
                                                       xxxxxxxxxx</span></li>
-                                                <li><i class="fa fa-envelope"> Email :</i><span id="Email" class="fs-5 ms-2">:
+                                                <li><i class="fa fa-envelope"> Email :</i><span id="Email"
+                                                      class="fs-5 ms-2">:
                                                       test@gmail.com</span></li>
-                                                <li><i class="fa fa-phone"> Contact :</i> <span id="phoneNo" class="fs-5">: 987
+                                                <li><i class="fa fa-phone"> Contact :</i> <span id="phoneNo"
+                                                      class="fs-5">: 987
                                                       654 3210</span></li>
                                              </ul>
                                           </div>
@@ -179,6 +186,100 @@
       document.getElementById("Email").innerHTML = usersAccount[indexOfUser].eMail
       document.getElementById("phoneNo").innerHTML = usersAccount[indexOfUser].phone
       document.getElementById("accNo").innerHTML = usersAccount[indexOfUser].accountNo
+
+      notify.innerHTML = (usersAccount[indexOfUser].notification).length
+      allMessage.innerHTML = (usersAccount[indexOfUser].messages).length
+
+
+      notification = () => {
+                document.getElementById("title").innerHTML = `Notifications`
+                var ms=""
+                for (r = 0; r < (usersAccount[indexOfUser].notification).length; r++) {
+                    ms += `<div class="card shadow mt-4 p-3" style="display: flex; justify-content: center;" id="messages">${usersAccount[indexOfUser].notification[r]}
+                            <span><button class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal" onclick="del(${r})"><i class="fa fa-trash"></i></button><div class="modal fade" id="exampleModal" tabindex="-1"
+                                                    aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                                    <div class="modal-dialog modal-dialog-centered">
+                                                        <div class="modal-content">
+                                                            <div class="modal-header">
+                                                                <h5 class="modal-title" id="exampleModalLabel">Attention</h5>
+                                                                
+                                                            </div>
+                                                            <div class="modal-body text-center fs-3">
+                                                                Delete this Notification?
+                                                            </div>
+                                                            <div class="modal-footer">
+                                                                <button type="button" class="btn btn-secondary"
+                                                                    data-bs-dismiss="modal">Cancel</button>
+                                                                 <button type="button" class="btn btn-primary" onclick="DeleteNtf()">Delete</button>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div></span>
+                            </div>`
+                        
+                    g.innerHTML = ms;
+                    document.getElementById('det').style.display = "none"
+                }
+                g.innerHTML += `<button onclick="Back()" class="btn btn-primary">Back</button>`
+
+            }
+            messageBtn = () => {
+                document.getElementById("title").innerHTML = `Messages`
+                var ms=""
+                for (r = 0; r < (usersAccount[indexOfUser].messages).length; r++) {
+                    ms += `
+                        <div class="card shadow mt-4 p-3" style="display: flex; justify-content: center;" id="messages">${usersAccount[indexOfUser].messages[r]}
+                            <span><button class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal" onclick="del(${r})"><i class="fa fa-trash"></i></button><div class="modal fade" id="exampleModal" tabindex="-1"
+                                                    aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                                    <div class="modal-dialog modal-dialog-centered">
+                                                        <div class="modal-content">
+                                                            <div class="modal-header">
+                                                                <h5 class="modal-title" id="exampleModalLabel">Attention</h5>
+                                                               
+                                                            </div>
+                                                            <div class="modal-body text-center fs-3">
+                                                                Delete this message?
+                                                            </div>
+                                                            <div class="modal-footer">
+                                                                <button type="button" class="btn btn-secondary"
+                                                                    data-bs-dismiss="modal">Cancel</button>
+                                                                 <button type="button" class="btn btn-primary" onclick="DeleteMsg()">Delete</button>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div></span>
+                            </div>
+                            </div>
+                        `
+
+                    g.innerHTML = ms
+                    det.style.display = "none"
+                }
+                g.innerHTML += `<button onclick="Back()" class="btn btn-primary">Back</button>`
+            }
+
+            function del(r) {
+                delIndex = r
+            }
+            function DeleteNtf() {
+                mn = usersAccount[indexOfUser].notification
+                mn.splice(delIndex, 1)
+                localStorage.setItem("details", JSON.stringify(usersAccount));
+                location.reload();
+
+            }
+            function DeleteMsg() {
+                mm = usersAccount[indexOfUser].messages
+                mm.splice(delIndex, 1)
+                localStorage.setItem("details", JSON.stringify(usersAccount));
+                location.reload();
+
+            }
+
+
+            function Back() {
+                location.reload();
+            }
 
       function logOut() {
          if (confirm("Are you sure you want to log out?")) {
