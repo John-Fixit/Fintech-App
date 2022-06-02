@@ -13,16 +13,15 @@
    <meta name="keywords" content="">
    <meta name="description" content="">
    <meta name="author" content="">
-   <link rel="icon" href="images/fevicon.png" type="image/png" />
+   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+   <link rel="stylesheet" href="style.css" />
    <link rel="stylesheet" href="css/bootstrap.min.css" />
 
    <link rel="stylesheet" href="style.css" />
    <link rel="stylesheet" href="css/responsive.css" />
-   <link rel="stylesheet" href="css/colors.css" />
    <link rel="stylesheet" href="css/bootstrap-select.css" />
-   <link rel="stylesheet" href="css/perfect-scrollbar.css" />
-   <link rel="stylesheet" href="css/custom.css" />
-   <link rel="stylesheet" href="bootstrap-5.1.3/dist/css/bootstrap.css">
 </head>
 
 <body class="dashboard dashboard_1">
@@ -32,17 +31,18 @@
             <div class="sidebar_blog_1">
                <div class="sidebar-header">
                   <div class="logo_section">
-                     <a href="dashboard.html"><img class="logo_icon img-responsive" src="images/logo/logo_icon.png"
-                           alt="#" /></a>
+                     <a href="dashboard.html"><img class="logo_icon img-responsive"
+                                src="/images/user.PNG" alt="#" />
+                        </a>
                   </div>
                </div>
                <div class="sidebar_user_info">
                   <div class="icon_setting"></div>
                   <div class="user_profle_side">
-                     <div class="user_img"><img class="img-responsive" src="John.png" alt="#" />
+                     <div class="user_img"><img src="/images/user.PNG" class="img-responsive" alt="">
                      </div>
                      <div class="user_info">
-                        <p id="userId" class="text-light">John Fixit</p>
+                        <p id="userId" class="text-light">User</p>
                         <p><span class="online_animation"></span> Online</p>
                      </div>
                   </div>
@@ -65,8 +65,7 @@
                   </li>
                   <li><a href="table.html"><i class="fa fa-table purple_color2"></i> <span>Transaction
                            History</span></a></li>
-                  <li><a href="recharge.html"><i class="fa fa-mobile purple_color2"></i> <span>Recharge
-                           Online</span></a></li>
+              
                   <li><a href="profile.html"><i class="fa fa-user yellow_color"></i> <span>User Profile</span></a>
                   </li>
                   <li><a href="settings.html"><i class="fa fa-cog yellow_color"></i> <span>Settings</span></a></li>
@@ -96,8 +95,7 @@
                            </ul>
                            <ul class="user_profile_dd">
                               <li>
-                                 <a class="dropdown-toggle" data-toggle="dropdown"><img
-                                       class="img-responsive rounded-circle" src="John.png" alt="#" /><span
+                                 <a class="dropdown-toggle" data-toggle="dropdown"><span
                                        class="name_user">Action</span></a>
                                  <div class="dropdown-menu">
                                     <a class="dropdown-item" href="profile.html">My Profile</a>
@@ -136,18 +134,24 @@
                               <div class="row">
                                  <div class="col-lg-12">
                                     <div class="full dis_flex center_text">
-                                       <div class="profile_img"><img width="180" class="rounded-circle" src="John.png"
-                                             alt="#" /></div>
+                                       <div class="profile_img">
+                                          <img src="/images/user.PNG" class="card-img-top w-75" id="myImg" alt="">
+                                          <div class="row mt-3">
+                                          <input type="file" onchange="loadFile(event)" name="image" id="dd">
+                                          <button class="btn btn-primary mt-3" onclick="uploadImg()">upload Image</button>
+                                       </div>
+                                       </div>
                                        <div class="profile_contant">
                                           <div class="contact_inner">
                                              <h3 id="Name">John Smith</h3>
                                              <ul class="list-unstyled">
-                                                <li><i class="fa fa-enve">Account Number :</i> <span id="accNo">
+                                                <li class="mt-2"><i class="fa fa-enve">Account Number :</i> <span id="accNo">
                                                       xxxxxxxxxx</span></li>
-                                                <li><i class="fa fa-envelope"> Email :</i><span id="Email"
+                                                      
+                                                <li class="mt-3"><i class="fa fa-envelope"> Email :</i><span id="Email"
                                                       class="fs-5 ms-2">:
                                                       test@gmail.com</span></li>
-                                                <li><i class="fa fa-phone"> Contact :</i> <span id="phoneNo"
+                                                <li class="mt-3"><i class="fa fa-phone"> Contact :</i> <span id="phoneNo"
                                                       class="fs-5">: 987
                                                       654 3210</span></li>
                                              </ul>
@@ -162,7 +166,7 @@
                      </div>
                   </div>
                   <div class="container-fluid">
-                     <div class="footer">
+                     <div class="footer fixed-bottom">
                         <p>Designed By <span><a href="https://github.comm/john-fixit.com"> John Fix</a></span>
                         </p>
                      </div>
@@ -187,9 +191,21 @@
       document.getElementById("phoneNo").innerHTML = usersAccount[indexOfUser].phone
       document.getElementById("accNo").innerHTML = usersAccount[indexOfUser].accountNo
 
+
+
       notify.innerHTML = (usersAccount[indexOfUser].notification).length
       allMessage.innerHTML = (usersAccount[indexOfUser].messages).length
-
+      
+      
+      loadFile=()=>{
+         userPic = URL.createObjectURL(event.target.files[0])
+         usersAccount[indexOfUser].userImage = userPic
+         ff = JSON.stringify(usersAccount)
+         localStorage.setItem("details", ff)
+      }
+      uploadImg=()=>{
+         document.getElementById("myImg").src = usersAccount[indexOfUser].userImage 
+      }
 
       notification = () => {
                 document.getElementById("title").innerHTML = `Notifications`

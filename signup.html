@@ -89,20 +89,20 @@
             var transfer = [];
             var messages = [];
             var notification = [];
+            var userImage = ""
             var fName = userName.value;
             var eMail = email.value;
             var passWord = password.value;
             var transferPin = pin.value;
             var phone = phoneNo.value;
             var moneyAmount = 5000;
-            var address = address.value;
-            console.log(pic);
+            var Address = address.value;
             var num = [2, 4, 5, 7, 8, 9, 2, 4, 5, 6];
                 c=[[],[],[],[],[],[],[],[],[],[],[],[]]
                 d=[[],[],[],[],[],[],[],[],[],[],[],[]]
             var chart = {c,d};
             var accountNo = Math.floor("2" + Math.random(num.length) * 1000000000);
-
+            var ann = `Welcome dear ${fName}, thank you for opening an account with us your account number is ${accountNo}`
             userBal.push(moneyAmount);
 
             if (localStorage.details != null) {
@@ -121,11 +121,14 @@
             }
             else if (eMail == "") {
                 alert("please enter your info");
-
             }
-            usersInfo = ({ fName, eMail, passWord, accountNo, userBal, transferPin, deposit, credit, withdraw, phone, transfer, messages, notification, chart, address});
+            else if(rememberMe.checked!=true){
+                
+            }
+            usersInfo = ({ fName, eMail, passWord, accountNo, userBal, transferPin, deposit, credit, withdraw, phone, transfer, messages, notification, chart, Address, userImage});
             usersAccount.push(usersInfo);
             if (eMail && !participants) {
+                messages.push(ann)
                 sString = JSON.stringify(usersAccount);
                 localStorage.setItem("details", sString)
                 alert("Registration successful")

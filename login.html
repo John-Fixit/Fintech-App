@@ -97,13 +97,6 @@
          var jy = usersAccount.find((l) => l.eMail != Email || l.passWord != passWord);
 
          if (kay) {
-            if (localStorage.myLoginUser != null) {
-               userLogin = JSON.parse(localStorage.getItem("myLoginUser"))
-            }
-            uLog = ({ Email, passWord })
-            userLogin.push(uLog)
-            sLog = JSON.stringify(userLogin)
-            localStorage.setItem("myLoginUser", sLog)
             location.href = "dashboard.html"
          }
          else if (Email == "") {
